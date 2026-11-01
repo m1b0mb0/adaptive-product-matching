@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-01",
+  "python": "3.12.10",
+  "scope": "Stage 3 frozen-v1 TRAIN/TUNE diagnosis and v2 mathematical proposal only.",
+  "pytest": {
+    "tests": 170,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 170,
+    "seconds": 27.641,
+    "command": "python -m pytest -q --junitxml=tmp/pytest-method-diagnostics.xml"
+  },
+  "compileall_exit_code": 0,
+  "historical_v1_sources_unchanged": true,
+  "historical_results_sha256": "8cde515278dbf1ca8010d555ad3e8b4fd9ff4e4603f76a52ad06a1efdda86662",
+  "snapshot_manifest": "snapshots/adaptive_v1/manifest.json",
+  "diagnostic_example_splits": [
+    "TRAIN",
+    "TUNE"
+  ],
+  "diagnostic_example_count": 23,
+  "new_v2_models_fitted": false,
+  "report_used_for_new_model_selection": false,
+  "final_test_accessed": false,
+  "git_commands_run": false,
+  "new_sources_sha256": {
+    "diagnose_method.py": "ff8a0e910673296ad6e066d9fd8cc1226a121508dd86abd4d6e4ac64a869a7fb",
+    "tests/test_diagnostics.py": "2a744bf5d23ee47778111bfb14564182b77a44b263e6f6f83652b460d8860b5f",
+    "tests/test_v1_snapshot.py": "a79336168b29d14462deaa3c725ab1ce2c4714e05b7da3292d849dfeba0f4b3b"
+  }
+}
