@@ -1,0 +1,6700 @@
+{
+  "scope": "Preliminary validation only; reserved test labels and scores not accessed",
+  "protocol": {
+    "version": "validation-grouped-evidence-v1",
+    "validation_mode": "fallback_seen",
+    "representation_fit": "train only, deduplicated offer IDs",
+    "informativeness_fit": "train similarities and train labels only",
+    "tuning": "clean TUNE partition of validation only",
+    "reporting": "disjoint REPORT partition of validation; no retuning",
+    "partition": {
+      "unit": "product cluster_id",
+      "seed": 20261101,
+      "tune_fraction": 0.5,
+      "assignment": "Sort clusters by SHA256(seed:cluster_id); first floor(fraction*n) -> TUNE",
+      "crossing_pairs": "Exclude pairs whose endpoints fall in different partitions; preserve official files.",
+      "original_pairs": 2500,
+      "tune_clusters": 250,
+      "report_clusters": 250,
+      "tune_cluster_ids": [
+        "1037877",
+        "103881",
+        "104011",
+        "1044678",
+        "1054843",
+        "1069672",
+        "107440",
+        "1084991",
+        "1086172",
+        "1090670",
+        "1106750",
+        "1109911",
+        "1118780",
+        "1124550",
+        "1126552",
+        "1132050",
+        "1144246",
+        "114602",
+        "1155981",
+        "1167881",
+        "1196850",
+        "1208546",
+        "122031",
+        "1252906",
+        "127568",
+        "1282167",
+        "1284659",
+        "1307351",
+        "1313785",
+        "1323492",
+        "133673",
+        "1340990",
+        "1349881",
+        "1365371",
+        "1366684",
+        "137125",
+        "1374090",
+        "1382225",
+        "1385673",
+        "139209",
+        "1406172",
+        "14143134",
+        "1423051",
+        "1430778",
+        "1434374",
+        "1442607",
+        "1457721",
+        "1458655",
+        "1467531",
+        "149318",
+        "150984",
+        "1550300",
+        "1558854",
+        "155934",
+        "156996",
+        "1571647",
+        "1578824",
+        "1588018",
+        "1588415",
+        "1600396",
+        "161548",
+        "1631327",
+        "163669",
+        "1649038",
+        "1669570",
+        "1702430",
+        "1709252",
+        "1761376",
+        "1764013",
+        "1767558",
+        "1794890",
+        "1805681",
+        "183681",
+        "1856741",
+        "1857459",
+        "1857840",
+        "187912",
+        "192122",
+        "195552",
+        "196841",
+        "1978071",
+        "1980656",
+        "1994510",
+        "2008617",
+        "2024334",
+        "2124537",
+        "213315",
+        "213319",
+        "213496",
+        "215872",
+        "2161920",
+        "217603",
+        "2195680",
+        "219682",
+        "2222007",
+        "2224600",
+        "2267064",
+        "2334631",
+        "2427670",
+        "2442999",
+        "2453362",
+        "2454132",
+        "24792",
+        "2490160",
+        "2492031",
+        "249337",
+        "2533164",
+        "255513",
+        "2628369",
+        "26458599",
+        "2682919",
+        "27477",
+        "275948",
+        "279005",
+        "279041",
+        "28019",
+        "2806654",
+        "283756",
+        "28399",
+        "287852",
+        "2922868",
+        "2957018",
+        "301204",
+        "3052278",
+        "310518",
+        "3154731",
+        "319607",
+        "320546",
+        "3227349",
+        "323596",
+        "3240283",
+        "327381",
+        "32777",
+        "328043",
+        "328225",
+        "330408",
+        "335396",
+        "336149",
+        "3457955",
+        "34768783",
+        "352020",
+        "355445",
+        "37091",
+        "373003",
+        "3739198",
+        "3747560",
+        "3775297",
+        "3846144",
+        "387671",
+        "393711",
+        "394619",
+        "395055",
+        "397565",
+        "399319",
+        "40783",
+        "408446",
+        "4246715",
+        "4275566",
+        "431550",
+        "4325250",
+        "435008",
+        "443612",
+        "4656590",
+        "46857262",
+        "4695729",
+        "472560",
+        "4823047",
+        "4825180",
+        "483248",
+        "48435",
+        "484404",
+        "500837",
+        "5135259",
+        "516888",
+        "520988",
+        "5223239",
+        "5313",
+        "53163",
+        "541517",
+        "56526",
+        "5673093",
+        "580455",
+        "580471",
+        "5836450",
+        "58883",
+        "595102",
+        "60449185",
+        "607611",
+        "613888",
+        "6140563",
+        "64482",
+        "645102",
+        "649471",
+        "654362",
+        "6665678",
+        "675848",
+        "6766905",
+        "68127",
+        "686177",
+        "697270",
+        "704991",
+        "707463",
+        "70762",
+        "708269",
+        "70841",
+        "70963",
+        "711907",
+        "715391",
+        "717069",
+        "719046",
+        "729259",
+        "730149",
+        "730377",
+        "735114",
+        "738794",
+        "742606",
+        "760884",
+        "761924",
+        "763994",
+        "764656",
+        "767259",
+        "779562",
+        "782653",
+        "784833",
+        "785946",
+        "79238",
+        "79254",
+        "796023",
+        "819981",
+        "833964",
+        "836466",
+        "84984",
+        "852917",
+        "877442",
+        "87840",
+        "89058",
+        "893407",
+        "895823",
+        "900968",
+        "910627",
+        "91172",
+        "91557",
+        "932319",
+        "941703",
+        "943488",
+        "949458",
+        "971833",
+        "97189",
+        "980563",
+        "982918"
+      ],
+      "report_cluster_ids": [
+        "1006147",
+        "1013997",
+        "1026272",
+        "103304",
+        "1037461",
+        "1059522",
+        "1068570",
+        "106914",
+        "1073295",
+        "1075774",
+        "1084160",
+        "1085000",
+        "1102119",
+        "1138411",
+        "1157842",
+        "1164344",
+        "118390",
+        "1203171",
+        "1223297",
+        "123631",
+        "1249448",
+        "125058",
+        "1252792",
+        "125897",
+        "126198",
+        "1285552",
+        "1292504",
+        "1297798",
+        "1312939",
+        "1320095",
+        "1336313",
+        "135735",
+        "137095",
+        "137764",
+        "1392047",
+        "140469",
+        "1409979",
+        "1412234",
+        "1435805",
+        "143712",
+        "1439932",
+        "1446023",
+        "1453810",
+        "1456309",
+        "1468560",
+        "1473407",
+        "1476532",
+        "1482775",
+        "1496586",
+        "1497038",
+        "1508649",
+        "1524442",
+        "1542544",
+        "1554234",
+        "1555405",
+        "1563974",
+        "157548",
+        "158919",
+        "1601212",
+        "1610496",
+        "1627512",
+        "163499",
+        "165928",
+        "1659308",
+        "1671509",
+        "167983",
+        "1695227",
+        "1769614",
+        "1808651",
+        "180905",
+        "1813263",
+        "182172",
+        "182432",
+        "1824443",
+        "183990",
+        "1842162",
+        "1857431",
+        "1877306",
+        "188533",
+        "1889634",
+        "1892167",
+        "1913870",
+        "1915191",
+        "1915922",
+        "192208",
+        "1929047",
+        "193507",
+        "1939560",
+        "199460",
+        "199603",
+        "2002887",
+        "2039173",
+        "2058376",
+        "2074244",
+        "2080188",
+        "2132160",
+        "2148042",
+        "21809",
+        "2193117",
+        "2268487",
+        "2283152",
+        "2284784",
+        "23040",
+        "2326232",
+        "233795",
+        "236410",
+        "2395112",
+        "2484292",
+        "2507918",
+        "254664",
+        "2603630",
+        "2618454",
+        "2619685",
+        "264505",
+        "2662935",
+        "266703",
+        "267024",
+        "2694265",
+        "2734298",
+        "2738637",
+        "2751694",
+        "27649829",
+        "279895",
+        "280415",
+        "2807367",
+        "2833952",
+        "2848082",
+        "2861749",
+        "288081",
+        "292826",
+        "295197",
+        "2961644",
+        "296239",
+        "2996705",
+        "300521",
+        "3034024",
+        "304177",
+        "3041830",
+        "3065693",
+        "3100816",
+        "31594",
+        "3160384",
+        "32010",
+        "327893",
+        "3303908",
+        "3329047",
+        "3403774",
+        "350645",
+        "3543965",
+        "3553607",
+        "356251",
+        "359727",
+        "36023",
+        "3656260",
+        "3692108",
+        "37455178",
+        "3789862",
+        "3844417",
+        "3851409",
+        "3880206",
+        "390091",
+        "404077",
+        "4045323",
+        "4060886",
+        "413734",
+        "416703",
+        "4249975",
+        "429252",
+        "44290",
+        "4559",
+        "4560116",
+        "4560747",
+        "456079",
+        "45636",
+        "465235",
+        "466493",
+        "466745",
+        "472648",
+        "4739100",
+        "483370",
+        "48610",
+        "489587",
+        "498972",
+        "499316",
+        "5041507",
+        "50573",
+        "509638",
+        "514979",
+        "52358297",
+        "529706",
+        "532781",
+        "5409130",
+        "549556",
+        "5568458",
+        "556904",
+        "565142",
+        "56750",
+        "5712817",
+        "57147200",
+        "5860529",
+        "591042",
+        "603762",
+        "605933",
+        "616115",
+        "617064",
+        "627344",
+        "643961",
+        "665327",
+        "666306",
+        "667096",
+        "672125",
+        "67840743",
+        "683214",
+        "685416",
+        "686147",
+        "69543397",
+        "697868",
+        "702149",
+        "709380",
+        "72631",
+        "740038",
+        "744155",
+        "75017",
+        "75807",
+        "758825",
+        "75956",
+        "76491423",
+        "767463",
+        "78575500",
+        "786291",
+        "788533",
+        "793378",
+        "79866",
+        "800940",
+        "80156",
+        "844661",
+        "849634",
+        "854253",
+        "861125",
+        "884409",
+        "9046",
+        "929657",
+        "93315",
+        "939822",
+        "964313",
+        "964764",
+        "967973",
+        "973707",
+        "991074",
+        "993500"
+      ],
+      "tune": {
+        "pairs": 729,
+        "unique_offers": 500,
+        "labels": {
+          "0": 479,
+          "1": 250
+        },
+        "schema_keys": [
+          "brand_left",
+          "brand_right",
+          "cluster_id_left",
+          "cluster_id_right",
+          "description_left",
+          "description_right",
+          "id_left",
+          "id_right",
+          "is_hard_negative",
+          "label",
+          "pair_id",
+          "priceCurrency_left",
+          "priceCurrency_right",
+          "price_left",
+          "price_right",
+          "title_left",
+          "title_right"
+        ],
+        "schema_keysets": 1,
+        "observed_negative_hard_rate": 0.4968684759916493,
+        "negative_hard_flag_present": 479,
+        "hard_negative_counts": {
+          "false": 241,
+          "true": 238
+        },
+        "positive_hard_flag_true": 0,
+        "missing_rates_by_pair_side": {
+          "title": {
+            "left": 0.0,
+            "right": 0.0
+          },
+          "description": {
+            "left": 0.234568,
+            "right": 0.230453
+          },
+          "brand": {
+            "left": 0.62963,
+            "right": 0.652949
+          },
+          "price": {
+            "left": 0.0631,
+            "right": 0.065844
+          },
+          "priceCurrency": {
+            "left": 0.098765,
+            "right": 0.09465
+          }
+        },
+        "missing_counts_by_pair_side": {
+          "title": {
+            "left": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            }
+          },
+          "description": {
+            "left": {
+              "absent_key": 0,
+              "null": 171,
+              "blank": 0,
+              "missing": 171
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 168,
+              "blank": 0,
+              "missing": 168
+            }
+          },
+          "brand": {
+            "left": {
+              "absent_key": 0,
+              "null": 459,
+              "blank": 0,
+              "missing": 459
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 476,
+              "blank": 0,
+              "missing": 476
+            }
+          },
+          "price": {
+            "left": {
+              "absent_key": 0,
+              "null": 46,
+              "blank": 0,
+              "missing": 46
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 48,
+              "blank": 0,
+              "missing": 48
+            }
+          },
+          "priceCurrency": {
+            "left": {
+              "absent_key": 0,
+              "null": 72,
+              "blank": 0,
+              "missing": 72
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 69,
+              "blank": 0,
+              "missing": 69
+            }
+          }
+        },
+        "missing_rates_by_unique_offer": {
+          "title": 0.0,
+          "description": 0.23,
+          "brand": 0.632,
+          "price": 0.064,
+          "priceCurrency": 0.096
+        },
+        "both_present_pairs_by_field": {
+          "title": 729,
+          "description": 432,
+          "brand": 101,
+          "price": 640,
+          "priceCurrency": 597
+        },
+        "duplicate_rows": 0,
+        "duplicate_pair_ids": 0,
+        "explicit_pair_ids": 729,
+        "pair_id_mismatches": 0,
+        "duplicate_direct_pairs": 0,
+        "duplicate_canonical_pairs": 0,
+        "reversed_pair_groups": 0,
+        "conflicting_label_pairs": 0,
+        "self_pairs": 0,
+        "cluster_labeled_pairs": 729,
+        "unique_clusters": 250,
+        "label_cluster_mismatches": 0,
+        "inconsistent_offer_payloads": 0
+      },
+      "report": {
+        "pairs": 728,
+        "unique_offers": 500,
+        "labels": {
+          "0": 478,
+          "1": 250
+        },
+        "schema_keys": [
+          "brand_left",
+          "brand_right",
+          "cluster_id_left",
+          "cluster_id_right",
+          "description_left",
+          "description_right",
+          "id_left",
+          "id_right",
+          "is_hard_negative",
+          "label",
+          "pair_id",
+          "priceCurrency_left",
+          "priceCurrency_right",
+          "price_left",
+          "price_right",
+          "title_left",
+          "title_right"
+        ],
+        "schema_keysets": 1,
+        "observed_negative_hard_rate": 0.5146443514644351,
+        "negative_hard_flag_present": 478,
+        "hard_negative_counts": {
+          "true": 246,
+          "false": 232
+        },
+        "positive_hard_flag_true": 0,
+        "missing_rates_by_pair_side": {
+          "title": {
+            "left": 0.0,
+            "right": 0.0
+          },
+          "description": {
+            "left": 0.239011,
+            "right": 0.229396
+          },
+          "brand": {
+            "left": 0.634615,
+            "right": 0.68956
+          },
+          "price": {
+            "left": 0.054945,
+            "right": 0.06044
+          },
+          "priceCurrency": {
+            "left": 0.076923,
+            "right": 0.085165
+          }
+        },
+        "missing_counts_by_pair_side": {
+          "title": {
+            "left": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            }
+          },
+          "description": {
+            "left": {
+              "absent_key": 0,
+              "null": 174,
+              "blank": 0,
+              "missing": 174
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 167,
+              "blank": 0,
+              "missing": 167
+            }
+          },
+          "brand": {
+            "left": {
+              "absent_key": 0,
+              "null": 462,
+              "blank": 0,
+              "missing": 462
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 502,
+              "blank": 0,
+              "missing": 502
+            }
+          },
+          "price": {
+            "left": {
+              "absent_key": 0,
+              "null": 40,
+              "blank": 0,
+              "missing": 40
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 44,
+              "blank": 0,
+              "missing": 44
+            }
+          },
+          "priceCurrency": {
+            "left": {
+              "absent_key": 0,
+              "null": 56,
+              "blank": 0,
+              "missing": 56
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 62,
+              "blank": 0,
+              "missing": 62
+            }
+          }
+        },
+        "missing_rates_by_unique_offer": {
+          "title": 0.0,
+          "description": 0.24,
+          "brand": 0.66,
+          "price": 0.064,
+          "priceCurrency": 0.088
+        },
+        "both_present_pairs_by_field": {
+          "title": 728,
+          "description": 441,
+          "brand": 86,
+          "price": 647,
+          "priceCurrency": 617
+        },
+        "duplicate_rows": 0,
+        "duplicate_pair_ids": 0,
+        "explicit_pair_ids": 728,
+        "pair_id_mismatches": 0,
+        "duplicate_direct_pairs": 0,
+        "duplicate_canonical_pairs": 0,
+        "reversed_pair_groups": 0,
+        "conflicting_label_pairs": 0,
+        "self_pairs": 0,
+        "cluster_labeled_pairs": 728,
+        "unique_clusters": 250,
+        "label_cluster_mismatches": 0,
+        "inconsistent_offer_payloads": 0
+      },
+      "excluded_crossing_pairs": 1043,
+      "excluded_labels": {
+        "0": 1043,
+        "1": 0
+      },
+      "offer_overlap_tune_report": 0
+    },
+    "threshold_grid": [
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05,
+      0.060000000000000005,
+      0.06999999999999999,
+      0.08,
+      0.09,
+      0.09999999999999999,
+      0.11,
+      0.12,
+      0.13,
+      0.14,
+      0.15000000000000002,
+      0.16,
+      0.17,
+      0.18000000000000002,
+      0.19,
+      0.2,
+      0.21000000000000002,
+      0.22,
+      0.23,
+      0.24000000000000002,
+      0.25,
+      0.26,
+      0.27,
+      0.28,
+      0.29000000000000004,
+      0.3,
+      0.31,
+      0.32,
+      0.33,
+      0.34,
+      0.35000000000000003,
+      0.36000000000000004,
+      0.37,
+      0.38,
+      0.39,
+      0.4,
+      0.41000000000000003,
+      0.42000000000000004,
+      0.43,
+      0.44,
+      0.45,
+      0.46,
+      0.47000000000000003,
+      0.48000000000000004,
+      0.49,
+      0.5,
+      0.51,
+      0.52,
+      0.53,
+      0.54,
+      0.55,
+      0.56,
+      0.5700000000000001,
+      0.5800000000000001,
+      0.59,
+      0.6,
+      0.61,
+      0.62,
+      0.63,
+      0.64,
+      0.65,
+      0.66,
+      0.67,
+      0.68,
+      0.6900000000000001,
+      0.7000000000000001,
+      0.7100000000000001,
+      0.72,
+      0.73,
+      0.74,
+      0.75,
+      0.76,
+      0.77,
+      0.78,
+      0.79,
+      0.8,
+      0.81,
+      0.8200000000000001,
+      0.8300000000000001,
+      0.8400000000000001,
+      0.85,
+      0.86,
+      0.87,
+      0.88,
+      0.89,
+      0.9,
+      0.91,
+      0.92,
+      0.93,
+      0.9400000000000001,
+      0.9500000000000001,
+      0.9600000000000001,
+      0.97,
+      0.98,
+      0.99
+    ],
+    "selection": "max F1, then precision, then higher threshold; parameter ties retain grid order",
+    "gamma_grid": [
+      0.5,
+      1.0,
+      1.5
+    ],
+    "main_penalty": 0.0,
+    "prior_score_reference": 0.2,
+    "group_weights": [
+      0.7,
+      0.15,
+      0.15
+    ],
+    "groups": [
+      [
+        "title",
+        "identifier"
+      ],
+      [
+        "description"
+      ],
+      [
+        "brand"
+      ]
+    ],
+    "group_channel_weights": [
+      [
+        0.5714285714285714,
+        0.42857142857142855
+      ],
+      [
+        1.0
+      ],
+      [
+        1.0
+      ]
+    ],
+    "manual_reliability": [
+      1.0,
+      1.0,
+      1.0,
+      0.7
+    ],
+    "ablation_policy": "Inherit full-model gamma and penalty; reselect only threshold on clean TUNE. Also report removal with the full-model threshold frozen.",
+    "legacy_diagnostics": "Original raw-channel scores; legacy adaptive gamma=.5/1/1.5 and penalty=0/.10/.25 grid. Unequal tuning budget; descriptive diagnostics only.",
+    "missingness": {
+      "rates": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.5
+      ],
+      "seeds": [
+        11,
+        22,
+        33
+      ],
+      "attributes": [
+        "description",
+        "brand"
+      ],
+      "unit": "offer ID and attribute",
+      "mechanism": "SHA256(seed:field:offer_id), independent uniform masking; a pair loses the feature if either offer is masked",
+      "thresholds": "Frozen at clean-TUNE values for all REPORT masks"
+    },
+    "final_test_evaluated": false
+  },
+  "data_summary": {
+    "train": {
+      "pairs": 2500,
+      "unique_offers": 1000,
+      "labels": {
+        "0": 2000,
+        "1": 500
+      },
+      "schema_keys": [
+        "brand_left",
+        "brand_right",
+        "cluster_id_left",
+        "cluster_id_right",
+        "description_left",
+        "description_right",
+        "id_left",
+        "id_right",
+        "is_hard_negative",
+        "label",
+        "pair_id",
+        "priceCurrency_left",
+        "priceCurrency_right",
+        "price_left",
+        "price_right",
+        "title_left",
+        "title_right"
+      ],
+      "schema_keysets": 1,
+      "observed_negative_hard_rate": 0.5,
+      "negative_hard_flag_present": 2000,
+      "hard_negative_counts": {
+        "false": 1000,
+        "true": 1000
+      },
+      "positive_hard_flag_true": 0,
+      "missing_rates_by_pair_side": {
+        "title": {
+          "left": 0.0,
+          "right": 0.0
+        },
+        "description": {
+          "left": 0.2388,
+          "right": 0.2544
+        },
+        "brand": {
+          "left": 0.6428,
+          "right": 0.6292
+        },
+        "price": {
+          "left": 0.07,
+          "right": 0.0744
+        },
+        "priceCurrency": {
+          "left": 0.0924,
+          "right": 0.0952
+        }
+      },
+      "missing_counts_by_pair_side": {
+        "title": {
+          "left": {
+            "absent_key": 0,
+            "null": 0,
+            "blank": 0,
+            "missing": 0
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 0,
+            "blank": 0,
+            "missing": 0
+          }
+        },
+        "description": {
+          "left": {
+            "absent_key": 0,
+            "null": 597,
+            "blank": 0,
+            "missing": 597
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 636,
+            "blank": 0,
+            "missing": 636
+          }
+        },
+        "brand": {
+          "left": {
+            "absent_key": 0,
+            "null": 1607,
+            "blank": 0,
+            "missing": 1607
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 1573,
+            "blank": 0,
+            "missing": 1573
+          }
+        },
+        "price": {
+          "left": {
+            "absent_key": 0,
+            "null": 175,
+            "blank": 0,
+            "missing": 175
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 186,
+            "blank": 0,
+            "missing": 186
+          }
+        },
+        "priceCurrency": {
+          "left": {
+            "absent_key": 0,
+            "null": 231,
+            "blank": 0,
+            "missing": 231
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 238,
+            "blank": 0,
+            "missing": 238
+          }
+        }
+      },
+      "missing_rates_by_unique_offer": {
+        "title": 0.0,
+        "description": 0.249,
+        "brand": 0.638,
+        "price": 0.07,
+        "priceCurrency": 0.094
+      },
+      "both_present_pairs_by_field": {
+        "title": 2500,
+        "description": 1442,
+        "brand": 349,
+        "price": 2160,
+        "priceCurrency": 2061
+      },
+      "duplicate_rows": 0,
+      "duplicate_pair_ids": 0,
+      "explicit_pair_ids": 2500,
+      "pair_id_mismatches": 0,
+      "duplicate_direct_pairs": 0,
+      "duplicate_canonical_pairs": 0,
+      "reversed_pair_groups": 0,
+      "conflicting_label_pairs": 0,
+      "self_pairs": 0,
+      "cluster_labeled_pairs": 2500,
+      "unique_clusters": 500,
+      "label_cluster_mismatches": 0,
+      "inconsistent_offer_payloads": 0
+    },
+    "validation": {
+      "pairs": 2500,
+      "unique_offers": 1000,
+      "labels": {
+        "0": 2000,
+        "1": 500
+      },
+      "schema_keys": [
+        "brand_left",
+        "brand_right",
+        "cluster_id_left",
+        "cluster_id_right",
+        "description_left",
+        "description_right",
+        "id_left",
+        "id_right",
+        "is_hard_negative",
+        "label",
+        "pair_id",
+        "priceCurrency_left",
+        "priceCurrency_right",
+        "price_left",
+        "price_right",
+        "title_left",
+        "title_right"
+      ],
+      "schema_keysets": 1,
+      "observed_negative_hard_rate": 0.5,
+      "negative_hard_flag_present": 2000,
+      "hard_negative_counts": {
+        "false": 1000,
+        "true": 1000
+      },
+      "positive_hard_flag_true": 0,
+      "missing_rates_by_pair_side": {
+        "title": {
+          "left": 0.0,
+          "right": 0.0
+        },
+        "description": {
+          "left": 0.2344,
+          "right": 0.2292
+        },
+        "brand": {
+          "left": 0.6272,
+          "right": 0.6564
+        },
+        "price": {
+          "left": 0.0568,
+          "right": 0.0692
+        },
+        "priceCurrency": {
+          "left": 0.0852,
+          "right": 0.0956
+        }
+      },
+      "missing_counts_by_pair_side": {
+        "title": {
+          "left": {
+            "absent_key": 0,
+            "null": 0,
+            "blank": 0,
+            "missing": 0
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 0,
+            "blank": 0,
+            "missing": 0
+          }
+        },
+        "description": {
+          "left": {
+            "absent_key": 0,
+            "null": 586,
+            "blank": 0,
+            "missing": 586
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 573,
+            "blank": 0,
+            "missing": 573
+          }
+        },
+        "brand": {
+          "left": {
+            "absent_key": 0,
+            "null": 1568,
+            "blank": 0,
+            "missing": 1568
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 1641,
+            "blank": 0,
+            "missing": 1641
+          }
+        },
+        "price": {
+          "left": {
+            "absent_key": 0,
+            "null": 142,
+            "blank": 0,
+            "missing": 142
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 173,
+            "blank": 0,
+            "missing": 173
+          }
+        },
+        "priceCurrency": {
+          "left": {
+            "absent_key": 0,
+            "null": 213,
+            "blank": 0,
+            "missing": 213
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 239,
+            "blank": 0,
+            "missing": 239
+          }
+        }
+      },
+      "missing_rates_by_unique_offer": {
+        "title": 0.0,
+        "description": 0.235,
+        "brand": 0.646,
+        "price": 0.064,
+        "priceCurrency": 0.092
+      },
+      "both_present_pairs_by_field": {
+        "title": 2500,
+        "description": 1503,
+        "brand": 353,
+        "price": 2200,
+        "priceCurrency": 2077
+      },
+      "duplicate_rows": 0,
+      "duplicate_pair_ids": 0,
+      "explicit_pair_ids": 2500,
+      "pair_id_mismatches": 0,
+      "duplicate_direct_pairs": 0,
+      "duplicate_canonical_pairs": 0,
+      "reversed_pair_groups": 0,
+      "conflicting_label_pairs": 0,
+      "self_pairs": 0,
+      "cluster_labeled_pairs": 2500,
+      "unique_clusters": 500,
+      "label_cluster_mismatches": 0,
+      "inconsistent_offer_payloads": 0
+    }
+  },
+  "integrity": {
+    "split_role_names": {
+      "train": "train",
+      "valid": "TUNE",
+      "test": "REPORT (validation subset)"
+    },
+    "offer_id_overlaps": {
+      "train_valid": 0,
+      "train_test": 0,
+      "valid_test": 0
+    },
+    "canonical_pair_overlaps": {
+      "train_valid": 0,
+      "train_test": 0,
+      "valid_test": 0
+    },
+    "pair_id_overlaps": {
+      "train_valid": 0,
+      "train_test": 0,
+      "valid_test": 0
+    },
+    "cluster_id_overlaps": {
+      "train_valid": 250,
+      "train_test": 250,
+      "valid_test": 0
+    },
+    "text_signature_overlaps": {
+      "train_valid": 0,
+      "train_test": 0,
+      "valid_test": 0
+    },
+    "title_signature_overlaps": {
+      "train_valid": 0,
+      "train_test": 0,
+      "valid_test": 0
+    },
+    "cross_split_conflicting_label_pairs": 0,
+    "inconsistent_offer_payloads_across_splits": 0,
+    "integrity_errors": [],
+    "warnings": [
+      "Product clusters overlap; this is expected for the official seen-model train/validation protocol."
+    ],
+    "warning": "Product clusters overlap; this is expected for the official seen-model train/validation protocol.",
+    "signature_definition": "SHA256 of JSON [title, description, brand] after Unicode NFKC, casefold, whitespace collapse; all-missing excluded. Titles also checked separately."
+  },
+  "train_discriminativeness": {
+    "title": 1.0567295966684407,
+    "description": 0.8108932609368653,
+    "brand": 1.5,
+    "identifier": 1.4083394342585518
+  },
+  "train_field_statistics": {
+    "title": {
+      "factor": 1.0567295966684407,
+      "negative_n": 2000,
+      "negative_mean": 0.1931891681013209,
+      "positive_n": 500,
+      "positive_mean": 0.47155396643554126
+    },
+    "description": {
+      "factor": 0.8108932609368653,
+      "negative_n": 1154,
+      "negative_mean": 0.16202176776807095,
+      "positive_n": 288,
+      "positive_mean": 0.3174683982365036
+    },
+    "brand": {
+      "factor": 1.5,
+      "negative_n": 282,
+      "negative_mean": 0.375886524822695,
+      "positive_n": 67,
+      "positive_mean": 0.8955223880597015
+    },
+    "identifier": {
+      "factor": 1.4083394342585518,
+      "negative_n": 704,
+      "negative_mean": 0.0568655303030303,
+      "positive_n": 204,
+      "positive_mean": 0.5110352474323062
+    }
+  },
+  "feature_comparability": {
+    "train": {
+      "title": 2500,
+      "description": 1442,
+      "brand": 349,
+      "identifier": 908
+    },
+    "tune": {
+      "title": 729,
+      "description": 432,
+      "brand": 101,
+      "identifier": 278
+    },
+    "report": {
+      "title": 728,
+      "description": 441,
+      "brand": 86,
+      "identifier": 239
+    }
+  },
+  "validation_selected": {
+    "text": {
+      "threshold": 0.09999999999999999,
+      "gamma": 1.0,
+      "penalty": 0.0,
+      "validation": {
+        "precision": 0.5550561797752809,
+        "recall": 0.988,
+        "f1": 0.7107913669064748,
+        "tp": 247,
+        "fp": 198,
+        "fn": 3,
+        "tn": 281
+      },
+      "n_parameter_candidates": 1
+    },
+    "fixed": {
+      "threshold": 0.09,
+      "gamma": 1.0,
+      "penalty": 0.0,
+      "validation": {
+        "precision": 0.5578231292517006,
+        "recall": 0.984,
+        "f1": 0.7120115774240231,
+        "tp": 246,
+        "fp": 195,
+        "fn": 4,
+        "tn": 284
+      },
+      "n_parameter_candidates": 1
+    },
+    "renorm": {
+      "threshold": 0.14,
+      "gamma": 1.0,
+      "penalty": 0.0,
+      "validation": {
+        "precision": 0.5647058823529412,
+        "recall": 0.96,
+        "f1": 0.7111111111111111,
+        "tp": 240,
+        "fp": 185,
+        "fn": 10,
+        "tn": 294
+      },
+      "n_parameter_candidates": 1
+    },
+    "adaptive": {
+      "threshold": 0.15000000000000002,
+      "gamma": 0.5,
+      "penalty": 0.0,
+      "validation": {
+        "precision": 0.5660377358490566,
+        "recall": 0.96,
+        "f1": 0.712166172106825,
+        "tp": 240,
+        "fp": 184,
+        "fn": 10,
+        "tn": 295
+      },
+      "n_parameter_candidates": 3
+    },
+    "adaptive_no_coverage": {
+      "threshold": 0.09,
+      "gamma": 0.5,
+      "penalty": 0.0,
+      "validation": {
+        "precision": 0.5550561797752809,
+        "recall": 0.988,
+        "f1": 0.7107913669064748,
+        "tp": 247,
+        "fp": 198,
+        "fn": 3,
+        "tn": 281
+      },
+      "n_parameter_candidates": 1
+    },
+    "adaptive_no_info": {
+      "threshold": 0.16,
+      "gamma": 0.5,
+      "penalty": 0.0,
+      "validation": {
+        "precision": 0.5676959619952494,
+        "recall": 0.956,
+        "f1": 0.7123695976154992,
+        "tp": 239,
+        "fp": 182,
+        "fn": 11,
+        "tn": 297
+      },
+      "n_parameter_candidates": 1
+    },
+    "adaptive_no_reliability": {
+      "threshold": 0.13,
+      "gamma": 0.5,
+      "penalty": 0.0,
+      "validation": {
+        "precision": 0.5627906976744186,
+        "recall": 0.968,
+        "f1": 0.711764705882353,
+        "tp": 242,
+        "fp": 188,
+        "fn": 8,
+        "tn": 291
+      },
+      "n_parameter_candidates": 1
+    },
+    "legacy_fixed": {
+      "threshold": 0.060000000000000005,
+      "gamma": 1.0,
+      "penalty": 0.0,
+      "validation": {
+        "precision": 0.5565610859728507,
+        "recall": 0.984,
+        "f1": 0.7109826589595376,
+        "tp": 246,
+        "fp": 196,
+        "fn": 4,
+        "tn": 283
+      },
+      "n_parameter_candidates": 1
+    },
+    "legacy_renorm": {
+      "threshold": 0.09999999999999999,
+      "gamma": 1.0,
+      "penalty": 0.0,
+      "validation": {
+        "precision": 0.5563063063063063,
+        "recall": 0.988,
+        "f1": 0.7118155619596542,
+        "tp": 247,
+        "fp": 197,
+        "fn": 3,
+        "tn": 282
+      },
+      "n_parameter_candidates": 1
+    },
+    "legacy_adaptive": {
+      "threshold": 0.18000000000000002,
+      "gamma": 1.5,
+      "penalty": 0.1,
+      "validation": {
+        "precision": 0.6128133704735376,
+        "recall": 0.88,
+        "f1": 0.722495894909688,
+        "tp": 220,
+        "fp": 139,
+        "fn": 30,
+        "tn": 340
+      },
+      "n_parameter_candidates": 9
+    }
+  },
+  "validation_metrics": {
+    "text": {
+      "precision": 0.5337690631808278,
+      "recall": 0.98,
+      "f1": 0.691114245416079,
+      "tp": 245,
+      "fp": 214,
+      "fn": 5,
+      "tn": 264,
+      "confusion_matrix": [
+        [
+          264,
+          214
+        ],
+        [
+          5,
+          245
+        ]
+      ],
+      "n": 728
+    },
+    "fixed": {
+      "precision": 0.5440180586907449,
+      "recall": 0.964,
+      "f1": 0.6955266955266955,
+      "tp": 241,
+      "fp": 202,
+      "fn": 9,
+      "tn": 276,
+      "confusion_matrix": [
+        [
+          276,
+          202
+        ],
+        [
+          9,
+          241
+        ]
+      ],
+      "n": 728
+    },
+    "renorm": {
+      "precision": 0.5563380281690141,
+      "recall": 0.948,
+      "f1": 0.7011834319526628,
+      "tp": 237,
+      "fp": 189,
+      "fn": 13,
+      "tn": 289,
+      "confusion_matrix": [
+        [
+          289,
+          189
+        ],
+        [
+          13,
+          237
+        ]
+      ],
+      "n": 728
+    },
+    "adaptive": {
+      "precision": 0.5563380281690141,
+      "recall": 0.948,
+      "f1": 0.7011834319526628,
+      "tp": 237,
+      "fp": 189,
+      "fn": 13,
+      "tn": 289,
+      "confusion_matrix": [
+        [
+          289,
+          189
+        ],
+        [
+          13,
+          237
+        ]
+      ],
+      "n": 728
+    },
+    "adaptive_no_coverage": {
+      "precision": 0.5362637362637362,
+      "recall": 0.976,
+      "f1": 0.6921985815602837,
+      "tp": 244,
+      "fp": 211,
+      "fn": 6,
+      "tn": 267,
+      "confusion_matrix": [
+        [
+          267,
+          211
+        ],
+        [
+          6,
+          244
+        ]
+      ],
+      "n": 728
+    },
+    "adaptive_no_info": {
+      "precision": 0.5566037735849056,
+      "recall": 0.944,
+      "f1": 0.7002967359050445,
+      "tp": 236,
+      "fp": 188,
+      "fn": 14,
+      "tn": 290,
+      "confusion_matrix": [
+        [
+          290,
+          188
+        ],
+        [
+          14,
+          236
+        ]
+      ],
+      "n": 728
+    },
+    "adaptive_no_reliability": {
+      "precision": 0.5524475524475524,
+      "recall": 0.948,
+      "f1": 0.6980854197349042,
+      "tp": 237,
+      "fp": 192,
+      "fn": 13,
+      "tn": 286,
+      "confusion_matrix": [
+        [
+          286,
+          192
+        ],
+        [
+          13,
+          237
+        ]
+      ],
+      "n": 728
+    },
+    "legacy_fixed": {
+      "precision": 0.5342163355408388,
+      "recall": 0.968,
+      "f1": 0.6884779516358464,
+      "tp": 242,
+      "fp": 211,
+      "fn": 8,
+      "tn": 267,
+      "confusion_matrix": [
+        [
+          267,
+          211
+        ],
+        [
+          8,
+          242
+        ]
+      ],
+      "n": 728
+    },
+    "legacy_renorm": {
+      "precision": 0.54,
+      "recall": 0.972,
+      "f1": 0.6942857142857143,
+      "tp": 243,
+      "fp": 207,
+      "fn": 7,
+      "tn": 271,
+      "confusion_matrix": [
+        [
+          271,
+          207
+        ],
+        [
+          7,
+          243
+        ]
+      ],
+      "n": 728
+    },
+    "legacy_adaptive": {
+      "precision": 0.5771276595744681,
+      "recall": 0.868,
+      "f1": 0.6932907348242812,
+      "tp": 217,
+      "fp": 159,
+      "fn": 33,
+      "tn": 319,
+      "confusion_matrix": [
+        [
+          319,
+          159
+        ],
+        [
+          33,
+          217
+        ]
+      ],
+      "n": 728
+    }
+  },
+  "ablation_fixed_threshold_metrics": {
+    "adaptive_no_coverage": {
+      "threshold": 0.15000000000000002,
+      "precision": 0.5589622641509434,
+      "recall": 0.948,
+      "f1": 0.7032640949554896,
+      "tp": 237,
+      "fp": 187,
+      "fn": 13,
+      "tn": 291,
+      "confusion_matrix": [
+        [
+          291,
+          187
+        ],
+        [
+          13,
+          237
+        ]
+      ],
+      "n": 728
+    },
+    "adaptive_no_info": {
+      "threshold": 0.15000000000000002,
+      "precision": 0.5547785547785548,
+      "recall": 0.952,
+      "f1": 0.7010309278350515,
+      "tp": 238,
+      "fp": 191,
+      "fn": 12,
+      "tn": 287,
+      "confusion_matrix": [
+        [
+          287,
+          191
+        ],
+        [
+          12,
+          238
+        ]
+      ],
+      "n": 728
+    },
+    "adaptive_no_reliability": {
+      "threshold": 0.15000000000000002,
+      "precision": 0.5605700712589073,
+      "recall": 0.944,
+      "f1": 0.7034277198211625,
+      "tp": 236,
+      "fp": 185,
+      "fn": 14,
+      "tn": 293,
+      "confusion_matrix": [
+        [
+          293,
+          185
+        ],
+        [
+          14,
+          236
+        ]
+      ],
+      "n": 728
+    }
+  },
+  "missingness": {
+    "mechanism": "Offer-level masking of description and brand only",
+    "rows": [
+      {
+        "missing_rate": 0.0,
+        "seed": 11,
+        "scope": "report",
+        "method": "text",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5337690631808278,
+        "recall": 0.98,
+        "f1": 0.691114245416079,
+        "tp": 245,
+        "fp": 214,
+        "fn": 5,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            5,
+            245
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 11,
+        "scope": "report",
+        "method": "fixed",
+        "threshold": 0.09,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5440180586907449,
+        "recall": 0.964,
+        "f1": 0.6955266955266955,
+        "tp": 241,
+        "fp": 202,
+        "fn": 9,
+        "tn": 276,
+        "confusion_matrix": [
+          [
+            276,
+            202
+          ],
+          [
+            9,
+            241
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 11,
+        "scope": "report",
+        "method": "renorm",
+        "threshold": 0.14,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5563380281690141,
+        "recall": 0.948,
+        "f1": 0.7011834319526628,
+        "tp": 237,
+        "fp": 189,
+        "fn": 13,
+        "tn": 289,
+        "confusion_matrix": [
+          [
+            289,
+            189
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive",
+        "threshold": 0.15000000000000002,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5563380281690141,
+        "recall": 0.948,
+        "f1": 0.7011834319526628,
+        "tp": 237,
+        "fp": 189,
+        "fn": 13,
+        "tn": 289,
+        "confusion_matrix": [
+          [
+            289,
+            189
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive_no_coverage",
+        "threshold": 0.09,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5362637362637362,
+        "recall": 0.976,
+        "f1": 0.6921985815602837,
+        "tp": 244,
+        "fp": 211,
+        "fn": 6,
+        "tn": 267,
+        "confusion_matrix": [
+          [
+            267,
+            211
+          ],
+          [
+            6,
+            244
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive_no_info",
+        "threshold": 0.16,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5566037735849056,
+        "recall": 0.944,
+        "f1": 0.7002967359050445,
+        "tp": 236,
+        "fp": 188,
+        "fn": 14,
+        "tn": 290,
+        "confusion_matrix": [
+          [
+            290,
+            188
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive_no_reliability",
+        "threshold": 0.13,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5524475524475524,
+        "recall": 0.948,
+        "f1": 0.6980854197349042,
+        "tp": 237,
+        "fp": 192,
+        "fn": 13,
+        "tn": 286,
+        "confusion_matrix": [
+          [
+            286,
+            192
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 11,
+        "scope": "report",
+        "method": "legacy_fixed",
+        "threshold": 0.060000000000000005,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5342163355408388,
+        "recall": 0.968,
+        "f1": 0.6884779516358464,
+        "tp": 242,
+        "fp": 211,
+        "fn": 8,
+        "tn": 267,
+        "confusion_matrix": [
+          [
+            267,
+            211
+          ],
+          [
+            8,
+            242
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 11,
+        "scope": "report",
+        "method": "legacy_renorm",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.54,
+        "recall": 0.972,
+        "f1": 0.6942857142857143,
+        "tp": 243,
+        "fp": 207,
+        "fn": 7,
+        "tn": 271,
+        "confusion_matrix": [
+          [
+            271,
+            207
+          ],
+          [
+            7,
+            243
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 11,
+        "scope": "report",
+        "method": "legacy_adaptive",
+        "threshold": 0.18000000000000002,
+        "gamma": 1.5,
+        "penalty": 0.1,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5771276595744681,
+        "recall": 0.868,
+        "f1": 0.6932907348242812,
+        "tp": 217,
+        "fp": 159,
+        "fn": 33,
+        "tn": 319,
+        "confusion_matrix": [
+          [
+            319,
+            159
+          ],
+          [
+            33,
+            217
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 22,
+        "scope": "report",
+        "method": "text",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5337690631808278,
+        "recall": 0.98,
+        "f1": 0.691114245416079,
+        "tp": 245,
+        "fp": 214,
+        "fn": 5,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            5,
+            245
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 22,
+        "scope": "report",
+        "method": "fixed",
+        "threshold": 0.09,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5440180586907449,
+        "recall": 0.964,
+        "f1": 0.6955266955266955,
+        "tp": 241,
+        "fp": 202,
+        "fn": 9,
+        "tn": 276,
+        "confusion_matrix": [
+          [
+            276,
+            202
+          ],
+          [
+            9,
+            241
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 22,
+        "scope": "report",
+        "method": "renorm",
+        "threshold": 0.14,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5563380281690141,
+        "recall": 0.948,
+        "f1": 0.7011834319526628,
+        "tp": 237,
+        "fp": 189,
+        "fn": 13,
+        "tn": 289,
+        "confusion_matrix": [
+          [
+            289,
+            189
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive",
+        "threshold": 0.15000000000000002,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5563380281690141,
+        "recall": 0.948,
+        "f1": 0.7011834319526628,
+        "tp": 237,
+        "fp": 189,
+        "fn": 13,
+        "tn": 289,
+        "confusion_matrix": [
+          [
+            289,
+            189
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive_no_coverage",
+        "threshold": 0.09,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5362637362637362,
+        "recall": 0.976,
+        "f1": 0.6921985815602837,
+        "tp": 244,
+        "fp": 211,
+        "fn": 6,
+        "tn": 267,
+        "confusion_matrix": [
+          [
+            267,
+            211
+          ],
+          [
+            6,
+            244
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive_no_info",
+        "threshold": 0.16,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5566037735849056,
+        "recall": 0.944,
+        "f1": 0.7002967359050445,
+        "tp": 236,
+        "fp": 188,
+        "fn": 14,
+        "tn": 290,
+        "confusion_matrix": [
+          [
+            290,
+            188
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive_no_reliability",
+        "threshold": 0.13,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5524475524475524,
+        "recall": 0.948,
+        "f1": 0.6980854197349042,
+        "tp": 237,
+        "fp": 192,
+        "fn": 13,
+        "tn": 286,
+        "confusion_matrix": [
+          [
+            286,
+            192
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 22,
+        "scope": "report",
+        "method": "legacy_fixed",
+        "threshold": 0.060000000000000005,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5342163355408388,
+        "recall": 0.968,
+        "f1": 0.6884779516358464,
+        "tp": 242,
+        "fp": 211,
+        "fn": 8,
+        "tn": 267,
+        "confusion_matrix": [
+          [
+            267,
+            211
+          ],
+          [
+            8,
+            242
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 22,
+        "scope": "report",
+        "method": "legacy_renorm",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.54,
+        "recall": 0.972,
+        "f1": 0.6942857142857143,
+        "tp": 243,
+        "fp": 207,
+        "fn": 7,
+        "tn": 271,
+        "confusion_matrix": [
+          [
+            271,
+            207
+          ],
+          [
+            7,
+            243
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 22,
+        "scope": "report",
+        "method": "legacy_adaptive",
+        "threshold": 0.18000000000000002,
+        "gamma": 1.5,
+        "penalty": 0.1,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5771276595744681,
+        "recall": 0.868,
+        "f1": 0.6932907348242812,
+        "tp": 217,
+        "fp": 159,
+        "fn": 33,
+        "tn": 319,
+        "confusion_matrix": [
+          [
+            319,
+            159
+          ],
+          [
+            33,
+            217
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 33,
+        "scope": "report",
+        "method": "text",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5337690631808278,
+        "recall": 0.98,
+        "f1": 0.691114245416079,
+        "tp": 245,
+        "fp": 214,
+        "fn": 5,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            5,
+            245
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 33,
+        "scope": "report",
+        "method": "fixed",
+        "threshold": 0.09,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5440180586907449,
+        "recall": 0.964,
+        "f1": 0.6955266955266955,
+        "tp": 241,
+        "fp": 202,
+        "fn": 9,
+        "tn": 276,
+        "confusion_matrix": [
+          [
+            276,
+            202
+          ],
+          [
+            9,
+            241
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 33,
+        "scope": "report",
+        "method": "renorm",
+        "threshold": 0.14,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5563380281690141,
+        "recall": 0.948,
+        "f1": 0.7011834319526628,
+        "tp": 237,
+        "fp": 189,
+        "fn": 13,
+        "tn": 289,
+        "confusion_matrix": [
+          [
+            289,
+            189
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive",
+        "threshold": 0.15000000000000002,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5563380281690141,
+        "recall": 0.948,
+        "f1": 0.7011834319526628,
+        "tp": 237,
+        "fp": 189,
+        "fn": 13,
+        "tn": 289,
+        "confusion_matrix": [
+          [
+            289,
+            189
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive_no_coverage",
+        "threshold": 0.09,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5362637362637362,
+        "recall": 0.976,
+        "f1": 0.6921985815602837,
+        "tp": 244,
+        "fp": 211,
+        "fn": 6,
+        "tn": 267,
+        "confusion_matrix": [
+          [
+            267,
+            211
+          ],
+          [
+            6,
+            244
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive_no_info",
+        "threshold": 0.16,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5566037735849056,
+        "recall": 0.944,
+        "f1": 0.7002967359050445,
+        "tp": 236,
+        "fp": 188,
+        "fn": 14,
+        "tn": 290,
+        "confusion_matrix": [
+          [
+            290,
+            188
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive_no_reliability",
+        "threshold": 0.13,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5524475524475524,
+        "recall": 0.948,
+        "f1": 0.6980854197349042,
+        "tp": 237,
+        "fp": 192,
+        "fn": 13,
+        "tn": 286,
+        "confusion_matrix": [
+          [
+            286,
+            192
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 33,
+        "scope": "report",
+        "method": "legacy_fixed",
+        "threshold": 0.060000000000000005,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5342163355408388,
+        "recall": 0.968,
+        "f1": 0.6884779516358464,
+        "tp": 242,
+        "fp": 211,
+        "fn": 8,
+        "tn": 267,
+        "confusion_matrix": [
+          [
+            267,
+            211
+          ],
+          [
+            8,
+            242
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 33,
+        "scope": "report",
+        "method": "legacy_renorm",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.54,
+        "recall": 0.972,
+        "f1": 0.6942857142857143,
+        "tp": 243,
+        "fp": 207,
+        "fn": 7,
+        "tn": 271,
+        "confusion_matrix": [
+          [
+            271,
+            207
+          ],
+          [
+            7,
+            243
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.0,
+        "seed": 33,
+        "scope": "report",
+        "method": "legacy_adaptive",
+        "threshold": 0.18000000000000002,
+        "gamma": 1.5,
+        "penalty": 0.1,
+        "effective_removed_fraction": 0.0,
+        "removed_comparable_pair_fields": 0,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5771276595744681,
+        "recall": 0.868,
+        "f1": 0.6932907348242812,
+        "tp": 217,
+        "fp": 159,
+        "fn": 33,
+        "tn": 319,
+        "confusion_matrix": [
+          [
+            319,
+            159
+          ],
+          [
+            33,
+            217
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 11,
+        "scope": "report",
+        "method": "text",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.19924098671726756,
+        "removed_comparable_pair_fields": 105,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5337690631808278,
+        "recall": 0.98,
+        "f1": 0.691114245416079,
+        "tp": 245,
+        "fp": 214,
+        "fn": 5,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            5,
+            245
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 11,
+        "scope": "report",
+        "method": "fixed",
+        "threshold": 0.09,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.19924098671726756,
+        "removed_comparable_pair_fields": 105,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5454545454545454,
+        "recall": 0.96,
+        "f1": 0.6956521739130435,
+        "tp": 240,
+        "fp": 200,
+        "fn": 10,
+        "tn": 278,
+        "confusion_matrix": [
+          [
+            278,
+            200
+          ],
+          [
+            10,
+            240
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 11,
+        "scope": "report",
+        "method": "renorm",
+        "threshold": 0.14,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.19924098671726756,
+        "removed_comparable_pair_fields": 105,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5542452830188679,
+        "recall": 0.94,
+        "f1": 0.6973293768545994,
+        "tp": 235,
+        "fp": 189,
+        "fn": 15,
+        "tn": 289,
+        "confusion_matrix": [
+          [
+            289,
+            189
+          ],
+          [
+            15,
+            235
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive",
+        "threshold": 0.15000000000000002,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.19924098671726756,
+        "removed_comparable_pair_fields": 105,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5542452830188679,
+        "recall": 0.94,
+        "f1": 0.6973293768545994,
+        "tp": 235,
+        "fp": 189,
+        "fn": 15,
+        "tn": 289,
+        "confusion_matrix": [
+          [
+            289,
+            189
+          ],
+          [
+            15,
+            235
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive_no_coverage",
+        "threshold": 0.09,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.19924098671726756,
+        "removed_comparable_pair_fields": 105,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5350877192982456,
+        "recall": 0.976,
+        "f1": 0.6912181303116147,
+        "tp": 244,
+        "fp": 212,
+        "fn": 6,
+        "tn": 266,
+        "confusion_matrix": [
+          [
+            266,
+            212
+          ],
+          [
+            6,
+            244
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive_no_info",
+        "threshold": 0.16,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.19924098671726756,
+        "removed_comparable_pair_fields": 105,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5566037735849056,
+        "recall": 0.944,
+        "f1": 0.7002967359050445,
+        "tp": 236,
+        "fp": 188,
+        "fn": 14,
+        "tn": 290,
+        "confusion_matrix": [
+          [
+            290,
+            188
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive_no_reliability",
+        "threshold": 0.13,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.19924098671726756,
+        "removed_comparable_pair_fields": 105,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5511627906976744,
+        "recall": 0.948,
+        "f1": 0.6970588235294117,
+        "tp": 237,
+        "fp": 193,
+        "fn": 13,
+        "tn": 285,
+        "confusion_matrix": [
+          [
+            285,
+            193
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 11,
+        "scope": "report",
+        "method": "legacy_fixed",
+        "threshold": 0.060000000000000005,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.19924098671726756,
+        "removed_comparable_pair_fields": 105,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5365853658536586,
+        "recall": 0.968,
+        "f1": 0.6904422253922967,
+        "tp": 242,
+        "fp": 209,
+        "fn": 8,
+        "tn": 269,
+        "confusion_matrix": [
+          [
+            269,
+            209
+          ],
+          [
+            8,
+            242
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 11,
+        "scope": "report",
+        "method": "legacy_renorm",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.19924098671726756,
+        "removed_comparable_pair_fields": 105,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5412026726057907,
+        "recall": 0.972,
+        "f1": 0.6952789699570815,
+        "tp": 243,
+        "fp": 206,
+        "fn": 7,
+        "tn": 272,
+        "confusion_matrix": [
+          [
+            272,
+            206
+          ],
+          [
+            7,
+            243
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 11,
+        "scope": "report",
+        "method": "legacy_adaptive",
+        "threshold": 0.18000000000000002,
+        "gamma": 1.5,
+        "penalty": 0.1,
+        "effective_removed_fraction": 0.19924098671726756,
+        "removed_comparable_pair_fields": 105,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5764075067024129,
+        "recall": 0.86,
+        "f1": 0.6902086677367576,
+        "tp": 215,
+        "fp": 158,
+        "fn": 35,
+        "tn": 320,
+        "confusion_matrix": [
+          [
+            320,
+            158
+          ],
+          [
+            35,
+            215
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 22,
+        "scope": "report",
+        "method": "text",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.2314990512333966,
+        "removed_comparable_pair_fields": 122,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5337690631808278,
+        "recall": 0.98,
+        "f1": 0.691114245416079,
+        "tp": 245,
+        "fp": 214,
+        "fn": 5,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            5,
+            245
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 22,
+        "scope": "report",
+        "method": "fixed",
+        "threshold": 0.09,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.2314990512333966,
+        "removed_comparable_pair_fields": 122,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.547945205479452,
+        "recall": 0.96,
+        "f1": 0.6976744186046512,
+        "tp": 240,
+        "fp": 198,
+        "fn": 10,
+        "tn": 280,
+        "confusion_matrix": [
+          [
+            280,
+            198
+          ],
+          [
+            10,
+            240
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 22,
+        "scope": "report",
+        "method": "renorm",
+        "threshold": 0.14,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.2314990512333966,
+        "removed_comparable_pair_fields": 122,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5589622641509434,
+        "recall": 0.948,
+        "f1": 0.7032640949554896,
+        "tp": 237,
+        "fp": 187,
+        "fn": 13,
+        "tn": 291,
+        "confusion_matrix": [
+          [
+            291,
+            187
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive",
+        "threshold": 0.15000000000000002,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.2314990512333966,
+        "removed_comparable_pair_fields": 122,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5589622641509434,
+        "recall": 0.948,
+        "f1": 0.7032640949554896,
+        "tp": 237,
+        "fp": 187,
+        "fn": 13,
+        "tn": 291,
+        "confusion_matrix": [
+          [
+            291,
+            187
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive_no_coverage",
+        "threshold": 0.09,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.2314990512333966,
+        "removed_comparable_pair_fields": 122,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5386313465783664,
+        "recall": 0.976,
+        "f1": 0.6941678520625889,
+        "tp": 244,
+        "fp": 209,
+        "fn": 6,
+        "tn": 269,
+        "confusion_matrix": [
+          [
+            269,
+            209
+          ],
+          [
+            6,
+            244
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive_no_info",
+        "threshold": 0.16,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.2314990512333966,
+        "removed_comparable_pair_fields": 122,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.557919621749409,
+        "recall": 0.944,
+        "f1": 0.7013372956909361,
+        "tp": 236,
+        "fp": 187,
+        "fn": 14,
+        "tn": 291,
+        "confusion_matrix": [
+          [
+            291,
+            187
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive_no_reliability",
+        "threshold": 0.13,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.2314990512333966,
+        "removed_comparable_pair_fields": 122,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5524475524475524,
+        "recall": 0.948,
+        "f1": 0.6980854197349042,
+        "tp": 237,
+        "fp": 192,
+        "fn": 13,
+        "tn": 286,
+        "confusion_matrix": [
+          [
+            286,
+            192
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 22,
+        "scope": "report",
+        "method": "legacy_fixed",
+        "threshold": 0.060000000000000005,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.2314990512333966,
+        "removed_comparable_pair_fields": 122,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5379464285714286,
+        "recall": 0.964,
+        "f1": 0.6905444126074498,
+        "tp": 241,
+        "fp": 207,
+        "fn": 9,
+        "tn": 271,
+        "confusion_matrix": [
+          [
+            271,
+            207
+          ],
+          [
+            9,
+            241
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 22,
+        "scope": "report",
+        "method": "legacy_renorm",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.2314990512333966,
+        "removed_comparable_pair_fields": 122,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5436241610738255,
+        "recall": 0.972,
+        "f1": 0.697274031563845,
+        "tp": 243,
+        "fp": 204,
+        "fn": 7,
+        "tn": 274,
+        "confusion_matrix": [
+          [
+            274,
+            204
+          ],
+          [
+            7,
+            243
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 22,
+        "scope": "report",
+        "method": "legacy_adaptive",
+        "threshold": 0.18000000000000002,
+        "gamma": 1.5,
+        "penalty": 0.1,
+        "effective_removed_fraction": 0.2314990512333966,
+        "removed_comparable_pair_fields": 122,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5802139037433155,
+        "recall": 0.868,
+        "f1": 0.6955128205128205,
+        "tp": 217,
+        "fp": 157,
+        "fn": 33,
+        "tn": 321,
+        "confusion_matrix": [
+          [
+            321,
+            157
+          ],
+          [
+            33,
+            217
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 33,
+        "scope": "report",
+        "method": "text",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.1859582542694497,
+        "removed_comparable_pair_fields": 98,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5337690631808278,
+        "recall": 0.98,
+        "f1": 0.691114245416079,
+        "tp": 245,
+        "fp": 214,
+        "fn": 5,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            5,
+            245
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 33,
+        "scope": "report",
+        "method": "fixed",
+        "threshold": 0.09,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.1859582542694497,
+        "removed_comparable_pair_fields": 98,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5466970387243736,
+        "recall": 0.96,
+        "f1": 0.6966618287373004,
+        "tp": 240,
+        "fp": 199,
+        "fn": 10,
+        "tn": 279,
+        "confusion_matrix": [
+          [
+            279,
+            199
+          ],
+          [
+            10,
+            240
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 33,
+        "scope": "report",
+        "method": "renorm",
+        "threshold": 0.14,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.1859582542694497,
+        "removed_comparable_pair_fields": 98,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5552941176470588,
+        "recall": 0.944,
+        "f1": 0.6992592592592592,
+        "tp": 236,
+        "fp": 189,
+        "fn": 14,
+        "tn": 289,
+        "confusion_matrix": [
+          [
+            289,
+            189
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive",
+        "threshold": 0.15000000000000002,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.1859582542694497,
+        "removed_comparable_pair_fields": 98,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5552941176470588,
+        "recall": 0.944,
+        "f1": 0.6992592592592592,
+        "tp": 236,
+        "fp": 189,
+        "fn": 14,
+        "tn": 289,
+        "confusion_matrix": [
+          [
+            289,
+            189
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive_no_coverage",
+        "threshold": 0.09,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.1859582542694497,
+        "removed_comparable_pair_fields": 98,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5362637362637362,
+        "recall": 0.976,
+        "f1": 0.6921985815602837,
+        "tp": 244,
+        "fp": 211,
+        "fn": 6,
+        "tn": 267,
+        "confusion_matrix": [
+          [
+            267,
+            211
+          ],
+          [
+            6,
+            244
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive_no_info",
+        "threshold": 0.16,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.1859582542694497,
+        "removed_comparable_pair_fields": 98,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5566037735849056,
+        "recall": 0.944,
+        "f1": 0.7002967359050445,
+        "tp": 236,
+        "fp": 188,
+        "fn": 14,
+        "tn": 290,
+        "confusion_matrix": [
+          [
+            290,
+            188
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive_no_reliability",
+        "threshold": 0.13,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.1859582542694497,
+        "removed_comparable_pair_fields": 98,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5511627906976744,
+        "recall": 0.948,
+        "f1": 0.6970588235294117,
+        "tp": 237,
+        "fp": 193,
+        "fn": 13,
+        "tn": 285,
+        "confusion_matrix": [
+          [
+            285,
+            193
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 33,
+        "scope": "report",
+        "method": "legacy_fixed",
+        "threshold": 0.060000000000000005,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.1859582542694497,
+        "removed_comparable_pair_fields": 98,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5389755011135857,
+        "recall": 0.968,
+        "f1": 0.6924177396280401,
+        "tp": 242,
+        "fp": 207,
+        "fn": 8,
+        "tn": 271,
+        "confusion_matrix": [
+          [
+            271,
+            207
+          ],
+          [
+            8,
+            242
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 33,
+        "scope": "report",
+        "method": "legacy_renorm",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.1859582542694497,
+        "removed_comparable_pair_fields": 98,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5401785714285714,
+        "recall": 0.968,
+        "f1": 0.6934097421203438,
+        "tp": 242,
+        "fp": 206,
+        "fn": 8,
+        "tn": 272,
+        "confusion_matrix": [
+          [
+            272,
+            206
+          ],
+          [
+            8,
+            242
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.1,
+        "seed": 33,
+        "scope": "report",
+        "method": "legacy_adaptive",
+        "threshold": 0.18000000000000002,
+        "gamma": 1.5,
+        "penalty": 0.1,
+        "effective_removed_fraction": 0.1859582542694497,
+        "removed_comparable_pair_fields": 98,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5771276595744681,
+        "recall": 0.868,
+        "f1": 0.6932907348242812,
+        "tp": 217,
+        "fp": 159,
+        "fn": 33,
+        "tn": 319,
+        "confusion_matrix": [
+          [
+            319,
+            159
+          ],
+          [
+            33,
+            217
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 11,
+        "scope": "report",
+        "method": "text",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.32447817836812143,
+        "removed_comparable_pair_fields": 171,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5337690631808278,
+        "recall": 0.98,
+        "f1": 0.691114245416079,
+        "tp": 245,
+        "fp": 214,
+        "fn": 5,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            5,
+            245
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 11,
+        "scope": "report",
+        "method": "fixed",
+        "threshold": 0.09,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.32447817836812143,
+        "removed_comparable_pair_fields": 171,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.547945205479452,
+        "recall": 0.96,
+        "f1": 0.6976744186046512,
+        "tp": 240,
+        "fp": 198,
+        "fn": 10,
+        "tn": 280,
+        "confusion_matrix": [
+          [
+            280,
+            198
+          ],
+          [
+            10,
+            240
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 11,
+        "scope": "report",
+        "method": "renorm",
+        "threshold": 0.14,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.32447817836812143,
+        "removed_comparable_pair_fields": 171,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5542452830188679,
+        "recall": 0.94,
+        "f1": 0.6973293768545994,
+        "tp": 235,
+        "fp": 189,
+        "fn": 15,
+        "tn": 289,
+        "confusion_matrix": [
+          [
+            289,
+            189
+          ],
+          [
+            15,
+            235
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive",
+        "threshold": 0.15000000000000002,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.32447817836812143,
+        "removed_comparable_pair_fields": 171,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5542452830188679,
+        "recall": 0.94,
+        "f1": 0.6973293768545994,
+        "tp": 235,
+        "fp": 189,
+        "fn": 15,
+        "tn": 289,
+        "confusion_matrix": [
+          [
+            289,
+            189
+          ],
+          [
+            15,
+            235
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive_no_coverage",
+        "threshold": 0.09,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.32447817836812143,
+        "removed_comparable_pair_fields": 171,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5350877192982456,
+        "recall": 0.976,
+        "f1": 0.6912181303116147,
+        "tp": 244,
+        "fp": 212,
+        "fn": 6,
+        "tn": 266,
+        "confusion_matrix": [
+          [
+            266,
+            212
+          ],
+          [
+            6,
+            244
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive_no_info",
+        "threshold": 0.16,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.32447817836812143,
+        "removed_comparable_pair_fields": 171,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5566037735849056,
+        "recall": 0.944,
+        "f1": 0.7002967359050445,
+        "tp": 236,
+        "fp": 188,
+        "fn": 14,
+        "tn": 290,
+        "confusion_matrix": [
+          [
+            290,
+            188
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive_no_reliability",
+        "threshold": 0.13,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.32447817836812143,
+        "removed_comparable_pair_fields": 171,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5511627906976744,
+        "recall": 0.948,
+        "f1": 0.6970588235294117,
+        "tp": 237,
+        "fp": 193,
+        "fn": 13,
+        "tn": 285,
+        "confusion_matrix": [
+          [
+            285,
+            193
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 11,
+        "scope": "report",
+        "method": "legacy_fixed",
+        "threshold": 0.060000000000000005,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.32447817836812143,
+        "removed_comparable_pair_fields": 171,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5401785714285714,
+        "recall": 0.968,
+        "f1": 0.6934097421203438,
+        "tp": 242,
+        "fp": 206,
+        "fn": 8,
+        "tn": 272,
+        "confusion_matrix": [
+          [
+            272,
+            206
+          ],
+          [
+            8,
+            242
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 11,
+        "scope": "report",
+        "method": "legacy_renorm",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.32447817836812143,
+        "removed_comparable_pair_fields": 171,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5412026726057907,
+        "recall": 0.972,
+        "f1": 0.6952789699570815,
+        "tp": 243,
+        "fp": 206,
+        "fn": 7,
+        "tn": 272,
+        "confusion_matrix": [
+          [
+            272,
+            206
+          ],
+          [
+            7,
+            243
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 11,
+        "scope": "report",
+        "method": "legacy_adaptive",
+        "threshold": 0.18000000000000002,
+        "gamma": 1.5,
+        "penalty": 0.1,
+        "effective_removed_fraction": 0.32447817836812143,
+        "removed_comparable_pair_fields": 171,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5799457994579946,
+        "recall": 0.856,
+        "f1": 0.691437802907916,
+        "tp": 214,
+        "fp": 155,
+        "fn": 36,
+        "tn": 323,
+        "confusion_matrix": [
+          [
+            323,
+            155
+          ],
+          [
+            36,
+            214
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 22,
+        "scope": "report",
+        "method": "text",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.3700189753320683,
+        "removed_comparable_pair_fields": 195,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5337690631808278,
+        "recall": 0.98,
+        "f1": 0.691114245416079,
+        "tp": 245,
+        "fp": 214,
+        "fn": 5,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            5,
+            245
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 22,
+        "scope": "report",
+        "method": "fixed",
+        "threshold": 0.09,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.3700189753320683,
+        "removed_comparable_pair_fields": 195,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5481651376146789,
+        "recall": 0.956,
+        "f1": 0.6967930029154519,
+        "tp": 239,
+        "fp": 197,
+        "fn": 11,
+        "tn": 281,
+        "confusion_matrix": [
+          [
+            281,
+            197
+          ],
+          [
+            11,
+            239
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 22,
+        "scope": "report",
+        "method": "renorm",
+        "threshold": 0.14,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.3700189753320683,
+        "removed_comparable_pair_fields": 195,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5589622641509434,
+        "recall": 0.948,
+        "f1": 0.7032640949554896,
+        "tp": 237,
+        "fp": 187,
+        "fn": 13,
+        "tn": 291,
+        "confusion_matrix": [
+          [
+            291,
+            187
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive",
+        "threshold": 0.15000000000000002,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.3700189753320683,
+        "removed_comparable_pair_fields": 195,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5589622641509434,
+        "recall": 0.948,
+        "f1": 0.7032640949554896,
+        "tp": 237,
+        "fp": 187,
+        "fn": 13,
+        "tn": 291,
+        "confusion_matrix": [
+          [
+            291,
+            187
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive_no_coverage",
+        "threshold": 0.09,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.3700189753320683,
+        "removed_comparable_pair_fields": 195,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5374449339207048,
+        "recall": 0.976,
+        "f1": 0.6931818181818182,
+        "tp": 244,
+        "fp": 210,
+        "fn": 6,
+        "tn": 268,
+        "confusion_matrix": [
+          [
+            268,
+            210
+          ],
+          [
+            6,
+            244
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive_no_info",
+        "threshold": 0.16,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.3700189753320683,
+        "removed_comparable_pair_fields": 195,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.557919621749409,
+        "recall": 0.944,
+        "f1": 0.7013372956909361,
+        "tp": 236,
+        "fp": 187,
+        "fn": 14,
+        "tn": 291,
+        "confusion_matrix": [
+          [
+            291,
+            187
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive_no_reliability",
+        "threshold": 0.13,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.3700189753320683,
+        "removed_comparable_pair_fields": 195,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5524475524475524,
+        "recall": 0.948,
+        "f1": 0.6980854197349042,
+        "tp": 237,
+        "fp": 192,
+        "fn": 13,
+        "tn": 286,
+        "confusion_matrix": [
+          [
+            286,
+            192
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 22,
+        "scope": "report",
+        "method": "legacy_fixed",
+        "threshold": 0.060000000000000005,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.3700189753320683,
+        "removed_comparable_pair_fields": 195,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5391498881431768,
+        "recall": 0.964,
+        "f1": 0.6915351506456241,
+        "tp": 241,
+        "fp": 206,
+        "fn": 9,
+        "tn": 272,
+        "confusion_matrix": [
+          [
+            272,
+            206
+          ],
+          [
+            9,
+            241
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 22,
+        "scope": "report",
+        "method": "legacy_renorm",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.3700189753320683,
+        "removed_comparable_pair_fields": 195,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5424107142857143,
+        "recall": 0.972,
+        "f1": 0.6962750716332379,
+        "tp": 243,
+        "fp": 205,
+        "fn": 7,
+        "tn": 273,
+        "confusion_matrix": [
+          [
+            273,
+            205
+          ],
+          [
+            7,
+            243
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 22,
+        "scope": "report",
+        "method": "legacy_adaptive",
+        "threshold": 0.18000000000000002,
+        "gamma": 1.5,
+        "penalty": 0.1,
+        "effective_removed_fraction": 0.3700189753320683,
+        "removed_comparable_pair_fields": 195,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5833333333333334,
+        "recall": 0.868,
+        "f1": 0.6977491961414791,
+        "tp": 217,
+        "fp": 155,
+        "fn": 33,
+        "tn": 323,
+        "confusion_matrix": [
+          [
+            323,
+            155
+          ],
+          [
+            33,
+            217
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 33,
+        "scope": "report",
+        "method": "text",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.349146110056926,
+        "removed_comparable_pair_fields": 184,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5337690631808278,
+        "recall": 0.98,
+        "f1": 0.691114245416079,
+        "tp": 245,
+        "fp": 214,
+        "fn": 5,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            5,
+            245
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 33,
+        "scope": "report",
+        "method": "fixed",
+        "threshold": 0.09,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.349146110056926,
+        "removed_comparable_pair_fields": 184,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5469107551487414,
+        "recall": 0.956,
+        "f1": 0.6957787481804949,
+        "tp": 239,
+        "fp": 198,
+        "fn": 11,
+        "tn": 280,
+        "confusion_matrix": [
+          [
+            280,
+            198
+          ],
+          [
+            11,
+            239
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 33,
+        "scope": "report",
+        "method": "renorm",
+        "threshold": 0.14,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.349146110056926,
+        "removed_comparable_pair_fields": 184,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5529411764705883,
+        "recall": 0.94,
+        "f1": 0.6962962962962963,
+        "tp": 235,
+        "fp": 190,
+        "fn": 15,
+        "tn": 288,
+        "confusion_matrix": [
+          [
+            288,
+            190
+          ],
+          [
+            15,
+            235
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive",
+        "threshold": 0.15000000000000002,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.349146110056926,
+        "removed_comparable_pair_fields": 184,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5529411764705883,
+        "recall": 0.94,
+        "f1": 0.6962962962962963,
+        "tp": 235,
+        "fp": 190,
+        "fn": 15,
+        "tn": 288,
+        "confusion_matrix": [
+          [
+            288,
+            190
+          ],
+          [
+            15,
+            235
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive_no_coverage",
+        "threshold": 0.09,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.349146110056926,
+        "removed_comparable_pair_fields": 184,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5352422907488987,
+        "recall": 0.972,
+        "f1": 0.6903409090909091,
+        "tp": 243,
+        "fp": 211,
+        "fn": 7,
+        "tn": 267,
+        "confusion_matrix": [
+          [
+            267,
+            211
+          ],
+          [
+            7,
+            243
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive_no_info",
+        "threshold": 0.16,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.349146110056926,
+        "removed_comparable_pair_fields": 184,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5542452830188679,
+        "recall": 0.94,
+        "f1": 0.6973293768545994,
+        "tp": 235,
+        "fp": 189,
+        "fn": 15,
+        "tn": 289,
+        "confusion_matrix": [
+          [
+            289,
+            189
+          ],
+          [
+            15,
+            235
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive_no_reliability",
+        "threshold": 0.13,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.349146110056926,
+        "removed_comparable_pair_fields": 184,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5488372093023256,
+        "recall": 0.944,
+        "f1": 0.6941176470588235,
+        "tp": 236,
+        "fp": 194,
+        "fn": 14,
+        "tn": 284,
+        "confusion_matrix": [
+          [
+            284,
+            194
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 33,
+        "scope": "report",
+        "method": "legacy_fixed",
+        "threshold": 0.060000000000000005,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.349146110056926,
+        "removed_comparable_pair_fields": 184,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5381165919282511,
+        "recall": 0.96,
+        "f1": 0.6896551724137931,
+        "tp": 240,
+        "fp": 206,
+        "fn": 10,
+        "tn": 272,
+        "confusion_matrix": [
+          [
+            272,
+            206
+          ],
+          [
+            10,
+            240
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 33,
+        "scope": "report",
+        "method": "legacy_renorm",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.349146110056926,
+        "removed_comparable_pair_fields": 184,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5391498881431768,
+        "recall": 0.964,
+        "f1": 0.6915351506456241,
+        "tp": 241,
+        "fp": 206,
+        "fn": 9,
+        "tn": 272,
+        "confusion_matrix": [
+          [
+            272,
+            206
+          ],
+          [
+            9,
+            241
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.2,
+        "seed": 33,
+        "scope": "report",
+        "method": "legacy_adaptive",
+        "threshold": 0.18000000000000002,
+        "gamma": 1.5,
+        "penalty": 0.1,
+        "effective_removed_fraction": 0.349146110056926,
+        "removed_comparable_pair_fields": 184,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5786666666666667,
+        "recall": 0.868,
+        "f1": 0.6944,
+        "tp": 217,
+        "fp": 158,
+        "fn": 33,
+        "tn": 320,
+        "confusion_matrix": [
+          [
+            320,
+            158
+          ],
+          [
+            33,
+            217
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 11,
+        "scope": "report",
+        "method": "text",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.47248576850094876,
+        "removed_comparable_pair_fields": 249,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5337690631808278,
+        "recall": 0.98,
+        "f1": 0.691114245416079,
+        "tp": 245,
+        "fp": 214,
+        "fn": 5,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            5,
+            245
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 11,
+        "scope": "report",
+        "method": "fixed",
+        "threshold": 0.09,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.47248576850094876,
+        "removed_comparable_pair_fields": 249,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5504587155963303,
+        "recall": 0.96,
+        "f1": 0.6997084548104956,
+        "tp": 240,
+        "fp": 196,
+        "fn": 10,
+        "tn": 282,
+        "confusion_matrix": [
+          [
+            282,
+            196
+          ],
+          [
+            10,
+            240
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 11,
+        "scope": "report",
+        "method": "renorm",
+        "threshold": 0.14,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.47248576850094876,
+        "removed_comparable_pair_fields": 249,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5529411764705883,
+        "recall": 0.94,
+        "f1": 0.6962962962962963,
+        "tp": 235,
+        "fp": 190,
+        "fn": 15,
+        "tn": 288,
+        "confusion_matrix": [
+          [
+            288,
+            190
+          ],
+          [
+            15,
+            235
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive",
+        "threshold": 0.15000000000000002,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.47248576850094876,
+        "removed_comparable_pair_fields": 249,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5529411764705883,
+        "recall": 0.94,
+        "f1": 0.6962962962962963,
+        "tp": 235,
+        "fp": 190,
+        "fn": 15,
+        "tn": 288,
+        "confusion_matrix": [
+          [
+            288,
+            190
+          ],
+          [
+            15,
+            235
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive_no_coverage",
+        "threshold": 0.09,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.47248576850094876,
+        "removed_comparable_pair_fields": 249,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5327510917030568,
+        "recall": 0.976,
+        "f1": 0.6892655367231638,
+        "tp": 244,
+        "fp": 214,
+        "fn": 6,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            6,
+            244
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive_no_info",
+        "threshold": 0.16,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.47248576850094876,
+        "removed_comparable_pair_fields": 249,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5552941176470588,
+        "recall": 0.944,
+        "f1": 0.6992592592592592,
+        "tp": 236,
+        "fp": 189,
+        "fn": 14,
+        "tn": 289,
+        "confusion_matrix": [
+          [
+            289,
+            189
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive_no_reliability",
+        "threshold": 0.13,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.47248576850094876,
+        "removed_comparable_pair_fields": 249,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5498839907192575,
+        "recall": 0.948,
+        "f1": 0.6960352422907489,
+        "tp": 237,
+        "fp": 194,
+        "fn": 13,
+        "tn": 284,
+        "confusion_matrix": [
+          [
+            284,
+            194
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 11,
+        "scope": "report",
+        "method": "legacy_fixed",
+        "threshold": 0.060000000000000005,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.47248576850094876,
+        "removed_comparable_pair_fields": 249,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5403587443946188,
+        "recall": 0.964,
+        "f1": 0.6925287356321839,
+        "tp": 241,
+        "fp": 205,
+        "fn": 9,
+        "tn": 273,
+        "confusion_matrix": [
+          [
+            273,
+            205
+          ],
+          [
+            9,
+            241
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 11,
+        "scope": "report",
+        "method": "legacy_renorm",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.47248576850094876,
+        "removed_comparable_pair_fields": 249,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.54,
+        "recall": 0.972,
+        "f1": 0.6942857142857143,
+        "tp": 243,
+        "fp": 207,
+        "fn": 7,
+        "tn": 271,
+        "confusion_matrix": [
+          [
+            271,
+            207
+          ],
+          [
+            7,
+            243
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 11,
+        "scope": "report",
+        "method": "legacy_adaptive",
+        "threshold": 0.18000000000000002,
+        "gamma": 1.5,
+        "penalty": 0.1,
+        "effective_removed_fraction": 0.47248576850094876,
+        "removed_comparable_pair_fields": 249,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5803814713896458,
+        "recall": 0.852,
+        "f1": 0.6904376012965965,
+        "tp": 213,
+        "fp": 154,
+        "fn": 37,
+        "tn": 324,
+        "confusion_matrix": [
+          [
+            324,
+            154
+          ],
+          [
+            37,
+            213
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 22,
+        "scope": "report",
+        "method": "text",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.4971537001897533,
+        "removed_comparable_pair_fields": 262,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5337690631808278,
+        "recall": 0.98,
+        "f1": 0.691114245416079,
+        "tp": 245,
+        "fp": 214,
+        "fn": 5,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            5,
+            245
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 22,
+        "scope": "report",
+        "method": "fixed",
+        "threshold": 0.09,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.4971537001897533,
+        "removed_comparable_pair_fields": 262,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5506912442396313,
+        "recall": 0.956,
+        "f1": 0.6988304093567251,
+        "tp": 239,
+        "fp": 195,
+        "fn": 11,
+        "tn": 283,
+        "confusion_matrix": [
+          [
+            283,
+            195
+          ],
+          [
+            11,
+            239
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 22,
+        "scope": "report",
+        "method": "renorm",
+        "threshold": 0.14,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.4971537001897533,
+        "removed_comparable_pair_fields": 262,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.557919621749409,
+        "recall": 0.944,
+        "f1": 0.7013372956909361,
+        "tp": 236,
+        "fp": 187,
+        "fn": 14,
+        "tn": 291,
+        "confusion_matrix": [
+          [
+            291,
+            187
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive",
+        "threshold": 0.15000000000000002,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.4971537001897533,
+        "removed_comparable_pair_fields": 262,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.557919621749409,
+        "recall": 0.944,
+        "f1": 0.7013372956909361,
+        "tp": 236,
+        "fp": 187,
+        "fn": 14,
+        "tn": 291,
+        "confusion_matrix": [
+          [
+            291,
+            187
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive_no_coverage",
+        "threshold": 0.09,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.4971537001897533,
+        "removed_comparable_pair_fields": 262,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5362637362637362,
+        "recall": 0.976,
+        "f1": 0.6921985815602837,
+        "tp": 244,
+        "fp": 211,
+        "fn": 6,
+        "tn": 267,
+        "confusion_matrix": [
+          [
+            267,
+            211
+          ],
+          [
+            6,
+            244
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive_no_info",
+        "threshold": 0.16,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.4971537001897533,
+        "removed_comparable_pair_fields": 262,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.557919621749409,
+        "recall": 0.944,
+        "f1": 0.7013372956909361,
+        "tp": 236,
+        "fp": 187,
+        "fn": 14,
+        "tn": 291,
+        "confusion_matrix": [
+          [
+            291,
+            187
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive_no_reliability",
+        "threshold": 0.13,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.4971537001897533,
+        "removed_comparable_pair_fields": 262,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5524475524475524,
+        "recall": 0.948,
+        "f1": 0.6980854197349042,
+        "tp": 237,
+        "fp": 192,
+        "fn": 13,
+        "tn": 286,
+        "confusion_matrix": [
+          [
+            286,
+            192
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 22,
+        "scope": "report",
+        "method": "legacy_fixed",
+        "threshold": 0.060000000000000005,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.4971537001897533,
+        "removed_comparable_pair_fields": 262,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5415730337078651,
+        "recall": 0.964,
+        "f1": 0.6935251798561151,
+        "tp": 241,
+        "fp": 204,
+        "fn": 9,
+        "tn": 274,
+        "confusion_matrix": [
+          [
+            274,
+            204
+          ],
+          [
+            9,
+            241
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 22,
+        "scope": "report",
+        "method": "legacy_renorm",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.4971537001897533,
+        "removed_comparable_pair_fields": 262,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5436241610738255,
+        "recall": 0.972,
+        "f1": 0.697274031563845,
+        "tp": 243,
+        "fp": 204,
+        "fn": 7,
+        "tn": 274,
+        "confusion_matrix": [
+          [
+            274,
+            204
+          ],
+          [
+            7,
+            243
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 22,
+        "scope": "report",
+        "method": "legacy_adaptive",
+        "threshold": 0.18000000000000002,
+        "gamma": 1.5,
+        "penalty": 0.1,
+        "effective_removed_fraction": 0.4971537001897533,
+        "removed_comparable_pair_fields": 262,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5822102425876011,
+        "recall": 0.864,
+        "f1": 0.6956521739130435,
+        "tp": 216,
+        "fp": 155,
+        "fn": 34,
+        "tn": 323,
+        "confusion_matrix": [
+          [
+            323,
+            155
+          ],
+          [
+            34,
+            216
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 33,
+        "scope": "report",
+        "method": "text",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.5009487666034156,
+        "removed_comparable_pair_fields": 264,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5337690631808278,
+        "recall": 0.98,
+        "f1": 0.691114245416079,
+        "tp": 245,
+        "fp": 214,
+        "fn": 5,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            5,
+            245
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 33,
+        "scope": "report",
+        "method": "fixed",
+        "threshold": 0.09,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.5009487666034156,
+        "removed_comparable_pair_fields": 264,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5473441108545035,
+        "recall": 0.948,
+        "f1": 0.6939970717423133,
+        "tp": 237,
+        "fp": 196,
+        "fn": 13,
+        "tn": 282,
+        "confusion_matrix": [
+          [
+            282,
+            196
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 33,
+        "scope": "report",
+        "method": "renorm",
+        "threshold": 0.14,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.5009487666034156,
+        "removed_comparable_pair_fields": 264,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5529411764705883,
+        "recall": 0.94,
+        "f1": 0.6962962962962963,
+        "tp": 235,
+        "fp": 190,
+        "fn": 15,
+        "tn": 288,
+        "confusion_matrix": [
+          [
+            288,
+            190
+          ],
+          [
+            15,
+            235
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive",
+        "threshold": 0.15000000000000002,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.5009487666034156,
+        "removed_comparable_pair_fields": 264,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5529411764705883,
+        "recall": 0.94,
+        "f1": 0.6962962962962963,
+        "tp": 235,
+        "fp": 190,
+        "fn": 15,
+        "tn": 288,
+        "confusion_matrix": [
+          [
+            288,
+            190
+          ],
+          [
+            15,
+            235
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive_no_coverage",
+        "threshold": 0.09,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.5009487666034156,
+        "removed_comparable_pair_fields": 264,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5305676855895196,
+        "recall": 0.972,
+        "f1": 0.6864406779661016,
+        "tp": 243,
+        "fp": 215,
+        "fn": 7,
+        "tn": 263,
+        "confusion_matrix": [
+          [
+            263,
+            215
+          ],
+          [
+            7,
+            243
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive_no_info",
+        "threshold": 0.16,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.5009487666034156,
+        "removed_comparable_pair_fields": 264,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5542452830188679,
+        "recall": 0.94,
+        "f1": 0.6973293768545994,
+        "tp": 235,
+        "fp": 189,
+        "fn": 15,
+        "tn": 289,
+        "confusion_matrix": [
+          [
+            289,
+            189
+          ],
+          [
+            15,
+            235
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive_no_reliability",
+        "threshold": 0.13,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.5009487666034156,
+        "removed_comparable_pair_fields": 264,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5488372093023256,
+        "recall": 0.944,
+        "f1": 0.6941176470588235,
+        "tp": 236,
+        "fp": 194,
+        "fn": 14,
+        "tn": 284,
+        "confusion_matrix": [
+          [
+            284,
+            194
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 33,
+        "scope": "report",
+        "method": "legacy_fixed",
+        "threshold": 0.060000000000000005,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.5009487666034156,
+        "removed_comparable_pair_fields": 264,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5393258426966292,
+        "recall": 0.96,
+        "f1": 0.6906474820143885,
+        "tp": 240,
+        "fp": 205,
+        "fn": 10,
+        "tn": 273,
+        "confusion_matrix": [
+          [
+            273,
+            205
+          ],
+          [
+            10,
+            240
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 33,
+        "scope": "report",
+        "method": "legacy_renorm",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.5009487666034156,
+        "removed_comparable_pair_fields": 264,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5369127516778524,
+        "recall": 0.96,
+        "f1": 0.6886657101865137,
+        "tp": 240,
+        "fp": 207,
+        "fn": 10,
+        "tn": 271,
+        "confusion_matrix": [
+          [
+            271,
+            207
+          ],
+          [
+            10,
+            240
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.3,
+        "seed": 33,
+        "scope": "report",
+        "method": "legacy_adaptive",
+        "threshold": 0.18000000000000002,
+        "gamma": 1.5,
+        "penalty": 0.1,
+        "effective_removed_fraction": 0.5009487666034156,
+        "removed_comparable_pair_fields": 264,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5802139037433155,
+        "recall": 0.868,
+        "f1": 0.6955128205128205,
+        "tp": 217,
+        "fp": 157,
+        "fn": 33,
+        "tn": 321,
+        "confusion_matrix": [
+          [
+            321,
+            157
+          ],
+          [
+            33,
+            217
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 11,
+        "scope": "report",
+        "method": "text",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7229601518026565,
+        "removed_comparable_pair_fields": 381,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5337690631808278,
+        "recall": 0.98,
+        "f1": 0.691114245416079,
+        "tp": 245,
+        "fp": 214,
+        "fn": 5,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            5,
+            245
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 11,
+        "scope": "report",
+        "method": "fixed",
+        "threshold": 0.09,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7229601518026565,
+        "removed_comparable_pair_fields": 381,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5462962962962963,
+        "recall": 0.944,
+        "f1": 0.6920821114369502,
+        "tp": 236,
+        "fp": 196,
+        "fn": 14,
+        "tn": 282,
+        "confusion_matrix": [
+          [
+            282,
+            196
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 11,
+        "scope": "report",
+        "method": "renorm",
+        "threshold": 0.14,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7229601518026565,
+        "removed_comparable_pair_fields": 381,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5508274231678487,
+        "recall": 0.932,
+        "f1": 0.6924219910846954,
+        "tp": 233,
+        "fp": 190,
+        "fn": 17,
+        "tn": 288,
+        "confusion_matrix": [
+          [
+            288,
+            190
+          ],
+          [
+            17,
+            233
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive",
+        "threshold": 0.15000000000000002,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7229601518026565,
+        "removed_comparable_pair_fields": 381,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5508274231678487,
+        "recall": 0.932,
+        "f1": 0.6924219910846954,
+        "tp": 233,
+        "fp": 190,
+        "fn": 17,
+        "tn": 288,
+        "confusion_matrix": [
+          [
+            288,
+            190
+          ],
+          [
+            17,
+            233
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive_no_coverage",
+        "threshold": 0.09,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7229601518026565,
+        "removed_comparable_pair_fields": 381,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5317286652078774,
+        "recall": 0.972,
+        "f1": 0.6874115983026874,
+        "tp": 243,
+        "fp": 214,
+        "fn": 7,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            7,
+            243
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive_no_info",
+        "threshold": 0.16,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7229601518026565,
+        "removed_comparable_pair_fields": 381,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5531914893617021,
+        "recall": 0.936,
+        "f1": 0.6953937592867756,
+        "tp": 234,
+        "fp": 189,
+        "fn": 16,
+        "tn": 289,
+        "confusion_matrix": [
+          [
+            289,
+            189
+          ],
+          [
+            16,
+            234
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 11,
+        "scope": "report",
+        "method": "adaptive_no_reliability",
+        "threshold": 0.13,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7229601518026565,
+        "removed_comparable_pair_fields": 381,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5477855477855478,
+        "recall": 0.94,
+        "f1": 0.6921944035346097,
+        "tp": 235,
+        "fp": 194,
+        "fn": 15,
+        "tn": 284,
+        "confusion_matrix": [
+          [
+            284,
+            194
+          ],
+          [
+            15,
+            235
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 11,
+        "scope": "report",
+        "method": "legacy_fixed",
+        "threshold": 0.060000000000000005,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7229601518026565,
+        "removed_comparable_pair_fields": 381,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5405405405405406,
+        "recall": 0.96,
+        "f1": 0.69164265129683,
+        "tp": 240,
+        "fp": 204,
+        "fn": 10,
+        "tn": 274,
+        "confusion_matrix": [
+          [
+            274,
+            204
+          ],
+          [
+            10,
+            240
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 11,
+        "scope": "report",
+        "method": "legacy_renorm",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7229601518026565,
+        "removed_comparable_pair_fields": 381,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5379464285714286,
+        "recall": 0.964,
+        "f1": 0.6905444126074498,
+        "tp": 241,
+        "fp": 207,
+        "fn": 9,
+        "tn": 271,
+        "confusion_matrix": [
+          [
+            271,
+            207
+          ],
+          [
+            9,
+            241
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 11,
+        "scope": "report",
+        "method": "legacy_adaptive",
+        "threshold": 0.18000000000000002,
+        "gamma": 1.5,
+        "penalty": 0.1,
+        "effective_removed_fraction": 0.7229601518026565,
+        "removed_comparable_pair_fields": 381,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5792349726775956,
+        "recall": 0.848,
+        "f1": 0.6883116883116883,
+        "tp": 212,
+        "fp": 154,
+        "fn": 38,
+        "tn": 324,
+        "confusion_matrix": [
+          [
+            324,
+            154
+          ],
+          [
+            38,
+            212
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 22,
+        "scope": "report",
+        "method": "text",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.777988614800759,
+        "removed_comparable_pair_fields": 410,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5337690631808278,
+        "recall": 0.98,
+        "f1": 0.691114245416079,
+        "tp": 245,
+        "fp": 214,
+        "fn": 5,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            5,
+            245
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 22,
+        "scope": "report",
+        "method": "fixed",
+        "threshold": 0.09,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.777988614800759,
+        "removed_comparable_pair_fields": 410,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5506912442396313,
+        "recall": 0.956,
+        "f1": 0.6988304093567251,
+        "tp": 239,
+        "fp": 195,
+        "fn": 11,
+        "tn": 283,
+        "confusion_matrix": [
+          [
+            283,
+            195
+          ],
+          [
+            11,
+            239
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 22,
+        "scope": "report",
+        "method": "renorm",
+        "threshold": 0.14,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.777988614800759,
+        "removed_comparable_pair_fields": 410,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.556872037914692,
+        "recall": 0.94,
+        "f1": 0.6994047619047619,
+        "tp": 235,
+        "fp": 187,
+        "fn": 15,
+        "tn": 291,
+        "confusion_matrix": [
+          [
+            291,
+            187
+          ],
+          [
+            15,
+            235
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive",
+        "threshold": 0.15000000000000002,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.777988614800759,
+        "removed_comparable_pair_fields": 410,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.556872037914692,
+        "recall": 0.94,
+        "f1": 0.6994047619047619,
+        "tp": 235,
+        "fp": 187,
+        "fn": 15,
+        "tn": 291,
+        "confusion_matrix": [
+          [
+            291,
+            187
+          ],
+          [
+            15,
+            235
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive_no_coverage",
+        "threshold": 0.09,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.777988614800759,
+        "removed_comparable_pair_fields": 410,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5362637362637362,
+        "recall": 0.976,
+        "f1": 0.6921985815602837,
+        "tp": 244,
+        "fp": 211,
+        "fn": 6,
+        "tn": 267,
+        "confusion_matrix": [
+          [
+            267,
+            211
+          ],
+          [
+            6,
+            244
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive_no_info",
+        "threshold": 0.16,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.777988614800759,
+        "removed_comparable_pair_fields": 410,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.557919621749409,
+        "recall": 0.944,
+        "f1": 0.7013372956909361,
+        "tp": 236,
+        "fp": 187,
+        "fn": 14,
+        "tn": 291,
+        "confusion_matrix": [
+          [
+            291,
+            187
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 22,
+        "scope": "report",
+        "method": "adaptive_no_reliability",
+        "threshold": 0.13,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.777988614800759,
+        "removed_comparable_pair_fields": 410,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5524475524475524,
+        "recall": 0.948,
+        "f1": 0.6980854197349042,
+        "tp": 237,
+        "fp": 192,
+        "fn": 13,
+        "tn": 286,
+        "confusion_matrix": [
+          [
+            286,
+            192
+          ],
+          [
+            13,
+            237
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 22,
+        "scope": "report",
+        "method": "legacy_fixed",
+        "threshold": 0.060000000000000005,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.777988614800759,
+        "removed_comparable_pair_fields": 410,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5440180586907449,
+        "recall": 0.964,
+        "f1": 0.6955266955266955,
+        "tp": 241,
+        "fp": 202,
+        "fn": 9,
+        "tn": 276,
+        "confusion_matrix": [
+          [
+            276,
+            202
+          ],
+          [
+            9,
+            241
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 22,
+        "scope": "report",
+        "method": "legacy_renorm",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.777988614800759,
+        "removed_comparable_pair_fields": 410,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5436241610738255,
+        "recall": 0.972,
+        "f1": 0.697274031563845,
+        "tp": 243,
+        "fp": 204,
+        "fn": 7,
+        "tn": 274,
+        "confusion_matrix": [
+          [
+            274,
+            204
+          ],
+          [
+            7,
+            243
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 22,
+        "scope": "report",
+        "method": "legacy_adaptive",
+        "threshold": 0.18000000000000002,
+        "gamma": 1.5,
+        "penalty": 0.1,
+        "effective_removed_fraction": 0.777988614800759,
+        "removed_comparable_pair_fields": 410,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5846994535519126,
+        "recall": 0.856,
+        "f1": 0.6948051948051948,
+        "tp": 214,
+        "fp": 152,
+        "fn": 36,
+        "tn": 326,
+        "confusion_matrix": [
+          [
+            326,
+            152
+          ],
+          [
+            36,
+            214
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 33,
+        "scope": "report",
+        "method": "text",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7267552182163188,
+        "removed_comparable_pair_fields": 383,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5337690631808278,
+        "recall": 0.98,
+        "f1": 0.691114245416079,
+        "tp": 245,
+        "fp": 214,
+        "fn": 5,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            5,
+            245
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 33,
+        "scope": "report",
+        "method": "fixed",
+        "threshold": 0.09,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7267552182163188,
+        "removed_comparable_pair_fields": 383,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5475638051044084,
+        "recall": 0.944,
+        "f1": 0.6930983847283406,
+        "tp": 236,
+        "fp": 195,
+        "fn": 14,
+        "tn": 283,
+        "confusion_matrix": [
+          [
+            283,
+            195
+          ],
+          [
+            14,
+            236
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 33,
+        "scope": "report",
+        "method": "renorm",
+        "threshold": 0.14,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7267552182163188,
+        "removed_comparable_pair_fields": 383,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5508274231678487,
+        "recall": 0.932,
+        "f1": 0.6924219910846954,
+        "tp": 233,
+        "fp": 190,
+        "fn": 17,
+        "tn": 288,
+        "confusion_matrix": [
+          [
+            288,
+            190
+          ],
+          [
+            17,
+            233
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive",
+        "threshold": 0.15000000000000002,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7267552182163188,
+        "removed_comparable_pair_fields": 383,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5508274231678487,
+        "recall": 0.932,
+        "f1": 0.6924219910846954,
+        "tp": 233,
+        "fp": 190,
+        "fn": 17,
+        "tn": 288,
+        "confusion_matrix": [
+          [
+            288,
+            190
+          ],
+          [
+            17,
+            233
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive_no_coverage",
+        "threshold": 0.09,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7267552182163188,
+        "removed_comparable_pair_fields": 383,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5317286652078774,
+        "recall": 0.972,
+        "f1": 0.6874115983026874,
+        "tp": 243,
+        "fp": 214,
+        "fn": 7,
+        "tn": 264,
+        "confusion_matrix": [
+          [
+            264,
+            214
+          ],
+          [
+            7,
+            243
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive_no_info",
+        "threshold": 0.16,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7267552182163188,
+        "removed_comparable_pair_fields": 383,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5531914893617021,
+        "recall": 0.936,
+        "f1": 0.6953937592867756,
+        "tp": 234,
+        "fp": 189,
+        "fn": 16,
+        "tn": 289,
+        "confusion_matrix": [
+          [
+            289,
+            189
+          ],
+          [
+            16,
+            234
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 33,
+        "scope": "report",
+        "method": "adaptive_no_reliability",
+        "threshold": 0.13,
+        "gamma": 0.5,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7267552182163188,
+        "removed_comparable_pair_fields": 383,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5477855477855478,
+        "recall": 0.94,
+        "f1": 0.6921944035346097,
+        "tp": 235,
+        "fp": 194,
+        "fn": 15,
+        "tn": 284,
+        "confusion_matrix": [
+          [
+            284,
+            194
+          ],
+          [
+            15,
+            235
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 33,
+        "scope": "report",
+        "method": "legacy_fixed",
+        "threshold": 0.060000000000000005,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7267552182163188,
+        "removed_comparable_pair_fields": 383,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5405405405405406,
+        "recall": 0.96,
+        "f1": 0.69164265129683,
+        "tp": 240,
+        "fp": 204,
+        "fn": 10,
+        "tn": 274,
+        "confusion_matrix": [
+          [
+            274,
+            204
+          ],
+          [
+            10,
+            240
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 33,
+        "scope": "report",
+        "method": "legacy_renorm",
+        "threshold": 0.09999999999999999,
+        "gamma": 1.0,
+        "penalty": 0.0,
+        "effective_removed_fraction": 0.7267552182163188,
+        "removed_comparable_pair_fields": 383,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5381165919282511,
+        "recall": 0.96,
+        "f1": 0.6896551724137931,
+        "tp": 240,
+        "fp": 206,
+        "fn": 10,
+        "tn": 272,
+        "confusion_matrix": [
+          [
+            272,
+            206
+          ],
+          [
+            10,
+            240
+          ]
+        ],
+        "n": 728
+      },
+      {
+        "missing_rate": 0.5,
+        "seed": 33,
+        "scope": "report",
+        "method": "legacy_adaptive",
+        "threshold": 0.18000000000000002,
+        "gamma": 1.5,
+        "penalty": 0.1,
+        "effective_removed_fraction": 0.7267552182163188,
+        "removed_comparable_pair_fields": 383,
+        "original_comparable_pair_fields": 527,
+        "precision": 0.5799457994579946,
+        "recall": 0.856,
+        "f1": 0.691437802907916,
+        "tp": 214,
+        "fp": 155,
+        "fn": 36,
+        "tn": 323,
+        "confusion_matrix": [
+          [
+            323,
+            155
+          ],
+          [
+            36,
+            214
+          ]
+        ],
+        "n": 728
+      }
+    ]
+  },
+  "paired_error_analysis": [
+    {
+      "comparator": "text",
+      "n": 728,
+      "both_correct": 500,
+      "both_wrong": 193,
+      "adaptive_only_correct": 26,
+      "comparator_only_correct": 9,
+      "rescued_fp": 25,
+      "rescued_fn": 1,
+      "introduced_fp": 0,
+      "introduced_fn": 9,
+      "net_correct_change": 17
+    },
+    {
+      "comparator": "fixed",
+      "n": 728,
+      "both_correct": 513,
+      "both_wrong": 198,
+      "adaptive_only_correct": 13,
+      "comparator_only_correct": 4,
+      "rescued_fp": 13,
+      "rescued_fn": 0,
+      "introduced_fp": 0,
+      "introduced_fn": 4,
+      "net_correct_change": 9
+    },
+    {
+      "comparator": "renorm",
+      "n": 728,
+      "both_correct": 526,
+      "both_wrong": 202,
+      "adaptive_only_correct": 0,
+      "comparator_only_correct": 0,
+      "rescued_fp": 0,
+      "rescued_fn": 0,
+      "introduced_fp": 0,
+      "introduced_fn": 0,
+      "net_correct_change": 0
+    },
+    {
+      "comparator": "legacy_adaptive",
+      "n": 728,
+      "both_correct": 504,
+      "both_wrong": 170,
+      "adaptive_only_correct": 22,
+      "comparator_only_correct": 32,
+      "rescued_fp": 2,
+      "rescued_fn": 20,
+      "introduced_fp": 32,
+      "introduced_fn": 0,
+      "net_correct_change": -10
+    }
+  ],
+  "by_evidence": [
+    {
+      "stratum": "coverage_0.70",
+      "method": "text",
+      "n": 253,
+      "positives": 93,
+      "precision": 0.5833333333333334,
+      "recall": 0.978494623655914,
+      "f1": 0.7309236947791165,
+      "tp": 91,
+      "fp": 65,
+      "fn": 2,
+      "tn": 95
+    },
+    {
+      "stratum": "coverage_0.70",
+      "method": "fixed",
+      "n": 253,
+      "positives": 93,
+      "precision": 0.6013986013986014,
+      "recall": 0.9247311827956989,
+      "f1": 0.7288135593220338,
+      "tp": 86,
+      "fp": 57,
+      "fn": 7,
+      "tn": 103
+    },
+    {
+      "stratum": "coverage_0.70",
+      "method": "renorm",
+      "n": 253,
+      "positives": 93,
+      "precision": 0.6099290780141844,
+      "recall": 0.9247311827956989,
+      "f1": 0.7350427350427351,
+      "tp": 86,
+      "fp": 55,
+      "fn": 7,
+      "tn": 105
+    },
+    {
+      "stratum": "coverage_0.70",
+      "method": "adaptive",
+      "n": 253,
+      "positives": 93,
+      "precision": 0.6099290780141844,
+      "recall": 0.9247311827956989,
+      "f1": 0.7350427350427351,
+      "tp": 86,
+      "fp": 55,
+      "fn": 7,
+      "tn": 105
+    },
+    {
+      "stratum": "coverage_0.85",
+      "method": "text",
+      "n": 423,
+      "positives": 140,
+      "precision": 0.5111111111111111,
+      "recall": 0.9857142857142858,
+      "f1": 0.6731707317073171,
+      "tp": 138,
+      "fp": 132,
+      "fn": 2,
+      "tn": 151
+    },
+    {
+      "stratum": "coverage_0.85",
+      "method": "fixed",
+      "n": 423,
+      "positives": 140,
+      "precision": 0.5168539325842697,
+      "recall": 0.9857142857142858,
+      "f1": 0.6781326781326781,
+      "tp": 138,
+      "fp": 129,
+      "fn": 2,
+      "tn": 154
+    },
+    {
+      "stratum": "coverage_0.85",
+      "method": "renorm",
+      "n": 423,
+      "positives": 140,
+      "precision": 0.5317460317460317,
+      "recall": 0.9571428571428572,
+      "f1": 0.6836734693877551,
+      "tp": 134,
+      "fp": 118,
+      "fn": 6,
+      "tn": 165
+    },
+    {
+      "stratum": "coverage_0.85",
+      "method": "adaptive",
+      "n": 423,
+      "positives": 140,
+      "precision": 0.5317460317460317,
+      "recall": 0.9571428571428572,
+      "f1": 0.6836734693877551,
+      "tp": 134,
+      "fp": 118,
+      "fn": 6,
+      "tn": 165
+    },
+    {
+      "stratum": "coverage_1.00",
+      "method": "text",
+      "n": 52,
+      "positives": 17,
+      "precision": 0.48484848484848486,
+      "recall": 0.9411764705882353,
+      "f1": 0.64,
+      "tp": 16,
+      "fp": 17,
+      "fn": 1,
+      "tn": 18
+    },
+    {
+      "stratum": "coverage_1.00",
+      "method": "fixed",
+      "n": 52,
+      "positives": 17,
+      "precision": 0.5151515151515151,
+      "recall": 1.0,
+      "f1": 0.68,
+      "tp": 17,
+      "fp": 16,
+      "fn": 0,
+      "tn": 19
+    },
+    {
+      "stratum": "coverage_1.00",
+      "method": "renorm",
+      "n": 52,
+      "positives": 17,
+      "precision": 0.5151515151515151,
+      "recall": 1.0,
+      "f1": 0.68,
+      "tp": 17,
+      "fp": 16,
+      "fn": 0,
+      "tn": 19
+    },
+    {
+      "stratum": "coverage_1.00",
+      "method": "adaptive",
+      "n": 52,
+      "positives": 17,
+      "precision": 0.5151515151515151,
+      "recall": 1.0,
+      "f1": 0.68,
+      "tp": 17,
+      "fp": 16,
+      "fn": 0,
+      "tn": 19
+    },
+    {
+      "stratum": "identifier_conflict",
+      "method": "text",
+      "n": 178,
+      "positives": 36,
+      "precision": 0.33,
+      "recall": 0.9166666666666666,
+      "f1": 0.4852941176470588,
+      "tp": 33,
+      "fp": 67,
+      "fn": 3,
+      "tn": 75
+    },
+    {
+      "stratum": "identifier_conflict",
+      "method": "fixed",
+      "n": 178,
+      "positives": 36,
+      "precision": 0.3488372093023256,
+      "recall": 0.8333333333333334,
+      "f1": 0.4918032786885246,
+      "tp": 30,
+      "fp": 56,
+      "fn": 6,
+      "tn": 86
+    },
+    {
+      "stratum": "identifier_conflict",
+      "method": "renorm",
+      "n": 178,
+      "positives": 36,
+      "precision": 0.3466666666666667,
+      "recall": 0.7222222222222222,
+      "f1": 0.46846846846846846,
+      "tp": 26,
+      "fp": 49,
+      "fn": 10,
+      "tn": 93
+    },
+    {
+      "stratum": "identifier_conflict",
+      "method": "adaptive",
+      "n": 178,
+      "positives": 36,
+      "precision": 0.3466666666666667,
+      "recall": 0.7222222222222222,
+      "f1": 0.46846846846846846,
+      "tp": 26,
+      "fp": 49,
+      "fn": 10,
+      "tn": 93
+    },
+    {
+      "stratum": "identifier_missing",
+      "method": "text",
+      "n": 489,
+      "positives": 169,
+      "precision": 0.5604026845637584,
+      "recall": 0.9881656804733728,
+      "f1": 0.715203426124197,
+      "tp": 167,
+      "fp": 131,
+      "fn": 2,
+      "tn": 189
+    },
+    {
+      "stratum": "identifier_missing",
+      "method": "fixed",
+      "n": 489,
+      "positives": 169,
+      "precision": 0.5608108108108109,
+      "recall": 0.9822485207100592,
+      "f1": 0.7139784946236559,
+      "tp": 166,
+      "fp": 130,
+      "fn": 3,
+      "tn": 190
+    },
+    {
+      "stratum": "identifier_missing",
+      "method": "renorm",
+      "n": 489,
+      "positives": 169,
+      "precision": 0.5724137931034483,
+      "recall": 0.9822485207100592,
+      "f1": 0.7233115468409586,
+      "tp": 166,
+      "fp": 124,
+      "fn": 3,
+      "tn": 196
+    },
+    {
+      "stratum": "identifier_missing",
+      "method": "adaptive",
+      "n": 489,
+      "positives": 169,
+      "precision": 0.5724137931034483,
+      "recall": 0.9822485207100592,
+      "f1": 0.7233115468409586,
+      "tp": 166,
+      "fp": 124,
+      "fn": 3,
+      "tn": 196
+    }
+  ],
+  "limitations": [
+    "Seen-model fallback validation cannot establish generalization to reserved unseen-model test.",
+    "Cluster-disjoint TUNE/REPORT discard crossing negative pairs, change class prevalence and difficulty; not directly comparable to official full-split benchmark scores.",
+    "Single deterministic partition; no generalization confidence interval or proof of superiority.",
+    "Reliability coefficients are manual sensitivity assumptions, not empirically validated source reliability.",
+    "Informativeness is global field discriminativeness, not value-specific information content.",
+    "Title and identifier remain correlated views of the same source even inside a shared budget.",
+    "Only description and brand are masked; seed standard deviations describe masks, not sampling uncertainty.",
+    "Metrics classify supplied pairs and do not measure end-to-end retrieval recall."
+  ],
+  "metadata": {
+    "date": "2026-11-01",
+    "python": "3.12.10",
+    "versions": {
+      "numpy": "2.5.4",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.9.1",
+      "matplotlib": "3.11.2"
+    },
+    "train_path": "data/external/wdcproducts80cc20rnd000un_train_small.json.gz",
+    "train_sha256": "1915a92de76ddbf63a6c4d7ff3162df98f505033a8ad12ee7072b78b083d77c6",
+    "validation_path": "data/external/wdcproducts80cc20rnd000un_valid_small.json.gz",
+    "validation_sha256": "892e8d39cc8230dce5039a4bded16be1237d5c5c37b94a37404226d349ef3df8",
+    "validation_mode": "fallback_seen",
+    "validation_selection_reason": "Official additional 80cc100un/small validation rejected: 110 training offer IDs, 27 training pairs, and 250 training clusters overlap; empirical unseen-cluster fraction is 0.500000; failed checks: ['train__unseen_validation']. Official original seen validation retained verbatim; no rows filtered.",
+    "source_sha256": {
+      "matching.py": "038f58693212c6eb04ed8a55e050ba43ea34270c0277f849fac953b92d6e72ab",
+      "run_experiment.py": "18829167c5a0864c821aac655a0160e21fa060a592d7a266574692e1f18e5982",
+      "run_validation.py": "0f3edebc545c91dd964ebbbed8ba186b743fbb3349f6d1637d12ed8156e3d13a",
+      "audit_wdc.py": "1b9d63dbfa125816a5175632d840bb56fb91f261bacca60f85fa1a5639adfba8"
+    },
+    "data_config_sha256": "99300131bfc9cbb46124a9433df5801368db228743e1b154f971fbb34f2c106c",
+    "test_access": "This runner accepts no test argument and opens only train and selected validation. Separate preparation checks reserved-test identity metadata only."
+  }
+}

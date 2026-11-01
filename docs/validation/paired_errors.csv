@@ -1,0 +1,5 @@
+comparator,n,both_correct,both_wrong,adaptive_only_correct,comparator_only_correct,rescued_fp,rescued_fn,introduced_fp,introduced_fn,net_correct_change
+text,728,500,193,26,9,25,1,0,9,17
+fixed,728,513,198,13,4,13,0,0,4,9
+renorm,728,526,202,0,0,0,0,0,0,0
+legacy_adaptive,728,504,170,22,32,2,20,32,0,-10

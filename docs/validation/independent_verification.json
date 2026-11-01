@@ -1,0 +1,155 @@
+{
+  "scope": "Independent export verification: refit the same train-only representation, reuse frozen configurations, manually compute confusion counts and P/R/F1; no parameter selection or test access.",
+  "results_sha256": "8cde515278dbf1ca8010d555ad3e8b4fd9ff4e4603f76a52ad06a1efdda86662",
+  "clean_metric_checks": [
+    {
+      "method": "text",
+      "manual_confusion_and_metrics_match": true
+    },
+    {
+      "method": "fixed",
+      "manual_confusion_and_metrics_match": true
+    },
+    {
+      "method": "renorm",
+      "manual_confusion_and_metrics_match": true
+    },
+    {
+      "method": "adaptive",
+      "manual_confusion_and_metrics_match": true
+    },
+    {
+      "method": "adaptive_no_coverage",
+      "manual_confusion_and_metrics_match": true
+    },
+    {
+      "method": "adaptive_no_info",
+      "manual_confusion_and_metrics_match": true
+    },
+    {
+      "method": "adaptive_no_reliability",
+      "manual_confusion_and_metrics_match": true
+    },
+    {
+      "method": "legacy_fixed",
+      "manual_confusion_and_metrics_match": true
+    },
+    {
+      "method": "legacy_renorm",
+      "manual_confusion_and_metrics_match": true
+    },
+    {
+      "method": "legacy_adaptive",
+      "manual_confusion_and_metrics_match": true
+    }
+  ],
+  "adaptive_renorm_mask_agreement": [
+    {
+      "missing_rate": 0.0,
+      "seed": 11,
+      "n": 728,
+      "different_decisions": 0,
+      "max_abs_score_difference": 0.11976852478210309
+    },
+    {
+      "missing_rate": 0.0,
+      "seed": 22,
+      "n": 728,
+      "different_decisions": 0,
+      "max_abs_score_difference": 0.11976852478210309
+    },
+    {
+      "missing_rate": 0.0,
+      "seed": 33,
+      "n": 728,
+      "different_decisions": 0,
+      "max_abs_score_difference": 0.11976852478210309
+    },
+    {
+      "missing_rate": 0.1,
+      "seed": 11,
+      "n": 728,
+      "different_decisions": 0,
+      "max_abs_score_difference": 0.12323743226031814
+    },
+    {
+      "missing_rate": 0.1,
+      "seed": 22,
+      "n": 728,
+      "different_decisions": 0,
+      "max_abs_score_difference": 0.11976852478210309
+    },
+    {
+      "missing_rate": 0.1,
+      "seed": 33,
+      "n": 728,
+      "different_decisions": 0,
+      "max_abs_score_difference": 0.11976852478210309
+    },
+    {
+      "missing_rate": 0.2,
+      "seed": 11,
+      "n": 728,
+      "different_decisions": 0,
+      "max_abs_score_difference": 0.12816157340216028
+    },
+    {
+      "missing_rate": 0.2,
+      "seed": 22,
+      "n": 728,
+      "different_decisions": 0,
+      "max_abs_score_difference": 0.11976852478210309
+    },
+    {
+      "missing_rate": 0.2,
+      "seed": 33,
+      "n": 728,
+      "different_decisions": 0,
+      "max_abs_score_difference": 0.12816157340216028
+    },
+    {
+      "missing_rate": 0.3,
+      "seed": 11,
+      "n": 728,
+      "different_decisions": 0,
+      "max_abs_score_difference": 0.12816157340216028
+    },
+    {
+      "missing_rate": 0.3,
+      "seed": 22,
+      "n": 728,
+      "different_decisions": 0,
+      "max_abs_score_difference": 0.11976852478210309
+    },
+    {
+      "missing_rate": 0.3,
+      "seed": 33,
+      "n": 728,
+      "different_decisions": 0,
+      "max_abs_score_difference": 0.12816157340216028
+    },
+    {
+      "missing_rate": 0.5,
+      "seed": 11,
+      "n": 728,
+      "different_decisions": 0,
+      "max_abs_score_difference": 0.12816157340216028
+    },
+    {
+      "missing_rate": 0.5,
+      "seed": 22,
+      "n": 728,
+      "different_decisions": 0,
+      "max_abs_score_difference": 0.12816157340216028
+    },
+    {
+      "missing_rate": 0.5,
+      "seed": 33,
+      "n": 728,
+      "different_decisions": 0,
+      "max_abs_score_difference": 0.12816157340216028
+    }
+  ],
+  "architecture_or_parameters_changed": false,
+  "final_test_evaluated": false
+}
