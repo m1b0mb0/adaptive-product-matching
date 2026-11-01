@@ -1,0 +1,1807 @@
+{
+  "archive": "data/external/80pair.zip",
+  "size_bytes": 21985075,
+  "sha256": "b2044939cee5ea6f12148a2f3551508de3cb77660dfc91767c44daaf9d8a9c4a",
+  "members": [
+    {
+      "name": "wdcproducts80cc20rnd000un_gs.json.gz",
+      "size_bytes": 1802978,
+      "compressed_size_bytes": 1802978,
+      "crc32": "61bd4690",
+      "sha256": "da61541a1a53f427af40b1c3f72009ddf12b3a194a424695cf825ae97d1894c7",
+      "summary": {
+        "pairs": 4500,
+        "unique_offers": 1000,
+        "labels": {
+          "0": 4000,
+          "1": 500
+        },
+        "schema_keys": [
+          "brand_left",
+          "brand_right",
+          "cluster_id_left",
+          "cluster_id_right",
+          "description_left",
+          "description_right",
+          "id_left",
+          "id_right",
+          "is_hard_negative",
+          "label",
+          "pair_id",
+          "priceCurrency_left",
+          "priceCurrency_right",
+          "price_left",
+          "price_right",
+          "title_left",
+          "title_right"
+        ],
+        "schema_keysets": 1,
+        "observed_negative_hard_rate": 0.75,
+        "negative_hard_flag_present": 4000,
+        "hard_negative_counts": {
+          "true": 3000,
+          "false": 1000
+        },
+        "positive_hard_flag_true": 0,
+        "missing_rates_by_pair_side": {
+          "title": {
+            "left": 0.0,
+            "right": 0.0
+          },
+          "description": {
+            "left": 0.271333,
+            "right": 0.268667
+          },
+          "brand": {
+            "left": 0.644222,
+            "right": 0.647111
+          },
+          "price": {
+            "left": 0.067556,
+            "right": 0.066222
+          },
+          "priceCurrency": {
+            "left": 0.086222,
+            "right": 0.087778
+          }
+        },
+        "missing_counts_by_pair_side": {
+          "title": {
+            "left": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            }
+          },
+          "description": {
+            "left": {
+              "absent_key": 0,
+              "null": 1221,
+              "blank": 0,
+              "missing": 1221
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 1209,
+              "blank": 0,
+              "missing": 1209
+            }
+          },
+          "brand": {
+            "left": {
+              "absent_key": 0,
+              "null": 2899,
+              "blank": 0,
+              "missing": 2899
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 2912,
+              "blank": 0,
+              "missing": 2912
+            }
+          },
+          "price": {
+            "left": {
+              "absent_key": 0,
+              "null": 304,
+              "blank": 0,
+              "missing": 304
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 298,
+              "blank": 0,
+              "missing": 298
+            }
+          },
+          "priceCurrency": {
+            "left": {
+              "absent_key": 0,
+              "null": 388,
+              "blank": 0,
+              "missing": 388
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 395,
+              "blank": 0,
+              "missing": 395
+            }
+          }
+        },
+        "missing_rates_by_unique_offer": {
+          "title": 0.0,
+          "description": 0.276,
+          "brand": 0.645,
+          "price": 0.071,
+          "priceCurrency": 0.094
+        },
+        "both_present_pairs_by_field": {
+          "title": 4500,
+          "description": 2432,
+          "brand": 567,
+          "price": 3933,
+          "priceCurrency": 3766
+        },
+        "duplicate_rows": 0,
+        "duplicate_pair_ids": 0,
+        "explicit_pair_ids": 4500,
+        "pair_id_mismatches": 0,
+        "duplicate_direct_pairs": 0,
+        "duplicate_canonical_pairs": 0,
+        "reversed_pair_groups": 0,
+        "conflicting_label_pairs": 0,
+        "self_pairs": 0,
+        "cluster_labeled_pairs": 4500,
+        "unique_clusters": 500,
+        "label_cluster_mismatches": 0,
+        "inconsistent_offer_payloads": 0
+      }
+    },
+    {
+      "name": "wdcproducts80cc20rnd000un_train_large.json.gz",
+      "size_bytes": 8549959,
+      "compressed_size_bytes": 8549959,
+      "crc32": "d41138df",
+      "sha256": "53148f25fb0a4796801f30554a09ac258e7ae72a022ad668647bbc99375554c5",
+      "summary": {
+        "pairs": 19835,
+        "unique_offers": 2841,
+        "labels": {
+          "0": 11364,
+          "1": 8471
+        },
+        "schema_keys": [
+          "brand_left",
+          "brand_right",
+          "cluster_id_left",
+          "cluster_id_right",
+          "description_left",
+          "description_right",
+          "id_left",
+          "id_right",
+          "is_hard_negative",
+          "label",
+          "pair_id",
+          "priceCurrency_left",
+          "priceCurrency_right",
+          "price_left",
+          "price_right",
+          "title_left",
+          "title_right"
+        ],
+        "schema_keysets": 1,
+        "observed_negative_hard_rate": 0.75,
+        "negative_hard_flag_present": 11364,
+        "hard_negative_counts": {
+          "true": 8523,
+          "false": 2841
+        },
+        "positive_hard_flag_true": 0,
+        "missing_rates_by_pair_side": {
+          "title": {
+            "left": 0.0,
+            "right": 0.0
+          },
+          "description": {
+            "left": 0.25218,
+            "right": 0.246131
+          },
+          "brand": {
+            "left": 0.645425,
+            "right": 0.644719
+          },
+          "price": {
+            "left": 0.071792,
+            "right": 0.069876
+          },
+          "priceCurrency": {
+            "left": 0.107235,
+            "right": 0.10426
+          }
+        },
+        "missing_counts_by_pair_side": {
+          "title": {
+            "left": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            }
+          },
+          "description": {
+            "left": {
+              "absent_key": 0,
+              "null": 5002,
+              "blank": 0,
+              "missing": 5002
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 4882,
+              "blank": 0,
+              "missing": 4882
+            }
+          },
+          "brand": {
+            "left": {
+              "absent_key": 0,
+              "null": 12802,
+              "blank": 0,
+              "missing": 12802
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 12788,
+              "blank": 0,
+              "missing": 12788
+            }
+          },
+          "price": {
+            "left": {
+              "absent_key": 0,
+              "null": 1424,
+              "blank": 0,
+              "missing": 1424
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 1386,
+              "blank": 0,
+              "missing": 1386
+            }
+          },
+          "priceCurrency": {
+            "left": {
+              "absent_key": 0,
+              "null": 2127,
+              "blank": 0,
+              "missing": 2127
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 2068,
+              "blank": 0,
+              "missing": 2068
+            }
+          }
+        },
+        "missing_rates_by_unique_offer": {
+          "title": 0.0,
+          "description": 0.247096,
+          "brand": 0.644139,
+          "price": 0.072158,
+          "priceCurrency": 0.104541
+        },
+        "both_present_pairs_by_field": {
+          "title": 19835,
+          "description": 11494,
+          "brand": 2719,
+          "price": 17218,
+          "priceCurrency": 15982
+        },
+        "duplicate_rows": 0,
+        "duplicate_pair_ids": 0,
+        "explicit_pair_ids": 19835,
+        "pair_id_mismatches": 0,
+        "duplicate_direct_pairs": 0,
+        "duplicate_canonical_pairs": 0,
+        "reversed_pair_groups": 0,
+        "conflicting_label_pairs": 0,
+        "self_pairs": 0,
+        "cluster_labeled_pairs": 19835,
+        "unique_clusters": 500,
+        "label_cluster_mismatches": 0,
+        "inconsistent_offer_payloads": 0
+      }
+    },
+    {
+      "name": "wdcproducts80cc20rnd000un_train_medium.json.gz",
+      "size_bytes": 2468576,
+      "compressed_size_bytes": 2468576,
+      "crc32": "0c08a6b6",
+      "sha256": "b02249e1843957ebe7f25022a086a6614974eeb310f8428a1c79f957e98c8c22",
+      "summary": {
+        "pairs": 6000,
+        "unique_offers": 1500,
+        "labels": {
+          "0": 4500,
+          "1": 1500
+        },
+        "schema_keys": [
+          "brand_left",
+          "brand_right",
+          "cluster_id_left",
+          "cluster_id_right",
+          "description_left",
+          "description_right",
+          "id_left",
+          "id_right",
+          "is_hard_negative",
+          "label",
+          "pair_id",
+          "priceCurrency_left",
+          "priceCurrency_right",
+          "price_left",
+          "price_right",
+          "title_left",
+          "title_right"
+        ],
+        "schema_keysets": 1,
+        "observed_negative_hard_rate": 0.6666666666666666,
+        "negative_hard_flag_present": 4500,
+        "hard_negative_counts": {
+          "false": 1500,
+          "true": 3000
+        },
+        "positive_hard_flag_true": 0,
+        "missing_rates_by_pair_side": {
+          "title": {
+            "left": 0.0,
+            "right": 0.0
+          },
+          "description": {
+            "left": 0.238667,
+            "right": 0.239833
+          },
+          "brand": {
+            "left": 0.655167,
+            "right": 0.652167
+          },
+          "price": {
+            "left": 0.069833,
+            "right": 0.070167
+          },
+          "priceCurrency": {
+            "left": 0.1,
+            "right": 0.097833
+          }
+        },
+        "missing_counts_by_pair_side": {
+          "title": {
+            "left": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            }
+          },
+          "description": {
+            "left": {
+              "absent_key": 0,
+              "null": 1432,
+              "blank": 0,
+              "missing": 1432
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 1439,
+              "blank": 0,
+              "missing": 1439
+            }
+          },
+          "brand": {
+            "left": {
+              "absent_key": 0,
+              "null": 3931,
+              "blank": 0,
+              "missing": 3931
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 3913,
+              "blank": 0,
+              "missing": 3913
+            }
+          },
+          "price": {
+            "left": {
+              "absent_key": 0,
+              "null": 419,
+              "blank": 0,
+              "missing": 419
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 421,
+              "blank": 0,
+              "missing": 421
+            }
+          },
+          "priceCurrency": {
+            "left": {
+              "absent_key": 0,
+              "null": 600,
+              "blank": 0,
+              "missing": 600
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 587,
+              "blank": 0,
+              "missing": 587
+            }
+          }
+        },
+        "missing_rates_by_unique_offer": {
+          "title": 0.0,
+          "description": 0.24,
+          "brand": 0.648,
+          "price": 0.068667,
+          "priceCurrency": 0.096667
+        },
+        "both_present_pairs_by_field": {
+          "title": 6000,
+          "description": 3551,
+          "brand": 781,
+          "price": 5211,
+          "priceCurrency": 4900
+        },
+        "duplicate_rows": 0,
+        "duplicate_pair_ids": 0,
+        "explicit_pair_ids": 6000,
+        "pair_id_mismatches": 0,
+        "duplicate_direct_pairs": 0,
+        "duplicate_canonical_pairs": 0,
+        "reversed_pair_groups": 0,
+        "conflicting_label_pairs": 0,
+        "self_pairs": 0,
+        "cluster_labeled_pairs": 6000,
+        "unique_clusters": 500,
+        "label_cluster_mismatches": 0,
+        "inconsistent_offer_payloads": 0
+      }
+    },
+    {
+      "name": "wdcproducts80cc20rnd000un_train_small.json.gz",
+      "size_bytes": 1007842,
+      "compressed_size_bytes": 1007842,
+      "crc32": "4953b79e",
+      "sha256": "1915a92de76ddbf63a6c4d7ff3162df98f505033a8ad12ee7072b78b083d77c6",
+      "summary": {
+        "pairs": 2500,
+        "unique_offers": 1000,
+        "labels": {
+          "0": 2000,
+          "1": 500
+        },
+        "schema_keys": [
+          "brand_left",
+          "brand_right",
+          "cluster_id_left",
+          "cluster_id_right",
+          "description_left",
+          "description_right",
+          "id_left",
+          "id_right",
+          "is_hard_negative",
+          "label",
+          "pair_id",
+          "priceCurrency_left",
+          "priceCurrency_right",
+          "price_left",
+          "price_right",
+          "title_left",
+          "title_right"
+        ],
+        "schema_keysets": 1,
+        "observed_negative_hard_rate": 0.5,
+        "negative_hard_flag_present": 2000,
+        "hard_negative_counts": {
+          "false": 1000,
+          "true": 1000
+        },
+        "positive_hard_flag_true": 0,
+        "missing_rates_by_pair_side": {
+          "title": {
+            "left": 0.0,
+            "right": 0.0
+          },
+          "description": {
+            "left": 0.2388,
+            "right": 0.2544
+          },
+          "brand": {
+            "left": 0.6428,
+            "right": 0.6292
+          },
+          "price": {
+            "left": 0.07,
+            "right": 0.0744
+          },
+          "priceCurrency": {
+            "left": 0.0924,
+            "right": 0.0952
+          }
+        },
+        "missing_counts_by_pair_side": {
+          "title": {
+            "left": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            }
+          },
+          "description": {
+            "left": {
+              "absent_key": 0,
+              "null": 597,
+              "blank": 0,
+              "missing": 597
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 636,
+              "blank": 0,
+              "missing": 636
+            }
+          },
+          "brand": {
+            "left": {
+              "absent_key": 0,
+              "null": 1607,
+              "blank": 0,
+              "missing": 1607
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 1573,
+              "blank": 0,
+              "missing": 1573
+            }
+          },
+          "price": {
+            "left": {
+              "absent_key": 0,
+              "null": 175,
+              "blank": 0,
+              "missing": 175
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 186,
+              "blank": 0,
+              "missing": 186
+            }
+          },
+          "priceCurrency": {
+            "left": {
+              "absent_key": 0,
+              "null": 231,
+              "blank": 0,
+              "missing": 231
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 238,
+              "blank": 0,
+              "missing": 238
+            }
+          }
+        },
+        "missing_rates_by_unique_offer": {
+          "title": 0.0,
+          "description": 0.249,
+          "brand": 0.638,
+          "price": 0.07,
+          "priceCurrency": 0.094
+        },
+        "both_present_pairs_by_field": {
+          "title": 2500,
+          "description": 1442,
+          "brand": 349,
+          "price": 2160,
+          "priceCurrency": 2061
+        },
+        "duplicate_rows": 0,
+        "duplicate_pair_ids": 0,
+        "explicit_pair_ids": 2500,
+        "pair_id_mismatches": 0,
+        "duplicate_direct_pairs": 0,
+        "duplicate_canonical_pairs": 0,
+        "reversed_pair_groups": 0,
+        "conflicting_label_pairs": 0,
+        "self_pairs": 0,
+        "cluster_labeled_pairs": 2500,
+        "unique_clusters": 500,
+        "label_cluster_mismatches": 0,
+        "inconsistent_offer_payloads": 0
+      }
+    },
+    {
+      "name": "wdcproducts80cc20rnd000un_valid_large.json.gz",
+      "size_bytes": 1692730,
+      "compressed_size_bytes": 1692730,
+      "crc32": "cf186c97",
+      "sha256": "3f49df54a8d46c6b7dc59cd003e9f2021fab396af04a5e81c27b6e122b1eba6d",
+      "summary": {
+        "pairs": 4500,
+        "unique_offers": 1000,
+        "labels": {
+          "0": 4000,
+          "1": 500
+        },
+        "schema_keys": [
+          "brand_left",
+          "brand_right",
+          "cluster_id_left",
+          "cluster_id_right",
+          "description_left",
+          "description_right",
+          "id_left",
+          "id_right",
+          "is_hard_negative",
+          "label",
+          "pair_id",
+          "priceCurrency_left",
+          "priceCurrency_right",
+          "price_left",
+          "price_right",
+          "title_left",
+          "title_right"
+        ],
+        "schema_keysets": 1,
+        "observed_negative_hard_rate": 0.75,
+        "negative_hard_flag_present": 4000,
+        "hard_negative_counts": {
+          "false": 1000,
+          "true": 3000
+        },
+        "positive_hard_flag_true": 0,
+        "missing_rates_by_pair_side": {
+          "title": {
+            "left": 0.0,
+            "right": 0.0
+          },
+          "description": {
+            "left": 0.241556,
+            "right": 0.224667
+          },
+          "brand": {
+            "left": 0.644222,
+            "right": 0.649778
+          },
+          "price": {
+            "left": 0.064222,
+            "right": 0.065778
+          },
+          "priceCurrency": {
+            "left": 0.090667,
+            "right": 0.092222
+          }
+        },
+        "missing_counts_by_pair_side": {
+          "title": {
+            "left": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            }
+          },
+          "description": {
+            "left": {
+              "absent_key": 0,
+              "null": 1087,
+              "blank": 0,
+              "missing": 1087
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 1011,
+              "blank": 0,
+              "missing": 1011
+            }
+          },
+          "brand": {
+            "left": {
+              "absent_key": 0,
+              "null": 2899,
+              "blank": 0,
+              "missing": 2899
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 2924,
+              "blank": 0,
+              "missing": 2924
+            }
+          },
+          "price": {
+            "left": {
+              "absent_key": 0,
+              "null": 289,
+              "blank": 0,
+              "missing": 289
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 296,
+              "blank": 0,
+              "missing": 296
+            }
+          },
+          "priceCurrency": {
+            "left": {
+              "absent_key": 0,
+              "null": 408,
+              "blank": 0,
+              "missing": 408
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 415,
+              "blank": 0,
+              "missing": 415
+            }
+          }
+        },
+        "missing_rates_by_unique_offer": {
+          "title": 0.0,
+          "description": 0.235,
+          "brand": 0.646,
+          "price": 0.064,
+          "priceCurrency": 0.092
+        },
+        "both_present_pairs_by_field": {
+          "title": 4500,
+          "description": 2708,
+          "brand": 607,
+          "price": 3953,
+          "priceCurrency": 3739
+        },
+        "duplicate_rows": 0,
+        "duplicate_pair_ids": 0,
+        "explicit_pair_ids": 4500,
+        "pair_id_mismatches": 0,
+        "duplicate_direct_pairs": 0,
+        "duplicate_canonical_pairs": 0,
+        "reversed_pair_groups": 0,
+        "conflicting_label_pairs": 0,
+        "self_pairs": 0,
+        "cluster_labeled_pairs": 4500,
+        "unique_clusters": 500,
+        "label_cluster_mismatches": 0,
+        "inconsistent_offer_payloads": 0
+      }
+    },
+    {
+      "name": "wdcproducts80cc20rnd000un_valid_medium.json.gz",
+      "size_bytes": 1318537,
+      "compressed_size_bytes": 1318537,
+      "crc32": "416a0f16",
+      "sha256": "53fdbb169580bd4f02044fddeaffdac9dfe307ef5f9e37f84c814f00f373a1da",
+      "summary": {
+        "pairs": 3500,
+        "unique_offers": 1000,
+        "labels": {
+          "0": 3000,
+          "1": 500
+        },
+        "schema_keys": [
+          "brand_left",
+          "brand_right",
+          "cluster_id_left",
+          "cluster_id_right",
+          "description_left",
+          "description_right",
+          "id_left",
+          "id_right",
+          "is_hard_negative",
+          "label",
+          "pair_id",
+          "priceCurrency_left",
+          "priceCurrency_right",
+          "price_left",
+          "price_right",
+          "title_left",
+          "title_right"
+        ],
+        "schema_keysets": 1,
+        "observed_negative_hard_rate": 0.6666666666666666,
+        "negative_hard_flag_present": 3000,
+        "hard_negative_counts": {
+          "true": 2000,
+          "false": 1000
+        },
+        "positive_hard_flag_true": 0,
+        "missing_rates_by_pair_side": {
+          "title": {
+            "left": 0.0,
+            "right": 0.0
+          },
+          "description": {
+            "left": 0.230571,
+            "right": 0.233714
+          },
+          "brand": {
+            "left": 0.646286,
+            "right": 0.653429
+          },
+          "price": {
+            "left": 0.072286,
+            "right": 0.060571
+          },
+          "priceCurrency": {
+            "left": 0.095714,
+            "right": 0.09
+          }
+        },
+        "missing_counts_by_pair_side": {
+          "title": {
+            "left": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            }
+          },
+          "description": {
+            "left": {
+              "absent_key": 0,
+              "null": 807,
+              "blank": 0,
+              "missing": 807
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 818,
+              "blank": 0,
+              "missing": 818
+            }
+          },
+          "brand": {
+            "left": {
+              "absent_key": 0,
+              "null": 2262,
+              "blank": 0,
+              "missing": 2262
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 2287,
+              "blank": 0,
+              "missing": 2287
+            }
+          },
+          "price": {
+            "left": {
+              "absent_key": 0,
+              "null": 253,
+              "blank": 0,
+              "missing": 253
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 212,
+              "blank": 0,
+              "missing": 212
+            }
+          },
+          "priceCurrency": {
+            "left": {
+              "absent_key": 0,
+              "null": 335,
+              "blank": 0,
+              "missing": 335
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 315,
+              "blank": 0,
+              "missing": 315
+            }
+          }
+        },
+        "missing_rates_by_unique_offer": {
+          "title": 0.0,
+          "description": 0.235,
+          "brand": 0.646,
+          "price": 0.064,
+          "priceCurrency": 0.092
+        },
+        "both_present_pairs_by_field": {
+          "title": 3500,
+          "description": 2098,
+          "brand": 464,
+          "price": 3066,
+          "priceCurrency": 2900
+        },
+        "duplicate_rows": 0,
+        "duplicate_pair_ids": 0,
+        "explicit_pair_ids": 3500,
+        "pair_id_mismatches": 0,
+        "duplicate_direct_pairs": 0,
+        "duplicate_canonical_pairs": 0,
+        "reversed_pair_groups": 0,
+        "conflicting_label_pairs": 0,
+        "self_pairs": 0,
+        "cluster_labeled_pairs": 3500,
+        "unique_clusters": 500,
+        "label_cluster_mismatches": 0,
+        "inconsistent_offer_payloads": 0
+      }
+    },
+    {
+      "name": "wdcproducts80cc20rnd000un_valid_small.json.gz",
+      "size_bytes": 935031,
+      "compressed_size_bytes": 935031,
+      "crc32": "3a1e657f",
+      "sha256": "892e8d39cc8230dce5039a4bded16be1237d5c5c37b94a37404226d349ef3df8",
+      "summary": {
+        "pairs": 2500,
+        "unique_offers": 1000,
+        "labels": {
+          "0": 2000,
+          "1": 500
+        },
+        "schema_keys": [
+          "brand_left",
+          "brand_right",
+          "cluster_id_left",
+          "cluster_id_right",
+          "description_left",
+          "description_right",
+          "id_left",
+          "id_right",
+          "is_hard_negative",
+          "label",
+          "pair_id",
+          "priceCurrency_left",
+          "priceCurrency_right",
+          "price_left",
+          "price_right",
+          "title_left",
+          "title_right"
+        ],
+        "schema_keysets": 1,
+        "observed_negative_hard_rate": 0.5,
+        "negative_hard_flag_present": 2000,
+        "hard_negative_counts": {
+          "false": 1000,
+          "true": 1000
+        },
+        "positive_hard_flag_true": 0,
+        "missing_rates_by_pair_side": {
+          "title": {
+            "left": 0.0,
+            "right": 0.0
+          },
+          "description": {
+            "left": 0.2344,
+            "right": 0.2292
+          },
+          "brand": {
+            "left": 0.6272,
+            "right": 0.6564
+          },
+          "price": {
+            "left": 0.0568,
+            "right": 0.0692
+          },
+          "priceCurrency": {
+            "left": 0.0852,
+            "right": 0.0956
+          }
+        },
+        "missing_counts_by_pair_side": {
+          "title": {
+            "left": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            }
+          },
+          "description": {
+            "left": {
+              "absent_key": 0,
+              "null": 586,
+              "blank": 0,
+              "missing": 586
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 573,
+              "blank": 0,
+              "missing": 573
+            }
+          },
+          "brand": {
+            "left": {
+              "absent_key": 0,
+              "null": 1568,
+              "blank": 0,
+              "missing": 1568
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 1641,
+              "blank": 0,
+              "missing": 1641
+            }
+          },
+          "price": {
+            "left": {
+              "absent_key": 0,
+              "null": 142,
+              "blank": 0,
+              "missing": 142
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 173,
+              "blank": 0,
+              "missing": 173
+            }
+          },
+          "priceCurrency": {
+            "left": {
+              "absent_key": 0,
+              "null": 213,
+              "blank": 0,
+              "missing": 213
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 239,
+              "blank": 0,
+              "missing": 239
+            }
+          }
+        },
+        "missing_rates_by_unique_offer": {
+          "title": 0.0,
+          "description": 0.235,
+          "brand": 0.646,
+          "price": 0.064,
+          "priceCurrency": 0.092
+        },
+        "both_present_pairs_by_field": {
+          "title": 2500,
+          "description": 1503,
+          "brand": 353,
+          "price": 2200,
+          "priceCurrency": 2077
+        },
+        "duplicate_rows": 0,
+        "duplicate_pair_ids": 0,
+        "explicit_pair_ids": 2500,
+        "pair_id_mismatches": 0,
+        "duplicate_direct_pairs": 0,
+        "duplicate_canonical_pairs": 0,
+        "reversed_pair_groups": 0,
+        "conflicting_label_pairs": 0,
+        "self_pairs": 0,
+        "cluster_labeled_pairs": 2500,
+        "unique_clusters": 500,
+        "label_cluster_mismatches": 0,
+        "inconsistent_offer_payloads": 0
+      }
+    },
+    {
+      "name": "wdcproducts80cc20rnd050un_gs.json.gz",
+      "size_bytes": 2068823,
+      "compressed_size_bytes": 2068823,
+      "crc32": "95addc77",
+      "sha256": "54608e9400cccb7cd46f923996323d92f72f6b205eaee5a99b542c32b23c2f72",
+      "summary": {
+        "pairs": 4500,
+        "unique_offers": 1000,
+        "labels": {
+          "0": 4000,
+          "1": 500
+        },
+        "schema_keys": [
+          "brand_left",
+          "brand_right",
+          "cluster_id_left",
+          "cluster_id_right",
+          "description_left",
+          "description_right",
+          "id_left",
+          "id_right",
+          "is_hard_negative",
+          "label",
+          "pair_id",
+          "priceCurrency_left",
+          "priceCurrency_right",
+          "price_left",
+          "price_right",
+          "title_left",
+          "title_right"
+        ],
+        "schema_keysets": 1,
+        "observed_negative_hard_rate": 0.75,
+        "negative_hard_flag_present": 4000,
+        "hard_negative_counts": {
+          "true": 3000,
+          "false": 1000
+        },
+        "positive_hard_flag_true": 0,
+        "missing_rates_by_pair_side": {
+          "title": {
+            "left": 0.0,
+            "right": 0.0
+          },
+          "description": {
+            "left": 0.234222,
+            "right": 0.234222
+          },
+          "brand": {
+            "left": 0.684222,
+            "right": 0.696889
+          },
+          "price": {
+            "left": 0.065333,
+            "right": 0.063556
+          },
+          "priceCurrency": {
+            "left": 0.091778,
+            "right": 0.09
+          }
+        },
+        "missing_counts_by_pair_side": {
+          "title": {
+            "left": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            }
+          },
+          "description": {
+            "left": {
+              "absent_key": 0,
+              "null": 1054,
+              "blank": 0,
+              "missing": 1054
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 1054,
+              "blank": 0,
+              "missing": 1054
+            }
+          },
+          "brand": {
+            "left": {
+              "absent_key": 0,
+              "null": 3079,
+              "blank": 0,
+              "missing": 3079
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 3136,
+              "blank": 0,
+              "missing": 3136
+            }
+          },
+          "price": {
+            "left": {
+              "absent_key": 0,
+              "null": 294,
+              "blank": 0,
+              "missing": 294
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 286,
+              "blank": 0,
+              "missing": 286
+            }
+          },
+          "priceCurrency": {
+            "left": {
+              "absent_key": 0,
+              "null": 413,
+              "blank": 0,
+              "missing": 413
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 405,
+              "blank": 0,
+              "missing": 405
+            }
+          }
+        },
+        "missing_rates_by_unique_offer": {
+          "title": 0.0,
+          "description": 0.238,
+          "brand": 0.69,
+          "price": 0.065,
+          "priceCurrency": 0.09
+        },
+        "both_present_pairs_by_field": {
+          "title": 4500,
+          "description": 2701,
+          "brand": 472,
+          "price": 3955,
+          "priceCurrency": 3733
+        },
+        "duplicate_rows": 0,
+        "duplicate_pair_ids": 0,
+        "explicit_pair_ids": 4500,
+        "pair_id_mismatches": 0,
+        "duplicate_direct_pairs": 0,
+        "duplicate_canonical_pairs": 0,
+        "reversed_pair_groups": 0,
+        "conflicting_label_pairs": 0,
+        "self_pairs": 0,
+        "cluster_labeled_pairs": 4500,
+        "unique_clusters": 500,
+        "label_cluster_mismatches": 0,
+        "inconsistent_offer_payloads": 0
+      }
+    },
+    {
+      "name": "wdcproducts80cc20rnd100un_gs.json.gz",
+      "size_bytes": 2138809,
+      "compressed_size_bytes": 2138809,
+      "crc32": "e4628a0d",
+      "sha256": "258f9b408e715410f07480bf4ad39788a10d5cee1512e322091de43dafae1297",
+      "summary": {
+        "pairs": 4500,
+        "unique_offers": 1000,
+        "labels": {
+          "0": 4000,
+          "1": 500
+        },
+        "schema_keys": [
+          "brand_left",
+          "brand_right",
+          "cluster_id_left",
+          "cluster_id_right",
+          "description_left",
+          "description_right",
+          "id_left",
+          "id_right",
+          "is_hard_negative",
+          "label",
+          "pair_id",
+          "priceCurrency_left",
+          "priceCurrency_right",
+          "price_left",
+          "price_right",
+          "title_left",
+          "title_right"
+        ],
+        "schema_keysets": 1,
+        "observed_negative_hard_rate": 0.75,
+        "negative_hard_flag_present": 4000,
+        "hard_negative_counts": {
+          "true": 3000,
+          "false": 1000
+        },
+        "positive_hard_flag_true": 0,
+        "missing_rates_by_pair_side": {
+          "title": {
+            "left": 0.0,
+            "right": 0.0
+          },
+          "description": {
+            "left": 0.237556,
+            "right": 0.242889
+          },
+          "brand": {
+            "left": 0.678,
+            "right": 0.677556
+          },
+          "price": {
+            "left": 0.056667,
+            "right": 0.061556
+          },
+          "priceCurrency": {
+            "left": 0.075111,
+            "right": 0.080444
+          }
+        },
+        "missing_counts_by_pair_side": {
+          "title": {
+            "left": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            }
+          },
+          "description": {
+            "left": {
+              "absent_key": 0,
+              "null": 1069,
+              "blank": 0,
+              "missing": 1069
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 1093,
+              "blank": 0,
+              "missing": 1093
+            }
+          },
+          "brand": {
+            "left": {
+              "absent_key": 0,
+              "null": 3051,
+              "blank": 0,
+              "missing": 3051
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 3049,
+              "blank": 0,
+              "missing": 3049
+            }
+          },
+          "price": {
+            "left": {
+              "absent_key": 0,
+              "null": 255,
+              "blank": 0,
+              "missing": 255
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 277,
+              "blank": 0,
+              "missing": 277
+            }
+          },
+          "priceCurrency": {
+            "left": {
+              "absent_key": 0,
+              "null": 338,
+              "blank": 0,
+              "missing": 338
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 362,
+              "blank": 0,
+              "missing": 362
+            }
+          }
+        },
+        "missing_rates_by_unique_offer": {
+          "title": 0.0,
+          "description": 0.239,
+          "brand": 0.673,
+          "price": 0.059,
+          "priceCurrency": 0.078
+        },
+        "both_present_pairs_by_field": {
+          "title": 4500,
+          "description": 2641,
+          "brand": 551,
+          "price": 4010,
+          "priceCurrency": 3854
+        },
+        "duplicate_rows": 0,
+        "duplicate_pair_ids": 0,
+        "explicit_pair_ids": 4500,
+        "pair_id_mismatches": 0,
+        "duplicate_direct_pairs": 0,
+        "duplicate_canonical_pairs": 0,
+        "reversed_pair_groups": 0,
+        "conflicting_label_pairs": 0,
+        "self_pairs": 0,
+        "cluster_labeled_pairs": 4500,
+        "unique_clusters": 500,
+        "label_cluster_mismatches": 0,
+        "inconsistent_offer_payloads": 0
+      }
+    }
+  ],
+  "alternative_gold_standard_overlaps_with_small_splits": {
+    "wdcproducts80cc20rnd000un_gs.json.gz": {
+      "offer_id_overlaps": {
+        "train_valid": 0,
+        "train_test": 0,
+        "valid_test": 4
+      },
+      "canonical_pair_overlaps": {
+        "train_valid": 0,
+        "train_test": 0,
+        "valid_test": 0
+      },
+      "pair_id_overlaps": {
+        "train_valid": 0,
+        "train_test": 0,
+        "valid_test": 0
+      },
+      "cluster_id_overlaps": {
+        "train_valid": 500,
+        "train_test": 500,
+        "valid_test": 500
+      },
+      "text_signature_overlaps": {
+        "train_valid": 0,
+        "train_test": 0,
+        "valid_test": 4
+      },
+      "title_signature_overlaps": {
+        "train_valid": 0,
+        "train_test": 0,
+        "valid_test": 4
+      },
+      "integrity_errors": [],
+      "overlapping_offer_ids": {
+        "train_test": [],
+        "valid_test": [
+          "40482961",
+          "5700486",
+          "82648755",
+          "87668280"
+        ]
+      }
+    },
+    "wdcproducts80cc20rnd050un_gs.json.gz": {
+      "offer_id_overlaps": {
+        "train_valid": 0,
+        "train_test": 110,
+        "valid_test": 103
+      },
+      "canonical_pair_overlaps": {
+        "train_valid": 0,
+        "train_test": 18,
+        "valid_test": 19
+      },
+      "pair_id_overlaps": {
+        "train_valid": 0,
+        "train_test": 8,
+        "valid_test": 11
+      },
+      "cluster_id_overlaps": {
+        "train_valid": 500,
+        "train_test": 250,
+        "valid_test": 250
+      },
+      "text_signature_overlaps": {
+        "train_valid": 0,
+        "train_test": 110,
+        "valid_test": 103
+      },
+      "title_signature_overlaps": {
+        "train_valid": 0,
+        "train_test": 110,
+        "valid_test": 103
+      },
+      "integrity_errors": [],
+      "overlapping_offer_ids": {
+        "train_test": [
+          "12127235",
+          "12650660",
+          "14576497",
+          "15678458",
+          "15813840",
+          "1741624",
+          "18331466",
+          "18500821",
+          "18835729",
+          "19462081",
+          "2024149",
+          "2208630",
+          "22211135",
+          "22685310",
+          "23055402",
+          "23276195",
+          "24494324",
+          "25725051",
+          "25945492",
+          "26301462",
+          "26491787",
+          "26736430",
+          "27449862",
+          "27923177",
+          "29064292",
+          "29204789",
+          "2952392",
+          "2965203",
+          "29929454",
+          "30500904",
+          "31276154",
+          "32413380",
+          "32763428",
+          "32979461",
+          "34689442",
+          "34746615",
+          "3495669",
+          "35469349",
+          "37862083",
+          "37955791",
+          "3807651",
+          "38383881",
+          "38785326",
+          "39130017",
+          "415992",
+          "43481409",
+          "43932865",
+          "44141044",
+          "44557157",
+          "46100236",
+          "47293324",
+          "48734603",
+          "51033513",
+          "51683015",
+          "52948864",
+          "52993309",
+          "53072167",
+          "54500223",
+          "56603137",
+          "56904801",
+          "59141538",
+          "60088869",
+          "6020197",
+          "61787029",
+          "61794834",
+          "61868905",
+          "64536135",
+          "65372331",
+          "65953977",
+          "67318157",
+          "67614478",
+          "68689972",
+          "68874465",
+          "6978466",
+          "70100785",
+          "70159856",
+          "70702847",
+          "70880620",
+          "74461011",
+          "74525970",
+          "75384375",
+          "75840459",
+          "76157897",
+          "76426260",
+          "76497591",
+          "77220996",
+          "77969198",
+          "78989521",
+          "80725760",
+          "80876204",
+          "81408609",
+          "81870804",
+          "8315719",
+          "83724071",
+          "84745207",
+          "84977888",
+          "85033463",
+          "87046884",
+          "87137236",
+          "87259085",
+          "89258775",
+          "89323553",
+          "89814977",
+          "90183159",
+          "90391225",
+          "96037332",
+          "97165175",
+          "97502452",
+          "97987485",
+          "98241359"
+        ],
+        "valid_test": [
+          "10133100",
+          "11172253",
+          "11732386",
+          "1207658",
+          "12416419",
+          "12639972",
+          "13947468",
+          "14636068",
+          "14745484",
+          "15229338",
+          "16899666",
+          "1829891",
+          "19015384",
+          "19219349",
+          "19361384",
+          "19639123",
+          "19657799",
+          "1970599",
+          "19950624",
+          "20135620",
+          "20390207",
+          "21748907",
+          "21922988",
+          "22106476",
+          "22275252",
+          "23958745",
+          "2432414",
+          "24514948",
+          "25462564",
+          "2596154",
+          "27198925",
+          "27212721",
+          "27940486",
+          "28161805",
+          "30231318",
+          "30847749",
+          "32153750",
+          "32249677",
+          "36019341",
+          "36023646",
+          "38939872",
+          "39983567",
+          "44054804",
+          "44664998",
+          "46276597",
+          "46639696",
+          "46780169",
+          "49443311",
+          "49635278",
+          "50176689",
+          "50344604",
+          "50547404",
+          "5066967",
+          "51066053",
+          "51131711",
+          "51590037",
+          "51715397",
+          "53209357",
+          "55588875",
+          "58043047",
+          "58378163",
+          "59868206",
+          "60129288",
+          "60756351",
+          "61649172",
+          "6187863",
+          "62156844",
+          "6371519",
+          "65825803",
+          "66051813",
+          "66611160",
+          "6664354",
+          "67406272",
+          "67549983",
+          "69731456",
+          "72470859",
+          "74655423",
+          "75017710",
+          "76507982",
+          "77241153",
+          "77590975",
+          "77986479",
+          "79398825",
+          "79577197",
+          "81418800",
+          "84000278",
+          "85552392",
+          "88215321",
+          "89792967",
+          "90784571",
+          "9216392",
+          "9221397",
+          "92734144",
+          "93889022",
+          "9480501",
+          "95163536",
+          "95540353",
+          "95721809",
+          "95961137",
+          "96232718",
+          "96925124",
+          "97999811",
+          "98139630"
+        ]
+      }
+    },
+    "wdcproducts80cc20rnd100un_gs.json.gz": {
+      "offer_id_overlaps": {
+        "train_valid": 0,
+        "train_test": 0,
+        "valid_test": 0
+      },
+      "canonical_pair_overlaps": {
+        "train_valid": 0,
+        "train_test": 0,
+        "valid_test": 0
+      },
+      "pair_id_overlaps": {
+        "train_valid": 0,
+        "train_test": 0,
+        "valid_test": 0
+      },
+      "cluster_id_overlaps": {
+        "train_valid": 500,
+        "train_test": 0,
+        "valid_test": 0
+      },
+      "text_signature_overlaps": {
+        "train_valid": 0,
+        "train_test": 0,
+        "valid_test": 0
+      },
+      "title_signature_overlaps": {
+        "train_valid": 0,
+        "train_test": 0,
+        "valid_test": 0
+      },
+      "integrity_errors": [],
+      "overlapping_offer_ids": {
+        "train_test": [],
+        "valid_test": []
+      }
+    }
+  }
+}

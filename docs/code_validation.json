@@ -1,0 +1,101 @@
+{
+  "date": "2026-11-01",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\illar\\Desktop\\offer_matching_starter\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "isolated_venv": true,
+  "system_site_packages": false,
+  "versions": {
+    "numpy": "2.5.4",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.1",
+    "pytest": "9.2.0",
+    "matplotlib": "3.11.2",
+    "scipy": "1.18.1"
+  },
+  "baseline_tests": {
+    "passed": 10,
+    "command": "python -m pytest -q",
+    "scope": "Original source and original tests preserved before edits; dataset-free fixtures."
+  },
+  "real_data_feature_check": {
+    "fit_split": "train only",
+    "scope": "All selected rows, parsing and feature extraction only; no thresholds, hyperparameters, labels-based weights or matching performance evaluated.",
+    "splits": {
+      "train": {
+        "pairs_read": 2500,
+        "feature_shape": [
+          2500,
+          4
+        ],
+        "comparable_pairs": {
+          "title": 2500,
+          "description": 1442,
+          "brand": 349,
+          "identifier": 908
+        },
+        "pairs_without_any_evidence": 0
+      },
+      "valid": {
+        "pairs_read": 2500,
+        "feature_shape": [
+          2500,
+          4
+        ],
+        "comparable_pairs": {
+          "title": 2500,
+          "description": 1503,
+          "brand": 353,
+          "identifier": 848
+        },
+        "pairs_without_any_evidence": 0
+      },
+      "test": {
+        "pairs_read": 4500,
+        "feature_shape": [
+          4500,
+          4
+        ],
+        "comparable_pairs": {
+          "title": 4500,
+          "description": 2641,
+          "brand": 551,
+          "identifier": 1341
+        },
+        "pairs_without_any_evidence": 0
+      }
+    }
+  },
+  "scientific_matching_experiments_run": false,
+  "final_tests": {
+    "command": "python -m pytest -q --junitxml=tmp/pytest-audit.xml",
+    "tests": 76,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 76,
+    "duration_seconds": 9.061,
+    "scope": "Dataset-free logic and regression tests, including train-only fit and validation-selection independence from test labels."
+  },
+  "pip_check": {
+    "exit_code": 0,
+    "output": "No broken requirements found."
+  },
+  "compileall": {
+    "exit_code": 0,
+    "scope": "matching.py audit_wdc.py run_experiment.py list_archive.py plot_results.py search_cli.py tests"
+  },
+  "source_sha256": {
+    "audit_wdc.py": "1b9d63dbfa125816a5175632d840bb56fb91f261bacca60f85fa1a5639adfba8",
+    "list_archive.py": "2684be7401a5f7001e1b3cb65d462e9cb17e41e3c51df39c9d05d898abd0c78a",
+    "matching.py": "3237a1efab4a33142360001e81c1fd520f8b4183e346528d9280a071e1230a7c",
+    "plot_results.py": "77bbfc9f4db4a9acca127f2ad66bd2a1ba9d1849bb8a7825b5b1f1892ee47976",
+    "run_experiment.py": "18829167c5a0864c821aac655a0160e21fa060a592d7a266574692e1f18e5982",
+    "search_cli.py": "d53bff12f779cdbca40b704a6333bb9315f787e6ec33d2b8a7bbd7189a44f64d",
+    "tests/test_audit_wdc.py": "5248a5fa32dae930455e149387458d0a55e5fd84371a4e660224f34b6f4fc1cf",
+    "tests/test_experiment.py": "6a8786c7474c879b683f2e9f57dd96aa273ffd979a3443fdedaa007feb77641c",
+    "tests/test_matching.py": "20907f90d04110f459fd7c63ca9519a876d4b13daa6f4dde12a9bddb71564247",
+    "requirements.txt": "70417f33b12aa69833b100a89d37087aca1bcb1d0c66179b6dee7e9d225c3a8d",
+    "requirements-lock.txt": "4e9c68bd40b388d1479f2bff491413f22faa1464495bf5c0a4d992e522607927"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "dataset": "WDC Products",
+  "archive": "data/external/80pair.zip",
+  "archive_sha256": "b2044939cee5ea6f12148a2f3551508de3cb77660dfc91767c44daaf9d8a9c4a",
+  "corner_case_cluster_percentage": 80,
+  "random_cluster_percentage": 20,
+  "training_size": "small",
+  "train_validation_unseen_percentage": 0,
+  "test_unseen_percentage": 100,
+  "members": {
+    "train": "wdcproducts80cc20rnd000un_train_small.json.gz",
+    "valid": "wdcproducts80cc20rnd000un_valid_small.json.gz",
+    "test": "wdcproducts80cc20rnd100un_gs.json.gz"
+  },
+  "selection_reason": "Official paired small train/validation and 100%-unseen gold standard test transfer to clusters absent from train/validation. The 000un training names are the only training protocol in this archive.",
+  "split_policy": "Use official splits verbatim; fit representations/weights on train, choose parameters on valid, evaluate once on test.",
+  "validation_limitation": "Validation is seen-model; the separate optional unseen-validation archive is not included in 80pair.zip. Account for the validation/test distribution shift.",
+  "source": "https://webdatacommons.org/largescaleproductcorpus/wdc-products/",
+  "source_checked_on": "2026-11-01",
+  "checksum_note": "Checksums identify the supplied local artifacts; upstream authenticity was not independently certified by a published checksum.",
+  "scope": "Data/schema audit only; no matching scores or model-selection results generated."
+}
