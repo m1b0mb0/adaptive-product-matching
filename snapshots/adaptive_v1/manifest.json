@@ -1,0 +1,65 @@
+{
+  "version": "adaptive-evidence-aware-v1",
+  "scope": "Byte-identical stage-2 grouped implementation; distinct from the older raw-channel legacy score.",
+  "source_results": "docs/validation/results.json",
+  "source_results_sha256": "8cde515278dbf1ca8010d555ad3e8b4fd9ff4e4603f76a52ad06a1efdda86662",
+  "method_api": "matching.evidence_scores",
+  "frozen_config": {
+    "threshold": 0.15000000000000002,
+    "gamma": 0.5,
+    "penalty": 0.0,
+    "validation": {
+      "precision": 0.5660377358490566,
+      "recall": 0.96,
+      "f1": 0.712166172106825,
+      "tp": 240,
+      "fp": 184,
+      "fn": 10,
+      "tn": 295
+    },
+    "n_parameter_candidates": 3
+  },
+  "prior": 0.2,
+  "manual_reliability": [
+    1,
+    1,
+    1,
+    0.7
+  ],
+  "files": {
+    "matching.py": {
+      "sha256": "038f58693212c6eb04ed8a55e050ba43ea34270c0277f849fac953b92d6e72ab",
+      "original_path": "matching.py"
+    },
+    "run_experiment.py": {
+      "sha256": "18829167c5a0864c821aac655a0160e21fa060a592d7a266574692e1f18e5982",
+      "original_path": "run_experiment.py"
+    },
+    "run_validation.py": {
+      "sha256": "0f3edebc545c91dd964ebbbed8ba186b743fbb3349f6d1637d12ed8156e3d13a",
+      "original_path": "run_validation.py"
+    },
+    "audit_wdc.py": {
+      "sha256": "1b9d63dbfa125816a5175632d840bb56fb91f261bacca60f85fa1a5639adfba8",
+      "original_path": "audit_wdc.py"
+    },
+    "requirements.txt": {
+      "sha256": "70417f33b12aa69833b100a89d37087aca1bcb1d0c66179b6dee7e9d225c3a8d",
+      "original_path": "requirements.txt"
+    },
+    "requirements-lock.txt": {
+      "sha256": "4e9c68bd40b388d1479f2bff491413f22faa1464495bf5c0a4d992e522607927",
+      "original_path": "requirements-lock.txt"
+    },
+    "validation_config.json": {
+      "sha256": "99300131bfc9cbb46124a9433df5801368db228743e1b154f971fbb34f2c106c",
+      "original_path": "docs/validation_config.json"
+    },
+    "protocol.json": {
+      "sha256": "bca6ce1150802b373b664d52b533b75685e2e4d7ea129455fb0c96b2f6e2d471",
+      "original_path": "docs/validation/protocol.json"
+    }
+  },
+  "reproduction": "Restore the four Python modules to the root of an isolated copy, requirements at root, validation_config.json to docs/validation_config.json, and the original train/validation files at their configured data paths. Do not replace current project files.",
+  "final_test_required": false
+}
