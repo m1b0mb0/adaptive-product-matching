@@ -1,0 +1,1009 @@
+{
+  "configuration": {
+    "dataset": "WDC Products",
+    "source_page": "https://webdatacommons.org/largescaleproductcorpus/wdc-products/",
+    "source_url": "https://data.dws.informatik.uni-mannheim.de/largescaleproductcorpus/data/wdc-products/val_pair.zip",
+    "source_checked_on": "2026-11-01",
+    "corner_case_cluster_percentage": 80,
+    "training_size": "small",
+    "validation_unseen_percentage": 0,
+    "mode": "fallback_seen",
+    "reason": "Official additional 80cc100un/small validation rejected: 110 training offer IDs, 27 training pairs, and 250 training clusters overlap; empirical unseen-cluster fraction is 0.500000; failed checks: ['train__unseen_validation']. Official original seen validation retained verbatim; no rows filtered.",
+    "archive": "data/external/valpair.zip",
+    "archive_sha256": "15bb323e9aff4771be1baaeb048c9b6ef7459446ccbadca61cc9cb1272cb4143",
+    "nested_archive": "80pair_addvalid.zip",
+    "member": "wdcproducts80cc20rnd000un_valid_small.json.gz",
+    "candidate_member": "wdcproducts80cc20rnd100un_valid_small.json.gz",
+    "candidate_validation_path": "data/external/wdcproducts80cc20rnd100un_valid_small.json.gz",
+    "candidate_validation_sha256": "b66f53fd502cb8ecee18cfe38196edbadc93bcab05f0f1f52fd5c14741f9ab22",
+    "candidate_rejected": true,
+    "candidate_rejection_checks": [
+      "train__unseen_validation"
+    ],
+    "validation_path": "data/external/wdcproducts80cc20rnd000un_valid_small.json.gz",
+    "validation_sha256": "892e8d39cc8230dce5039a4bded16be1237d5c5c37b94a37404226d349ef3df8",
+    "train_path": "data/external/wdcproducts80cc20rnd000un_train_small.json.gz",
+    "seen_validation_path": "data/external/wdcproducts80cc20rnd000un_valid_small.json.gz",
+    "reserved_test_metadata_path": "data/external/wdcproducts80cc20rnd100un_gs.json.gz",
+    "policy": "Fit representations/informativeness on train only; choose thresholds/hyperparameters on validation. No test-label access or final evaluation.",
+    "selection_reason": "Official additional 80cc100un/small validation rejected: 110 training offer IDs, 27 training pairs, and 250 training clusters overlap; empirical unseen-cluster fraction is 0.500000; failed checks: ['train__unseen_validation']. Official original seen validation retained verbatim; no rows filtered.",
+    "validation_limitation": "Seen-model validation and reserved unseen-model test differ in product-cluster regime; validation results cannot be treated as estimates of unseen-test performance.",
+    "checksum_note": "Local SHA256 identifies the downloaded artifact; no independently published upstream checksum was found."
+  },
+  "archive_manifest": {
+    "path": "data/external/valpair.zip",
+    "size_bytes": 26336166,
+    "sha256": "15bb323e9aff4771be1baaeb048c9b6ef7459446ccbadca61cc9cb1272cb4143",
+    "source_url": "https://data.dws.informatik.uni-mannheim.de/largescaleproductcorpus/data/wdc-products/val_pair.zip",
+    "members": [
+      {
+        "name": "20pair_addvalid.zip",
+        "size_bytes": 8726402,
+        "compressed_size_bytes": 8726402,
+        "crc32": "db3e7547",
+        "sha256": "2ea21a75eb1964b8887e18d31de44d4e2b56b08bd6bfe8df72959a6ece0ee6a6"
+      },
+      {
+        "name": "50pair_addvalid.zip",
+        "size_bytes": 8442988,
+        "compressed_size_bytes": 8442988,
+        "crc32": "755b40a8",
+        "sha256": "fa03de501522b13c5205a5f431599883942f6d633a0b29a673288cefc83146ce"
+      },
+      {
+        "name": "80pair_addvalid.zip",
+        "size_bytes": 9166304,
+        "compressed_size_bytes": 9166304,
+        "crc32": "292866af",
+        "sha256": "49c945061135688c85bcf9f839924f1f9fe791ebaa93ab8e9b53db31434cdff5"
+      }
+    ],
+    "nested_archive": "80pair_addvalid.zip",
+    "selected_nested_members": [
+      {
+        "name": "wdcproducts80cc20rnd050un_valid_large.json.gz",
+        "size_bytes": 1960631,
+        "compressed_size_bytes": 1960631,
+        "crc32": "02dc2910",
+        "sha256": "6776e3e7d8ed56f3e422df11fd25ffe0b1deb4d92e0c36d60dd4905f65ef79f6"
+      },
+      {
+        "name": "wdcproducts80cc20rnd050un_valid_medium.json.gz",
+        "size_bytes": 1524023,
+        "compressed_size_bytes": 1524023,
+        "crc32": "67323a51",
+        "sha256": "3a6dd0380facfdc4b5349225f2c3108866d6db288454c34820d254960adbac76"
+      },
+      {
+        "name": "wdcproducts80cc20rnd050un_valid_small.json.gz",
+        "size_bytes": 1097879,
+        "compressed_size_bytes": 1097879,
+        "crc32": "ade81364",
+        "sha256": "b28fabeb40ee8b74cbee8b5ee54c9ed33fe586eadd167336a7744ff2596669f7"
+      },
+      {
+        "name": "wdcproducts80cc20rnd100un_valid_large.json.gz",
+        "size_bytes": 1960631,
+        "compressed_size_bytes": 1960631,
+        "crc32": "1d833938",
+        "sha256": "8b3d5e2b584d8df37d3978fd173b6792d6f9efa664dd5a04c008c56171200210"
+      },
+      {
+        "name": "wdcproducts80cc20rnd100un_valid_medium.json.gz",
+        "size_bytes": 1524023,
+        "compressed_size_bytes": 1524023,
+        "crc32": "5793619b",
+        "sha256": "5069fd7aafeec05388d25039c65ea4f6fe77278aa1d40616744e1e81fccbdaa9"
+      },
+      {
+        "name": "wdcproducts80cc20rnd100un_valid_small.json.gz",
+        "size_bytes": 1097879,
+        "compressed_size_bytes": 1097879,
+        "crc32": "5e1b60df",
+        "sha256": "b66f53fd502cb8ecee18cfe38196edbadc93bcab05f0f1f52fd5c14741f9ab22"
+      }
+    ]
+  },
+  "splits": {
+    "train": {
+      "pairs": 2500,
+      "unique_offers": 1000,
+      "labels": {
+        "0": 2000,
+        "1": 500
+      },
+      "schema_keys": [
+        "brand_left",
+        "brand_right",
+        "cluster_id_left",
+        "cluster_id_right",
+        "description_left",
+        "description_right",
+        "id_left",
+        "id_right",
+        "is_hard_negative",
+        "label",
+        "pair_id",
+        "priceCurrency_left",
+        "priceCurrency_right",
+        "price_left",
+        "price_right",
+        "title_left",
+        "title_right"
+      ],
+      "schema_keysets": 1,
+      "observed_negative_hard_rate": 0.5,
+      "negative_hard_flag_present": 2000,
+      "hard_negative_counts": {
+        "false": 1000,
+        "true": 1000
+      },
+      "positive_hard_flag_true": 0,
+      "missing_rates_by_pair_side": {
+        "title": {
+          "left": 0.0,
+          "right": 0.0
+        },
+        "description": {
+          "left": 0.2388,
+          "right": 0.2544
+        },
+        "brand": {
+          "left": 0.6428,
+          "right": 0.6292
+        },
+        "price": {
+          "left": 0.07,
+          "right": 0.0744
+        },
+        "priceCurrency": {
+          "left": 0.0924,
+          "right": 0.0952
+        }
+      },
+      "missing_counts_by_pair_side": {
+        "title": {
+          "left": {
+            "absent_key": 0,
+            "null": 0,
+            "blank": 0,
+            "missing": 0
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 0,
+            "blank": 0,
+            "missing": 0
+          }
+        },
+        "description": {
+          "left": {
+            "absent_key": 0,
+            "null": 597,
+            "blank": 0,
+            "missing": 597
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 636,
+            "blank": 0,
+            "missing": 636
+          }
+        },
+        "brand": {
+          "left": {
+            "absent_key": 0,
+            "null": 1607,
+            "blank": 0,
+            "missing": 1607
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 1573,
+            "blank": 0,
+            "missing": 1573
+          }
+        },
+        "price": {
+          "left": {
+            "absent_key": 0,
+            "null": 175,
+            "blank": 0,
+            "missing": 175
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 186,
+            "blank": 0,
+            "missing": 186
+          }
+        },
+        "priceCurrency": {
+          "left": {
+            "absent_key": 0,
+            "null": 231,
+            "blank": 0,
+            "missing": 231
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 238,
+            "blank": 0,
+            "missing": 238
+          }
+        }
+      },
+      "missing_rates_by_unique_offer": {
+        "title": 0.0,
+        "description": 0.249,
+        "brand": 0.638,
+        "price": 0.07,
+        "priceCurrency": 0.094
+      },
+      "both_present_pairs_by_field": {
+        "title": 2500,
+        "description": 1442,
+        "brand": 349,
+        "price": 2160,
+        "priceCurrency": 2061
+      },
+      "duplicate_rows": 0,
+      "duplicate_pair_ids": 0,
+      "explicit_pair_ids": 2500,
+      "pair_id_mismatches": 0,
+      "duplicate_direct_pairs": 0,
+      "duplicate_canonical_pairs": 0,
+      "reversed_pair_groups": 0,
+      "conflicting_label_pairs": 0,
+      "self_pairs": 0,
+      "cluster_labeled_pairs": 2500,
+      "unique_clusters": 500,
+      "label_cluster_mismatches": 0,
+      "inconsistent_offer_payloads": 0
+    },
+    "seen_validation": {
+      "pairs": 2500,
+      "unique_offers": 1000,
+      "labels": {
+        "0": 2000,
+        "1": 500
+      },
+      "schema_keys": [
+        "brand_left",
+        "brand_right",
+        "cluster_id_left",
+        "cluster_id_right",
+        "description_left",
+        "description_right",
+        "id_left",
+        "id_right",
+        "is_hard_negative",
+        "label",
+        "pair_id",
+        "priceCurrency_left",
+        "priceCurrency_right",
+        "price_left",
+        "price_right",
+        "title_left",
+        "title_right"
+      ],
+      "schema_keysets": 1,
+      "observed_negative_hard_rate": 0.5,
+      "negative_hard_flag_present": 2000,
+      "hard_negative_counts": {
+        "false": 1000,
+        "true": 1000
+      },
+      "positive_hard_flag_true": 0,
+      "missing_rates_by_pair_side": {
+        "title": {
+          "left": 0.0,
+          "right": 0.0
+        },
+        "description": {
+          "left": 0.2344,
+          "right": 0.2292
+        },
+        "brand": {
+          "left": 0.6272,
+          "right": 0.6564
+        },
+        "price": {
+          "left": 0.0568,
+          "right": 0.0692
+        },
+        "priceCurrency": {
+          "left": 0.0852,
+          "right": 0.0956
+        }
+      },
+      "missing_counts_by_pair_side": {
+        "title": {
+          "left": {
+            "absent_key": 0,
+            "null": 0,
+            "blank": 0,
+            "missing": 0
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 0,
+            "blank": 0,
+            "missing": 0
+          }
+        },
+        "description": {
+          "left": {
+            "absent_key": 0,
+            "null": 586,
+            "blank": 0,
+            "missing": 586
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 573,
+            "blank": 0,
+            "missing": 573
+          }
+        },
+        "brand": {
+          "left": {
+            "absent_key": 0,
+            "null": 1568,
+            "blank": 0,
+            "missing": 1568
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 1641,
+            "blank": 0,
+            "missing": 1641
+          }
+        },
+        "price": {
+          "left": {
+            "absent_key": 0,
+            "null": 142,
+            "blank": 0,
+            "missing": 142
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 173,
+            "blank": 0,
+            "missing": 173
+          }
+        },
+        "priceCurrency": {
+          "left": {
+            "absent_key": 0,
+            "null": 213,
+            "blank": 0,
+            "missing": 213
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 239,
+            "blank": 0,
+            "missing": 239
+          }
+        }
+      },
+      "missing_rates_by_unique_offer": {
+        "title": 0.0,
+        "description": 0.235,
+        "brand": 0.646,
+        "price": 0.064,
+        "priceCurrency": 0.092
+      },
+      "both_present_pairs_by_field": {
+        "title": 2500,
+        "description": 1503,
+        "brand": 353,
+        "price": 2200,
+        "priceCurrency": 2077
+      },
+      "duplicate_rows": 0,
+      "duplicate_pair_ids": 0,
+      "explicit_pair_ids": 2500,
+      "pair_id_mismatches": 0,
+      "duplicate_direct_pairs": 0,
+      "duplicate_canonical_pairs": 0,
+      "reversed_pair_groups": 0,
+      "conflicting_label_pairs": 0,
+      "self_pairs": 0,
+      "cluster_labeled_pairs": 2500,
+      "unique_clusters": 500,
+      "label_cluster_mismatches": 0,
+      "inconsistent_offer_payloads": 0
+    },
+    "unseen_validation": {
+      "pairs": 2500,
+      "unique_offers": 1000,
+      "labels": {
+        "0": 2000,
+        "1": 500
+      },
+      "schema_keys": [
+        "brand_left",
+        "brand_right",
+        "cluster_id_left",
+        "cluster_id_right",
+        "description_left",
+        "description_right",
+        "id_left",
+        "id_right",
+        "is_hard_negative",
+        "label",
+        "pair_id",
+        "priceCurrency_left",
+        "priceCurrency_right",
+        "price_left",
+        "price_right",
+        "title_left",
+        "title_right"
+      ],
+      "schema_keysets": 1,
+      "observed_negative_hard_rate": 0.5,
+      "negative_hard_flag_present": 2000,
+      "hard_negative_counts": {
+        "true": 1000,
+        "false": 1000
+      },
+      "positive_hard_flag_true": 0,
+      "missing_rates_by_pair_side": {
+        "title": {
+          "left": 0.0,
+          "right": 0.0
+        },
+        "description": {
+          "left": 0.2308,
+          "right": 0.2292
+        },
+        "brand": {
+          "left": 0.644,
+          "right": 0.656
+        },
+        "price": {
+          "left": 0.0656,
+          "right": 0.062
+        },
+        "priceCurrency": {
+          "left": 0.0836,
+          "right": 0.0824
+        }
+      },
+      "missing_counts_by_pair_side": {
+        "title": {
+          "left": {
+            "absent_key": 0,
+            "null": 0,
+            "blank": 0,
+            "missing": 0
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 0,
+            "blank": 0,
+            "missing": 0
+          }
+        },
+        "description": {
+          "left": {
+            "absent_key": 0,
+            "null": 577,
+            "blank": 0,
+            "missing": 577
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 573,
+            "blank": 0,
+            "missing": 573
+          }
+        },
+        "brand": {
+          "left": {
+            "absent_key": 0,
+            "null": 1610,
+            "blank": 0,
+            "missing": 1610
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 1640,
+            "blank": 0,
+            "missing": 1640
+          }
+        },
+        "price": {
+          "left": {
+            "absent_key": 0,
+            "null": 164,
+            "blank": 0,
+            "missing": 164
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 155,
+            "blank": 0,
+            "missing": 155
+          }
+        },
+        "priceCurrency": {
+          "left": {
+            "absent_key": 0,
+            "null": 209,
+            "blank": 0,
+            "missing": 209
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 206,
+            "blank": 0,
+            "missing": 206
+          }
+        }
+      },
+      "missing_rates_by_unique_offer": {
+        "title": 0.0,
+        "description": 0.237,
+        "brand": 0.647,
+        "price": 0.064,
+        "priceCurrency": 0.085
+      },
+      "both_present_pairs_by_field": {
+        "title": 2500,
+        "description": 1503,
+        "brand": 345,
+        "price": 2199,
+        "priceCurrency": 2118
+      },
+      "duplicate_rows": 0,
+      "duplicate_pair_ids": 0,
+      "explicit_pair_ids": 2500,
+      "pair_id_mismatches": 0,
+      "duplicate_direct_pairs": 0,
+      "duplicate_canonical_pairs": 0,
+      "reversed_pair_groups": 0,
+      "conflicting_label_pairs": 0,
+      "self_pairs": 0,
+      "cluster_labeled_pairs": 2500,
+      "unique_clusters": 500,
+      "label_cluster_mismatches": 0,
+      "inconsistent_offer_payloads": 0
+    }
+  },
+  "test_metadata_only": {
+    "pairs": 4500,
+    "unique_offers": 1000,
+    "unique_clusters": 500,
+    "duplicate_canonical_pairs": 0,
+    "path": "data/external/wdcproducts80cc20rnd100un_gs.json.gz",
+    "sha256": "258f9b408e715410f07480bf4ad39788a10d5cee1512e322091de43dafae1297"
+  },
+  "overlaps": {
+    "train__unseen_validation": {
+      "offer_ids": 110,
+      "cluster_ids": 250,
+      "canonical_pairs": 27,
+      "text_signatures": 110,
+      "title_signatures": 110
+    },
+    "seen_validation__unseen_validation": {
+      "offer_ids": 95,
+      "cluster_ids": 250,
+      "canonical_pairs": 14,
+      "text_signatures": 95,
+      "title_signatures": 95
+    },
+    "unseen_validation__test_metadata_only": {
+      "offer_ids": 0,
+      "cluster_ids": 0,
+      "canonical_pairs": 0,
+      "text_signatures": 0,
+      "title_signatures": 0
+    },
+    "train__test_metadata_only": {
+      "offer_ids": 0,
+      "cluster_ids": 0,
+      "canonical_pairs": 0,
+      "text_signatures": 0,
+      "title_signatures": 0
+    },
+    "train__seen_validation": {
+      "offer_ids": 0,
+      "cluster_ids": 500,
+      "canonical_pairs": 0,
+      "text_signatures": 0,
+      "title_signatures": 0
+    },
+    "seen_validation__test_metadata_only": {
+      "offer_ids": 0,
+      "cluster_ids": 0,
+      "canonical_pairs": 0,
+      "text_signatures": 0,
+      "title_signatures": 0
+    }
+  },
+  "additional_small_candidates": {
+    "wdcproducts80cc20rnd050un_valid_small.json.gz": {
+      "summary": {
+        "pairs": 2500,
+        "unique_offers": 1000,
+        "labels": {
+          "0": 2000,
+          "1": 500
+        },
+        "schema_keys": [
+          "brand_left",
+          "brand_right",
+          "cluster_id_left",
+          "cluster_id_right",
+          "description_left",
+          "description_right",
+          "id_left",
+          "id_right",
+          "is_hard_negative",
+          "label",
+          "pair_id",
+          "priceCurrency_left",
+          "priceCurrency_right",
+          "price_left",
+          "price_right",
+          "title_left",
+          "title_right"
+        ],
+        "schema_keysets": 1,
+        "observed_negative_hard_rate": 0.5,
+        "negative_hard_flag_present": 2000,
+        "hard_negative_counts": {
+          "true": 1000,
+          "false": 1000
+        },
+        "positive_hard_flag_true": 0,
+        "missing_rates_by_pair_side": {
+          "title": {
+            "left": 0.0,
+            "right": 0.0
+          },
+          "description": {
+            "left": 0.2308,
+            "right": 0.2292
+          },
+          "brand": {
+            "left": 0.644,
+            "right": 0.656
+          },
+          "price": {
+            "left": 0.0656,
+            "right": 0.062
+          },
+          "priceCurrency": {
+            "left": 0.0836,
+            "right": 0.0824
+          }
+        },
+        "missing_counts_by_pair_side": {
+          "title": {
+            "left": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            }
+          },
+          "description": {
+            "left": {
+              "absent_key": 0,
+              "null": 577,
+              "blank": 0,
+              "missing": 577
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 573,
+              "blank": 0,
+              "missing": 573
+            }
+          },
+          "brand": {
+            "left": {
+              "absent_key": 0,
+              "null": 1610,
+              "blank": 0,
+              "missing": 1610
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 1640,
+              "blank": 0,
+              "missing": 1640
+            }
+          },
+          "price": {
+            "left": {
+              "absent_key": 0,
+              "null": 164,
+              "blank": 0,
+              "missing": 164
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 155,
+              "blank": 0,
+              "missing": 155
+            }
+          },
+          "priceCurrency": {
+            "left": {
+              "absent_key": 0,
+              "null": 209,
+              "blank": 0,
+              "missing": 209
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 206,
+              "blank": 0,
+              "missing": 206
+            }
+          }
+        },
+        "missing_rates_by_unique_offer": {
+          "title": 0.0,
+          "description": 0.237,
+          "brand": 0.647,
+          "price": 0.064,
+          "priceCurrency": 0.085
+        },
+        "both_present_pairs_by_field": {
+          "title": 2500,
+          "description": 1503,
+          "brand": 345,
+          "price": 2199,
+          "priceCurrency": 2118
+        },
+        "duplicate_rows": 0,
+        "duplicate_pair_ids": 0,
+        "explicit_pair_ids": 2500,
+        "pair_id_mismatches": 0,
+        "duplicate_direct_pairs": 0,
+        "duplicate_canonical_pairs": 0,
+        "reversed_pair_groups": 0,
+        "conflicting_label_pairs": 0,
+        "self_pairs": 0,
+        "cluster_labeled_pairs": 2500,
+        "unique_clusters": 500,
+        "label_cluster_mismatches": 0,
+        "inconsistent_offer_payloads": 0
+      },
+      "uncompressed_sha256": "48bbd7012d2f904c3a86cb56aa919446f05b8911083058cbfd987ec7c4bcfd9a",
+      "overlaps": {
+        "train": {
+          "offer_ids": 110,
+          "cluster_ids": 250,
+          "canonical_pairs": 27,
+          "text_signatures": 110,
+          "title_signatures": 110
+        },
+        "seen_validation": {
+          "offer_ids": 95,
+          "cluster_ids": 250,
+          "canonical_pairs": 14,
+          "text_signatures": 95,
+          "title_signatures": 95
+        },
+        "test_metadata_only": {
+          "offer_ids": 0,
+          "cluster_ids": 0,
+          "canonical_pairs": 0,
+          "text_signatures": 0,
+          "title_signatures": 0
+        }
+      },
+      "empirical_unseen_cluster_fraction_vs_train": 0.5,
+      "eligible_for_100_percent_unseen_validation": false
+    },
+    "wdcproducts80cc20rnd100un_valid_small.json.gz": {
+      "summary": {
+        "pairs": 2500,
+        "unique_offers": 1000,
+        "labels": {
+          "0": 2000,
+          "1": 500
+        },
+        "schema_keys": [
+          "brand_left",
+          "brand_right",
+          "cluster_id_left",
+          "cluster_id_right",
+          "description_left",
+          "description_right",
+          "id_left",
+          "id_right",
+          "is_hard_negative",
+          "label",
+          "pair_id",
+          "priceCurrency_left",
+          "priceCurrency_right",
+          "price_left",
+          "price_right",
+          "title_left",
+          "title_right"
+        ],
+        "schema_keysets": 1,
+        "observed_negative_hard_rate": 0.5,
+        "negative_hard_flag_present": 2000,
+        "hard_negative_counts": {
+          "true": 1000,
+          "false": 1000
+        },
+        "positive_hard_flag_true": 0,
+        "missing_rates_by_pair_side": {
+          "title": {
+            "left": 0.0,
+            "right": 0.0
+          },
+          "description": {
+            "left": 0.2308,
+            "right": 0.2292
+          },
+          "brand": {
+            "left": 0.644,
+            "right": 0.656
+          },
+          "price": {
+            "left": 0.0656,
+            "right": 0.062
+          },
+          "priceCurrency": {
+            "left": 0.0836,
+            "right": 0.0824
+          }
+        },
+        "missing_counts_by_pair_side": {
+          "title": {
+            "left": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 0,
+              "blank": 0,
+              "missing": 0
+            }
+          },
+          "description": {
+            "left": {
+              "absent_key": 0,
+              "null": 577,
+              "blank": 0,
+              "missing": 577
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 573,
+              "blank": 0,
+              "missing": 573
+            }
+          },
+          "brand": {
+            "left": {
+              "absent_key": 0,
+              "null": 1610,
+              "blank": 0,
+              "missing": 1610
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 1640,
+              "blank": 0,
+              "missing": 1640
+            }
+          },
+          "price": {
+            "left": {
+              "absent_key": 0,
+              "null": 164,
+              "blank": 0,
+              "missing": 164
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 155,
+              "blank": 0,
+              "missing": 155
+            }
+          },
+          "priceCurrency": {
+            "left": {
+              "absent_key": 0,
+              "null": 209,
+              "blank": 0,
+              "missing": 209
+            },
+            "right": {
+              "absent_key": 0,
+              "null": 206,
+              "blank": 0,
+              "missing": 206
+            }
+          }
+        },
+        "missing_rates_by_unique_offer": {
+          "title": 0.0,
+          "description": 0.237,
+          "brand": 0.647,
+          "price": 0.064,
+          "priceCurrency": 0.085
+        },
+        "both_present_pairs_by_field": {
+          "title": 2500,
+          "description": 1503,
+          "brand": 345,
+          "price": 2199,
+          "priceCurrency": 2118
+        },
+        "duplicate_rows": 0,
+        "duplicate_pair_ids": 0,
+        "explicit_pair_ids": 2500,
+        "pair_id_mismatches": 0,
+        "duplicate_direct_pairs": 0,
+        "duplicate_canonical_pairs": 0,
+        "reversed_pair_groups": 0,
+        "conflicting_label_pairs": 0,
+        "self_pairs": 0,
+        "cluster_labeled_pairs": 2500,
+        "unique_clusters": 500,
+        "label_cluster_mismatches": 0,
+        "inconsistent_offer_payloads": 0
+      },
+      "uncompressed_sha256": "48bbd7012d2f904c3a86cb56aa919446f05b8911083058cbfd987ec7c4bcfd9a",
+      "overlaps": {
+        "train": {
+          "offer_ids": 110,
+          "cluster_ids": 250,
+          "canonical_pairs": 27,
+          "text_signatures": 110,
+          "title_signatures": 110
+        },
+        "seen_validation": {
+          "offer_ids": 95,
+          "cluster_ids": 250,
+          "canonical_pairs": 14,
+          "text_signatures": 95,
+          "title_signatures": 95
+        },
+        "test_metadata_only": {
+          "offer_ids": 0,
+          "cluster_ids": 0,
+          "canonical_pairs": 0,
+          "text_signatures": 0,
+          "title_signatures": 0
+        }
+      },
+      "empirical_unseen_cluster_fraction_vs_train": 0.5,
+      "eligible_for_100_percent_unseen_validation": false
+    }
+  },
+  "additional_small_candidate_content_identical": true,
+  "test_label_policy": "Test JSONL streamed using an allowlist of id/cluster_id/title/description/brand; labels discarded by decoder and never read by application logic. No labels, hard-negative flags, label-derived statistics, predictions or scores retained.",
+  "signature_policy": "NFKC + casefold + whitespace; SHA256 of JSON [title,description,brand], plus separate title fingerprint; all-missing excluded.",
+  "scope": "Top-level and nested 80pair members manifested and hashed; both additional 80cc small validation candidates schema/labels audited. Original 000un train/seen-validation audited; reserved test metadata only. No other test set inspected.",
+  "fallback": {
+    "used": true,
+    "reason": "Official additional 80cc100un/small validation rejected: 110 training offer IDs, 27 training pairs, and 250 training clusters overlap; empirical unseen-cluster fraction is 0.500000; failed checks: ['train__unseen_validation']. Official original seen validation retained verbatim; no rows filtered.",
+    "no_filtering_or_relabeling": true,
+    "original_000un_validation_path": "data/external/wdcproducts80cc20rnd000un_valid_small.json.gz"
+  }
+}

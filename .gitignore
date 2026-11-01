@@ -22,9 +22,11 @@ artifacts/
 tmp/
 *.log
 results.json
+!/docs/validation/results.json
 data_audit.json
 !/docs/data_audit.json
 f1_missingness.png
+!/docs/validation/f1_missingness.png
 .coverage
 htmlcov/
 .DS_Store

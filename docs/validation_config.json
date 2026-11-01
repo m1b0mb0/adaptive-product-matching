@@ -1,0 +1,31 @@
+{
+  "dataset": "WDC Products",
+  "source_page": "https://webdatacommons.org/largescaleproductcorpus/wdc-products/",
+  "source_url": "https://data.dws.informatik.uni-mannheim.de/largescaleproductcorpus/data/wdc-products/val_pair.zip",
+  "source_checked_on": "2026-11-01",
+  "corner_case_cluster_percentage": 80,
+  "training_size": "small",
+  "validation_unseen_percentage": 0,
+  "mode": "fallback_seen",
+  "reason": "Official additional 80cc100un/small validation rejected: 110 training offer IDs, 27 training pairs, and 250 training clusters overlap; empirical unseen-cluster fraction is 0.500000; failed checks: ['train__unseen_validation']. Official original seen validation retained verbatim; no rows filtered.",
+  "archive": "data/external/valpair.zip",
+  "archive_sha256": "15bb323e9aff4771be1baaeb048c9b6ef7459446ccbadca61cc9cb1272cb4143",
+  "nested_archive": "80pair_addvalid.zip",
+  "member": "wdcproducts80cc20rnd000un_valid_small.json.gz",
+  "candidate_member": "wdcproducts80cc20rnd100un_valid_small.json.gz",
+  "candidate_validation_path": "data/external/wdcproducts80cc20rnd100un_valid_small.json.gz",
+  "candidate_validation_sha256": "b66f53fd502cb8ecee18cfe38196edbadc93bcab05f0f1f52fd5c14741f9ab22",
+  "candidate_rejected": true,
+  "candidate_rejection_checks": [
+    "train__unseen_validation"
+  ],
+  "validation_path": "data/external/wdcproducts80cc20rnd000un_valid_small.json.gz",
+  "validation_sha256": "892e8d39cc8230dce5039a4bded16be1237d5c5c37b94a37404226d349ef3df8",
+  "train_path": "data/external/wdcproducts80cc20rnd000un_train_small.json.gz",
+  "seen_validation_path": "data/external/wdcproducts80cc20rnd000un_valid_small.json.gz",
+  "reserved_test_metadata_path": "data/external/wdcproducts80cc20rnd100un_gs.json.gz",
+  "policy": "Fit representations/informativeness on train only; choose thresholds/hyperparameters on validation. No test-label access or final evaluation.",
+  "selection_reason": "Official additional 80cc100un/small validation rejected: 110 training offer IDs, 27 training pairs, and 250 training clusters overlap; empirical unseen-cluster fraction is 0.500000; failed checks: ['train__unseen_validation']. Official original seen validation retained verbatim; no rows filtered.",
+  "validation_limitation": "Seen-model validation and reserved unseen-model test differ in product-cluster regime; validation results cannot be treated as estimates of unseen-test performance.",
+  "checksum_note": "Local SHA256 identifies the downloaded artifact; no independently published upstream checksum was found."
+}
