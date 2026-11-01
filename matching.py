@@ -17,6 +17,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 FIELDS = ("title", "description", "brand", "identifier")
 WEIGHTS = np.array([0.40, 0.15, 0.15, 0.30], dtype=float)
 RELIABILITY = np.array([1.0, 1.0, 1.0, 0.70], dtype=float)
+# The identifier is extracted from the title: these are two measurements of
+# one evidence family, not two independent sources of available information.
+EVIDENCE_GROUPS = ((0, 3), (1,), (2,))
+GROUP_WEIGHTS = np.array([0.70, 0.15, 0.15], dtype=float)
+GROUP_CHANNEL_WEIGHTS = (np.array([4 / 7, 3 / 7]), np.ones(1), np.ones(1))
 MODEL_TOKEN = re.compile(r"(?<!\w)[a-z0-9][a-z0-9_.\-]{3,}(?!\w)")
 UNIT_VALUE = re.compile(r"^\d+(?:\.\d+)?(?:gb|tb|mb|kb|kv|hz|mhz|ghz|mm|cm|mah|wh|v|w|fps|mp)$")
 COMMON_TECH = {"ddr3", "ddr3l", "ddr4", "ddr5", "usb2", "usb3", "wifi5", "wifi6", "wifi6e"}
@@ -100,6 +105,9 @@ class FeatureExtractor:
             # Vectorizer normalizes rows by default, so a row-wise product = cosine.
             lv, rv = vec.transform(left), vec.transform(right)
             similarities = np.asarray(lv.multiply(rv).sum(axis=1)).ravel()
+            # The exact cosine of nonnegative L2-normalized TF-IDF lies in
+            # [0, 1]; sparse floating-point sums can exceed 1 by a few ulps.
+            similarities = np.clip(similarities, 0.0, 1.0)
             # A zero vector has no train-vocabulary evidence; its cosine is
             # undefined, rather than an observed disagreement of zero.
             comparable = (lv.getnnz(axis=1) > 0) & (rv.getnnz(axis=1) > 0)
@@ -177,6 +185,122 @@ def scores(features: np.ndarray, method: str, informativeness: np.ndarray | None
     if method == "text":
         return filled[:, 0]
     raise ValueError(f"Unknown method: {method}")
+
+
+def _evidence_array(features: np.ndarray) -> np.ndarray:
+    values = np.asarray(features, dtype=float)
+    if values.ndim != 2 or values.shape[1] != len(FIELDS):
+        raise ValueError(f"Expected feature array with {len(FIELDS)} columns")
+    observed = values[~np.isnan(values)]
+    if not np.isfinite(observed).all() or np.any((observed < 0) | (observed > 1)):
+        raise ValueError("Observed similarities must be finite and in [0, 1]")
+    return values
+
+
+def evidence_coverage(features: np.ndarray) -> np.ndarray:
+    """Available raw-field group budget, independent of learned quality.
+
+    The title family is available if title OR its derived identifier can be
+    compared. Having both does not increase this family's availability budget.
+    This is a coverage proxy, not a statistical confidence or independence claim.
+    """
+    values = _evidence_array(features)
+    available = np.column_stack([
+        (~np.isnan(values[:, group])).any(axis=1) for group in EVIDENCE_GROUPS
+    ])
+    return (available * GROUP_WEIGHTS).sum(axis=1)
+
+
+def evidence_scores(features: np.ndarray, method: str,
+                    informativeness: np.ndarray | None = None,
+                    gamma: float = 1.0, penalty: float = 0.0,
+                    prior: float = 0.20, *, use_info: bool = True,
+                    use_reliability: bool = True, use_coverage: bool = True,
+                    reliability: np.ndarray | None = None) -> np.ndarray:
+    """Hierarchical scores used by the validation-only experiment protocol.
+
+    All attribute methods share groups {title, identifier}, {description},
+    {brand}, with budgets .70/.15/.15. Within a group, observed channels are
+    renormalized. Fixed retains unavailable group budgets as zero; renorm uses
+    only observed groups. Adaptive adds observed channel information/reliability
+    factors and coverage shrinkage toward ``prior``. No evidence always scores 0.
+
+    Informativeness must be estimated using TRAIN ONLY; reliability is a manual
+    assumption, not estimated extraction accuracy. ``penalty`` is an optional
+    extra identifier-conflict heuristic and may reuse the same evidence twice.
+    Scores are not calibrated probabilities. The original ``scores`` function is
+    preserved for historical reproducibility and is not silently redefined.
+    """
+    values = _evidence_array(features)
+    valid_methods = {"text", "fixed", "renorm", "adaptive", "adaptive_no_info",
+                     "adaptive_no_reliability", "adaptive_no_coverage",
+                     "adaptive_no_penalty"}
+    if method not in valid_methods:
+        raise ValueError(f"Unknown method: {method}")
+    if not np.isfinite(gamma) or gamma <= 0:
+        raise ValueError("gamma must be finite and positive")
+    if not np.isfinite(penalty) or penalty < 0:
+        raise ValueError("penalty must be finite and non-negative")
+    if not np.isfinite(prior) or not 0 <= prior <= 1:
+        raise ValueError("prior must be finite and in [0, 1]")
+
+    present = ~np.isnan(values)
+    filled = np.nan_to_num(values, nan=0.0)
+    if method == "text":
+        return filled[:, 0]
+    adaptive = method.startswith("adaptive")
+    use_info = use_info and method != "adaptive_no_info"
+    use_reliability = use_reliability and method != "adaptive_no_reliability"
+    use_coverage = use_coverage and method != "adaptive_no_coverage"
+    quality = np.ones(len(FIELDS), dtype=float)
+    for enabled, factors, name in (
+        (adaptive and use_info, informativeness, "informativeness"),
+        (adaptive and use_reliability,
+         RELIABILITY if reliability is None else reliability, "reliability"),
+    ):
+        if enabled and factors is not None:
+            factors = np.asarray(factors, dtype=float)
+            if factors.shape != (len(FIELDS),) or not np.isfinite(factors).all() or np.any(factors <= 0):
+                raise ValueError(f"{name} must contain {len(FIELDS)} finite positive factors")
+            if name == "reliability" and np.any(factors > 1):
+                raise ValueError("reliability factors must be at most 1")
+            quality *= factors
+
+    n = len(values)
+    numerator = np.zeros(n)
+    denominator = np.zeros(n)
+    coverage = np.zeros(n)
+    for group, budget, channel_weights in zip(
+            EVIDENCE_GROUPS, GROUP_WEIGHTS, GROUP_CHANNEL_WEIGHTS):
+        # z_g is the observed fraction of this group's channel weights. Divide
+        # by it BEFORE pooling groups, so absence of the title-derived token
+        # does not artificially remove part of the raw title-field budget.
+        observed_channel_weights = present[:, group] * channel_weights
+        z = observed_channel_weights.sum(axis=1)
+        available = z > 0
+        weighted = observed_channel_weights * quality[list(group)]
+        # U_g * h_g = W_g * sum(b_i m_i q_i s_i) / z_g;
+        # U_g       = W_g * sum(b_i m_i q_i) / z_g.
+        group_numerator = (weighted * filled[:, group]).sum(axis=1)
+        group_quality = weighted.sum(axis=1)
+        numerator += budget * np.divide(
+            group_numerator, z, out=np.zeros(n), where=available)
+        denominator += budget * np.divide(
+            group_quality, z, out=np.zeros(n), where=available)
+        coverage += budget * available
+
+    if method == "fixed":
+        return np.clip(numerator / GROUP_WEIGHTS.sum(), 0, 1)
+    mean = np.divide(numerator, denominator, out=np.zeros(n), where=denominator > 0)
+    if method == "renorm":
+        return np.clip(mean, 0, 1)
+    result = mean
+    if use_coverage:
+        alpha = np.power(coverage / GROUP_WEIGHTS.sum(), gamma)
+        result = alpha * mean + (1 - alpha) * prior
+    if method != "adaptive_no_penalty":
+        result = result - penalty * (present[:, 3] & (filled[:, 3] == 0))
+    return np.where(denominator > 0, np.clip(result, 0, 1), 0.0)
 
 
 def masked(features: Features, missing_rate: float, seed: int) -> np.ndarray:
