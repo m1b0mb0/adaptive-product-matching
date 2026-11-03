@@ -78,4 +78,19 @@ Adaptive додає train-розрізнювальність, ручні мно�
 
 `matching.scores`, `run_experiment.py`, `plot_results.py` та `search_cli.py` збережені для відтворення стартового прототипу. Поточні grouped-методи використовують `matching.evidence_scores`, `run_validation.py` та `report_validation.py`; старий фінальний runner на цьому етапі не запускається. Пошукова CLI-демонстрація навчає TF-IDF на колекції й не дає незалежних test-метрик.
 
-`.gitignore` виключає raw/external/processed дані, архіви, `.venv`, кеші, `tmp/` і великі результати. Компактні validation JSON/CSV/PNG/SVG у `docs/validation/` дозволені для збереження разом із кодом. `docs/code_validation.json` фіксує історичний стан першого аудиту; актуальні перевірки другого етапу — `docs/validation/pipeline_validation.json`. Шаблон `data/motor_offers_template.csv` і правила анотування — заготовки окремого майбутнього збору даних.
+`.gitignore` виключає raw/external/processed дані, архіви, `.venv`, кеші, `tmp/` і великі результати. Компактні validation JSON/CSV/PNG/SVG у `docs/validation/` дозволені для збереження разом із кодом. `docs/code_validation.json` фіксує історичний стан першого аудиту; актуальні перевірки другого етапу — `docs/validation/pipeline_validation.json`. Шаблон `data/motor_offers_template.csv` залишається окремою початковою заготовкою; схема фактичного FPV-пілоту описана нижче.
+
+## FPV Motors: аудит і ручна перевірка
+
+У `data/external/fpv_motors/` локально розміщено `fpv_motors_offers_pilot.csv` та `fpv_motors_pair_candidates.csv`. [Аудит FPV](docs/fpv_dataset_audit.md) фіксує 32 пропозиції з 6 магазинів, 7 кандидатних пар і три потенційні міжмагазинні відповідності. **Підтверджених міток немає**: 3 позитивні та 4 негативні мітки є лише пропозиціями. Дані поки не придатні для незалежних Precision/Recall/F1.
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 audit_fpv.py
+.\.venv\Scripts\python.exe -m pytest -q
+```
+
+Аудит створює `docs/fpv_dataset_audit.json` і `data/external/fpv_motors/review_queue.csv` з оригінальними полями обох сторін, запропонованою міткою та окремими полями ручного рішення. Правила — у [протоколі анотування](data/annotation_guidelines.md). Заповнюйте `confirmed_label_1_match_0_nonmatch`, `review_status`, рецензента, дату й джерельне свідчення тільки після перевірки. Неоднозначні пари залишайте `uncertain` без мітки. Повторний аудит зберігає ручну роботу; за зміни джерел або складу пар відмовляється перезаписувати чергу. Для нової версії вкажіть інші шляхи через `--review-queue` і `--out`.
+
+Окремий `fpv_dataset.py` імпортує CSV без змін WDC. `load_fpv_dataset(...).matching_pairs()` повертає сумісні з `FeatureExtractor` пари **без `label`**. Технічні поля зберігаються окремо; алгоритми поки використовують наявні title/description/brand та identifier із назви. `confirmed_pairs(review_path)` призначено лише для майбутнього окремого експорту повністю перевірених рядків; воно відхиляє незавершені перевірки й невідповідні хеші. FPV-метрики та фінальні експерименти на цьому етапі не виконувалися.
+
+Обидва CSV та черга залишаються локальними: `data/external/` виключено `.gitignore`. Відтворення потребує наданих вхідних CSV із SHA-256, наведеними у звіті; синтетична заміна для наукових результатів не використовується.

@@ -1,0 +1,619 @@
+{
+  "schema_version": 1,
+  "scope": "Local syntactic/data audit only; source URLs not opened; no matching metrics or experiments.",
+  "sources": {
+    "offers": "data\\external\\fpv_motors\\fpv_motors_offers_pilot.csv",
+    "candidates": "data\\external\\fpv_motors\\fpv_motors_pair_candidates.csv",
+    "offers_sha256": "9a96914af39ed19514b1f547501a37866cf4352dc2f5425517acead0a290b85f",
+    "candidates_sha256": "361299546b911b99a8ca39ad639fb37ffdf7473d9e7263acef85fbce247b4e8a"
+  },
+  "counts": {
+    "offers": 32,
+    "unique_offer_ids": 32,
+    "stores": 6,
+    "candidate_pairs": 7,
+    "unique_pair_ids": 7,
+    "unique_existing_offers_in_candidate_pairs": 13,
+    "offers_without_candidate_pairs": 19,
+    "proposed_positive": 3,
+    "proposed_negative": 4,
+    "confirmed_labels_in_sources": 0,
+    "source_entity_ids_present": 0
+  },
+  "stores": {
+    "Drono Store": 6,
+    "FPVUA": 8,
+    "FT Systems": 6,
+    "PRODRONE": 1,
+    "Phoenix Drones": 9,
+    "R202X": 2
+  },
+  "offer_columns": [
+    "offer_id",
+    "store",
+    "raw_title",
+    "brand",
+    "family_model",
+    "stator_code",
+    "kv_rpm_per_volt",
+    "voltage_s",
+    "units_in_listing",
+    "seller_sku",
+    "price_uah",
+    "raw_description",
+    "source_url",
+    "collected_on",
+    "record_status",
+    "review_notes",
+    "entity_id"
+  ],
+  "candidate_columns": [
+    "pair_id",
+    "offer_a",
+    "offer_b",
+    "proposed_label_1_match_0_nonmatch",
+    "verification_status",
+    "rationale"
+  ],
+  "offer_missingness": {
+    "offer_id": {
+      "present": 32,
+      "missing": 0,
+      "missing_fraction": 0.0
+    },
+    "store": {
+      "present": 32,
+      "missing": 0,
+      "missing_fraction": 0.0
+    },
+    "raw_title": {
+      "present": 32,
+      "missing": 0,
+      "missing_fraction": 0.0
+    },
+    "brand": {
+      "present": 32,
+      "missing": 0,
+      "missing_fraction": 0.0
+    },
+    "family_model": {
+      "present": 32,
+      "missing": 0,
+      "missing_fraction": 0.0
+    },
+    "stator_code": {
+      "present": 32,
+      "missing": 0,
+      "missing_fraction": 0.0
+    },
+    "kv_rpm_per_volt": {
+      "present": 31,
+      "missing": 1,
+      "missing_fraction": 0.03125
+    },
+    "voltage_s": {
+      "present": 12,
+      "missing": 20,
+      "missing_fraction": 0.625
+    },
+    "units_in_listing": {
+      "present": 32,
+      "missing": 0,
+      "missing_fraction": 0.0
+    },
+    "seller_sku": {
+      "present": 9,
+      "missing": 23,
+      "missing_fraction": 0.71875
+    },
+    "price_uah": {
+      "present": 0,
+      "missing": 32,
+      "missing_fraction": 1.0
+    },
+    "raw_description": {
+      "present": 0,
+      "missing": 32,
+      "missing_fraction": 1.0
+    },
+    "source_url": {
+      "present": 32,
+      "missing": 0,
+      "missing_fraction": 0.0
+    },
+    "collected_on": {
+      "present": 32,
+      "missing": 0,
+      "missing_fraction": 0.0
+    },
+    "record_status": {
+      "present": 32,
+      "missing": 0,
+      "missing_fraction": 0.0
+    },
+    "review_notes": {
+      "present": 6,
+      "missing": 26,
+      "missing_fraction": 0.8125
+    },
+    "entity_id": {
+      "present": 0,
+      "missing": 32,
+      "missing_fraction": 1.0
+    }
+  },
+  "candidate_missingness": {
+    "pair_id": {
+      "present": 7,
+      "missing": 0,
+      "missing_fraction": 0.0
+    },
+    "offer_a": {
+      "present": 7,
+      "missing": 0,
+      "missing_fraction": 0.0
+    },
+    "offer_b": {
+      "present": 7,
+      "missing": 0,
+      "missing_fraction": 0.0
+    },
+    "proposed_label_1_match_0_nonmatch": {
+      "present": 7,
+      "missing": 0,
+      "missing_fraction": 0.0
+    },
+    "verification_status": {
+      "present": 7,
+      "missing": 0,
+      "missing_fraction": 0.0
+    },
+    "rationale": {
+      "present": 7,
+      "missing": 0,
+      "missing_fraction": 0.0
+    }
+  },
+  "record_status_counts": {
+    "listing_verified": 1,
+    "needs_variant_check": 1,
+    "needs_variant_split": 1,
+    "single_variant": 29
+  },
+  "source_verification_status_counts": {
+    "needs_manual_confirmation": 7
+  },
+  "label_policy": "All source labels are proposals; every generated queue row starts pending with blank confirmed label, regardless of source status.",
+  "integrity": {
+    "duplicate_offer_ids": [],
+    "duplicate_pair_ids": [],
+    "unresolved_references": [],
+    "self_pairs": [],
+    "invalid_proposed_label_pair_ids": [],
+    "duplicate_canonical_pairs": [],
+    "duplicate_exact_offers_excluding_id": [],
+    "duplicate_source_urls": [],
+    "duplicate_normalized_titles": [],
+    "duplicate_exact_candidate_rows": [],
+    "malformed_offer_values": {},
+    "source_urls_syntactically_checked": 32,
+    "live_source_validation_performed": false
+  },
+  "offer_review_flags": {
+    "FT02": [
+      "catalog_only_source_check_needed"
+    ],
+    "PH04": [
+      "bundle_or_rotation_needs_review"
+    ],
+    "PH09": [
+      "multi_unit_listing"
+    ],
+    "FP01": [
+      "family_slash_name_needs_semantic_review"
+    ],
+    "FP08": [
+      "multi_unit_listing"
+    ],
+    "DR05": [
+      "needs_variant_split",
+      "kv_variant_unspecified"
+    ],
+    "DR06": [
+      "needs_variant_check"
+    ]
+  },
+  "offer_ids_without_candidate_pairs": [
+    "DR04",
+    "DR05",
+    "DR06",
+    "FP01",
+    "FP02",
+    "FP03",
+    "FP05",
+    "FP06",
+    "FP08",
+    "FT01",
+    "FT06",
+    "PH02",
+    "PH03",
+    "PH04",
+    "PH06",
+    "PH07",
+    "PH08",
+    "PH09",
+    "PR01"
+  ],
+  "queue_flags_are_labels": false,
+  "models": {
+    "key_normalization": "NFKC + casefold + collapsed whitespace; no brand aliases or inferred attributes",
+    "identity_warning": "Provisional keys are not gold entities; equal stator and KV alone never establish identity.",
+    "family_key_fields": [
+      "brand",
+      "family_model"
+    ],
+    "provisional_family_groups": 26,
+    "variant_key_fields": [
+      "brand",
+      "family_model",
+      "stator_code",
+      "kv_rpm_per_volt"
+    ],
+    "provisional_variant_groups_including_incomplete": 29,
+    "complete_provisional_variant_groups": 28,
+    "offers_with_complete_variant_key": 31,
+    "incomplete_variant_offer_ids": [
+      "DR05"
+    ],
+    "cross_store_group_count": 3,
+    "potential_cross_store_pair_count": 3,
+    "cross_store_groups": [
+      {
+        "provisional_key": {
+          "brand": "brotherhobby",
+          "family_model": "se 3115",
+          "stator_code": "3115",
+          "kv_rpm_per_volt": "900"
+        },
+        "offer_ids": [
+          "PH01",
+          "R201"
+        ],
+        "stores": [
+          "Phoenix Drones",
+          "R202X"
+        ],
+        "potential_cross_store_pairs": [
+          [
+            "PH01",
+            "R201"
+          ]
+        ],
+        "units_in_listing_values": [
+          "1"
+        ],
+        "status": "requires_manual_confirmation_of_revision_bundle_and_identity"
+      },
+      {
+        "provisional_key": {
+          "brand": "flywoo",
+          "family_model": "robo 1003",
+          "stator_code": "1003",
+          "kv_rpm_per_volt": "14800"
+        },
+        "offer_ids": [
+          "PH05",
+          "FP07"
+        ],
+        "stores": [
+          "FPVUA",
+          "Phoenix Drones"
+        ],
+        "potential_cross_store_pairs": [
+          [
+            "PH05",
+            "FP07"
+          ]
+        ],
+        "units_in_listing_values": [
+          "1"
+        ],
+        "status": "requires_manual_confirmation_of_revision_bundle_and_identity"
+      },
+      {
+        "provisional_key": {
+          "brand": "rcinpower",
+          "family_model": "wasp major v2 champion edition",
+          "stator_code": "22.6-6.6",
+          "kv_rpm_per_volt": "2160"
+        },
+        "offer_ids": [
+          "FP04",
+          "DR01"
+        ],
+        "stores": [
+          "Drono Store",
+          "FPVUA"
+        ],
+        "potential_cross_store_pairs": [
+          [
+            "FP04",
+            "DR01"
+          ]
+        ],
+        "units_in_listing_values": [
+          "1"
+        ],
+        "status": "requires_manual_confirmation_of_revision_bundle_and_identity"
+      }
+    ],
+    "family_groups": [
+      {
+        "provisional_key": {
+          "brand": "aos rc",
+          "family_model": "supernova 2207"
+        },
+        "offer_ids": [
+          "DR02",
+          "DR03"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "axisflying",
+          "family_model": "freestyle/bando 2207.5"
+        },
+        "offer_ids": [
+          "FP01"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "betafpv",
+          "family_model": "0802se"
+        },
+        "offer_ids": [
+          "PH09"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "brotherhobby",
+          "family_model": "avenger 4215 v5"
+        },
+        "offer_ids": [
+          "PH04"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "brotherhobby",
+          "family_model": "gom 2207.5"
+        },
+        "offer_ids": [
+          "PH03"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "brotherhobby",
+          "family_model": "se 2807"
+        },
+        "offer_ids": [
+          "PH02"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "brotherhobby",
+          "family_model": "se 3115"
+        },
+        "offer_ids": [
+          "PH01",
+          "R201"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "brotherhobby",
+          "family_model": "tornado t5 3115"
+        },
+        "offer_ids": [
+          "R202"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "difly",
+          "family_model": "kamik 2807"
+        },
+        "offer_ids": [
+          "PH07"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "flywoo",
+          "family_model": "robo 1002"
+        },
+        "offer_ids": [
+          "PH06"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "flywoo",
+          "family_model": "robo 1003"
+        },
+        "offer_ids": [
+          "PH05",
+          "FP07"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "foxeer",
+          "family_model": "black hornet 2806.5"
+        },
+        "offer_ids": [
+          "DR06"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "ft",
+          "family_model": "ft 2807"
+        },
+        "offer_ids": [
+          "FT01"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "ft",
+          "family_model": "ft 2812"
+        },
+        "offer_ids": [
+          "FT02",
+          "FT03"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "ft",
+          "family_model": "ft 3115"
+        },
+        "offer_ids": [
+          "FT04",
+          "FT05"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "ft",
+          "family_model": "ft 4220"
+        },
+        "offer_ids": [
+          "FT06"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "geprc",
+          "family_model": "speedx2 1002"
+        },
+        "offer_ids": [
+          "FP08"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "geprc",
+          "family_model": "speedx2 1505"
+        },
+        "offer_ids": [
+          "FP06"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "geprc",
+          "family_model": "speedx2 1804"
+        },
+        "offer_ids": [
+          "FP05"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "iflight",
+          "family_model": "xing2 2207"
+        },
+        "offer_ids": [
+          "DR05"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "prodrone",
+          "family_model": "em2810"
+        },
+        "offer_ids": [
+          "PR01"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "ratefpv",
+          "family_model": "1404"
+        },
+        "offer_ids": [
+          "FP02"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "rcinpower",
+          "family_model": "aos supernova 1605"
+        },
+        "offer_ids": [
+          "FP03"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "rcinpower",
+          "family_model": "ex2809 plus"
+        },
+        "offer_ids": [
+          "DR04"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "rcinpower",
+          "family_model": "wasp major v2 champion edition"
+        },
+        "offer_ids": [
+          "FP04",
+          "DR01"
+        ]
+      },
+      {
+        "provisional_key": {
+          "brand": "speedybee",
+          "family_model": "bee35 2006"
+        },
+        "offer_ids": [
+          "PH08"
+        ]
+      }
+    ]
+  },
+  "queue": {
+    "rows": 7,
+    "initial_status": "pending",
+    "initial_confirmed_labels": 0,
+    "manual_columns": [
+      "confirmed_label_1_match_0_nonmatch",
+      "review_status",
+      "reviewer",
+      "reviewed_on",
+      "evidence_url",
+      "review_notes",
+      "exclusion_reason",
+      "variant_resolution"
+    ],
+    "source_hash_columns": [
+      "offers_sha256",
+      "candidates_sha256"
+    ],
+    "preservation_policy": "Reruns preserve all manual and additional columns; any source/hash/generated-field drift or pair-set change refuses overwrite.",
+    "path": "data\\external\\fpv_motors\\review_queue.csv",
+    "preserved_existing_rows": 7,
+    "pending_rows": 7,
+    "confirmed_label_cells_present": 0,
+    "encoding": "utf-8-sig",
+    "delimiter": ","
+  }
+}
