@@ -1,0 +1,38 @@
+Каталог: 32 пропозицій.
+Запит: FP04 | Мотор RCINPOWER Wasp Major V2 Champion Edition 22.6-6.6 2160KV
+Джерело запиту: FPVUA
+Відібрано TF-IDF кандидатів: 20 (ліміт 20).
+Ранжування: renorm; показано 5 результатів.
+
+1. Безколекторний Двигун RCinpower Wasp Major V2 Champion Edition 22.6-6.6 2160kv [DR01]
+   Джерело: Drono Store
+   URL: https://drono.store/941-bezkolektornij-dvigun-rcinpower-wasp-major-v2-champion-edition-226-66-2160kv.html
+   Подібність: 0.927338; TF-IDF retrieval: 0.911767
+   Атрибути: brand=RCINPOWER; family_model=Wasp Major V2 Champion Edition; stator_code=22.6-6.6; kv_rpm_per_volt=2160; units_in_listing=1; record_status=single_variant
+
+2. Безколекторний Двигун RCinpower EX2809 Plus - 1280kV [DR04]
+   Джерело: Drono Store
+   URL: https://drono.store/994-bezkolektornij-dvigun-rcinpower-ex2809-plus-1280kv.html
+   Подібність: 0.300185; TF-IDF retrieval: 0.150224
+   Атрибути: brand=RCINPOWER; family_model=EX2809 Plus; stator_code=2809; kv_rpm_per_volt=1280; units_in_listing=1; record_status=single_variant
+
+3. Ukrainian Motor PRODRONE FPV 2810 kv1350 6S High performance motor [PR01]
+   Джерело: PRODRONE
+   URL: https://prodrone.com.ua/5300004655/
+   Подібність: 0.040466; TF-IDF retrieval: 0.049138
+   Атрибути: brand=PRODRONE; family_model=EM2810; stator_code=2810; kv_rpm_per_volt=1350; voltage_s=5–6S; units_in_listing=1; seller_sku=5300004655; record_status=single_variant
+
+4. Безколекторний Двигун Foxeer Black Hornet 2806.5 FPV Motor 1350Kv [DR06]
+   Джерело: Drono Store
+   URL: https://drono.store/805-bezkolektornij-dvigun-foxeer-black-hornet-28065-fpv-motor-1350-1750kv.html
+   Подібність: 0.035331; TF-IDF retrieval: 0.042902
+   Атрибути: brand=Foxeer; family_model=Black Hornet 2806.5; stator_code=2806.5; kv_rpm_per_volt=1350; units_in_listing=1; record_status=needs_variant_check
+
+5. Мотор SpeedyBee 2006-1950KV Bee35 [PH08]
+   Джерело: Phoenix Drones
+   URL: https://fx-drones.com/motor-speedybee-2006-1950kv-kompaktnist-ta-syla-dlia-droniv-cinewhoop/
+   Подібність: 0.032231; TF-IDF retrieval: 0.039137
+   Атрибути: brand=SpeedyBee; family_model=Bee35 2006; stator_code=2006; kv_rpm_per_volt=1950; units_in_listing=1; record_status=single_variant
+
+Оцінки алгоритму не є каліброваними ймовірностями тотожності.
+Тотожність результатів не підтверджено; метрики якості пошуку не обчислювалися.

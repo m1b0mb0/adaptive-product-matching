@@ -1,0 +1,53 @@
+{
+  "scope": "Real unlabelled catalogue demonstrations only; no search accuracy evaluation",
+  "query_selection": {
+    "wdc": "Lexicographically smallest offer_id with a nonempty title",
+    "fpv": "Existing FP04 offer; no candidate labels used"
+  },
+  "source_sha256": {
+    "wdc": "1915a92de76ddbf63a6c4d7ff3162df98f505033a8ad12ee7072b78b083d77c6",
+    "fpv": "9a96914af39ed19514b1f547501a37866cf4352dc2f5425517acead0a290b85f"
+  },
+  "runs": [
+    {
+      "name": "wdc_renorm_demo",
+      "command": ".\\.venv\\Scripts\\python.exe -X utf8 search_cli.py --catalog-format wdc --catalog data\\external\\wdcproducts80cc20rnd000un_train_small.json.gz --query-id 1017836 --candidate-k 20 --top 5 --method renorm --json",
+      "catalog_size": 1000,
+      "candidate_count": 20,
+      "result_count": 5,
+      "top_result_offer_id": "84668470",
+      "json": "wdc_renorm_demo.json",
+      "console": "wdc_renorm_demo.txt"
+    },
+    {
+      "name": "wdc_fixed_demo",
+      "command": ".\\.venv\\Scripts\\python.exe -X utf8 search_cli.py --catalog-format wdc --catalog data\\external\\wdcproducts80cc20rnd000un_train_small.json.gz --query-id 1017836 --candidate-k 20 --top 5 --method fixed --json",
+      "catalog_size": 1000,
+      "candidate_count": 20,
+      "result_count": 5,
+      "top_result_offer_id": "84668470",
+      "json": "wdc_fixed_demo.json",
+      "console": "wdc_fixed_demo.txt"
+    },
+    {
+      "name": "fpv_renorm_demo",
+      "command": ".\\.venv\\Scripts\\python.exe -X utf8 search_cli.py --catalog-format fpv --catalog data\\external\\fpv_motors\\fpv_motors_offers_pilot.csv --query-id FP04 --candidate-k 20 --top 5 --other-stores-only --method renorm --json",
+      "catalog_size": 32,
+      "candidate_count": 20,
+      "result_count": 5,
+      "top_result_offer_id": "DR01",
+      "json": "fpv_renorm_demo.json",
+      "console": "fpv_renorm_demo.txt"
+    },
+    {
+      "name": "fpv_fixed_demo",
+      "command": ".\\.venv\\Scripts\\python.exe -X utf8 search_cli.py --catalog-format fpv --catalog data\\external\\fpv_motors\\fpv_motors_offers_pilot.csv --query-id FP04 --candidate-k 20 --top 5 --other-stores-only --method fixed --json",
+      "catalog_size": 32,
+      "candidate_count": 20,
+      "result_count": 5,
+      "top_result_offer_id": "DR01",
+      "json": "fpv_fixed_demo.json",
+      "console": "fpv_fixed_demo.txt"
+    }
+  ]
+}

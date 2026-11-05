@@ -76,7 +76,7 @@ Adaptive додає train-розрізнювальність, ручні мно�
 
 Ідентифікатор — евристика з назви й залишається корельованим із нею. «Інформативність» тут означає глобальну розрізнювальність каналу, а не інформацію окремого значення. Надійність `[1,1,1,0.70]` задано вручну: це гіпотеза для sensitivity-абляції, а не доведена точність вилучення чи надійність вебджерела. Coverage і score не є каліброваними ймовірностями. WDC не містить окремих KV/статора/напруги FPV-двигунів. Наукову новизну й перевагу adaptive ще не доведено.
 
-`matching.scores`, `run_experiment.py`, `plot_results.py` та `search_cli.py` збережені для відтворення стартового прототипу. Поточні grouped-методи використовують `matching.evidence_scores`, `run_validation.py` та `report_validation.py`; старий фінальний runner на цьому етапі не запускається. Пошукова CLI-демонстрація навчає TF-IDF на колекції й не дає незалежних test-метрик.
+`matching.scores`, `run_experiment.py` та `plot_results.py` збережені для відтворення стартового прототипу. Поточні grouped-методи використовують `matching.evidence_scores`, `run_validation.py` та `report_validation.py`; старий фінальний runner на цьому етапі не запускається. `search_cli.py` доопрацьовано як окремий пошуковий прототип: він будує TF-IDF на каталозі без міток, відбирає кандидатів і ранжує Fixed/Renormalization. Він не дає незалежних test-метрик.
 
 `.gitignore` виключає raw/external/processed дані, архіви, `.venv`, кеші, `tmp/` і великі результати. Компактні validation JSON/CSV/PNG/SVG у `docs/validation/` дозволені для збереження разом із кодом. `docs/code_validation.json` фіксує історичний стан першого аудиту; актуальні перевірки другого етапу — `docs/validation/pipeline_validation.json`. Шаблон `data/motor_offers_template.csv` залишається окремою початковою заготовкою; схема фактичного FPV-пілоту описана нижче.
 
@@ -114,3 +114,22 @@ Adaptive додає train-розрізнювальність, ручні мно�
 Перевірки: **329 тестів пройшли**, `pip check` не виявив порушень залежностей. [Машинний звіт перевірки](docs/known_methods/pipeline_validation.json) містить результати звіряння JSON/CSV, контрольні суми коду й підтвердження незмінності 50 попередніх WDC/FPV-файлів.
 
 `report_known_methods.py` читає готові JSON/CSV, створює таблиці й PNG/SVG без навчання або добору параметрів. Для зміненого протоколу чи коду вкажіть новий `--out-dir`: runner відхиляє перезапис результатів з іншою конфігурацією. REPORT, фінальний TEST та непідтверджені FPV-мітки цей runner не використовує. FPV-матеріали збережено окремо, Adaptive v2 не реалізовано.
+
+## Наскрізний пошуковий прототип
+
+Додано потік **імпорт → нормалізація → TF-IDF-кандидати → similarity → ранжування → консоль/JSON**. Єдина `ProductOffer` підтримує WDC TRAIN (1000 пропозицій) і FPV-пілот (32 пропозиції, 6 магазинів), зберігаючи оригінальні поля й пропуски. Мітки відповідностей не використовуються.
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 search_cli.py --catalog-format wdc --catalog data/external/wdcproducts80cc20rnd000un_train_small.json.gz --query-id 1017836 --candidate-k 20 --top 5
+.\.venv\Scripts\python.exe -X utf8 search_cli.py --catalog-format fpv --catalog data/external/fpv_motors/fpv_motors_offers_pilot.csv --query-id FP04 --candidate-k 20 --top 5 --other-stores-only
+```
+
+Default — **Renormalization**, відомий baseline. Для Fixed Weighted додайте `--method fixed`; для машинного виводу — `--json`. `--candidate-k` обмежує пул TF-IDF-кандидатів, `--top` — результати після ранжування. Власна пропозиція виключається; нульовий текстовий перетин не заповнюється довільними результатами. У WDC немає магазинів і URL, тому міжмагазинний фільтр доступний для FPV, а для WDC повідомляє про невідоме джерело.
+
+Повторні запити Python API можуть використовувати один `SearchEngine`. Є точка підключення вже навчених LR та її `FeatureExtractor`, без навчання на запиті; CLI-завантаження артефакта з диска поки не реалізовано. Технічні FPV-параметри показуються як метадані, без нових правил зіставлення. Adaptive v1 не використовується як основний механізм і не змінювався.
+
+[Компоненти й потік даних](docs/search_system/architecture.md), [параметри CLI та реальні демонстрації](docs/search_system/usage.md), [інтеграція frozen LR](docs/search_system/logistic_extension.md). JSON/текстові результати й перевірки збережено в `docs/search_system/`.
+
+Поточна перевірка: **432 тести пройшли**; 103 нові перевіряють пошуковий шар. `pip check` успішний. [Машинний звіт](docs/search_system/pipeline_validation.json) фіксує тести, реальні демозапуски та незмінність 96 попередніх файлів.
+
+Демонстрації не підтверджують тотожність пропозицій; similarity не є каліброваною ймовірністю. Recall@K та інші метрики пошуку не обчислювалися. Історичні WDC/FPV-експерименти не переписувалися, фінальний TEST не використовувався. Нових залежностей немає; перевірка: `.\.venv\Scripts\python.exe -m pytest -q`.

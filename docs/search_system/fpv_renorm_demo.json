@@ -1,0 +1,295 @@
+{
+  "catalog_size": 32,
+  "known_sources": [
+    "Drono Store",
+    "FPVUA",
+    "FT Systems",
+    "PRODRONE",
+    "Phoenix Drones",
+    "R202X"
+  ],
+  "unknown_source_offers": 0,
+  "query": {
+    "offer_id": "FP04",
+    "title": "Мотор RCINPOWER Wasp Major V2 Champion Edition 22.6-6.6 2160KV",
+    "description": "",
+    "brand": "RCINPOWER",
+    "source": "FPVUA",
+    "url": "https://fpvua.com/motor-rcinpower-wasp-major-v2-champion-edition-22-6-6-6-2160kv/",
+    "attributes": {
+      "price_uah": "",
+      "collected_on": "2026-11-03",
+      "record_status": "single_variant",
+      "review_notes": ""
+    },
+    "technical_attributes": {
+      "family_model": "Wasp Major V2 Champion Edition",
+      "stator_code": "22.6-6.6",
+      "kv_rpm_per_volt": "2160",
+      "voltage_s": "5–6S",
+      "units_in_listing": "1",
+      "seller_sku": "09-0129"
+    }
+  },
+  "retrieval": {
+    "method": "title_tfidf_cosine",
+    "candidate_k": 20,
+    "candidate_count": 20,
+    "other_stores_only": true,
+    "candidates": [
+      {
+        "offer_id": "DR01",
+        "retrieval_score": 0.9117674384160843
+      },
+      {
+        "offer_id": "DR04",
+        "retrieval_score": 0.15022415194173103
+      },
+      {
+        "offer_id": "PR01",
+        "retrieval_score": 0.049137588484330086
+      },
+      {
+        "offer_id": "DR06",
+        "retrieval_score": 0.042901783208385495
+      },
+      {
+        "offer_id": "PH08",
+        "retrieval_score": 0.03913725914240941
+      },
+      {
+        "offer_id": "PH04",
+        "retrieval_score": 0.037816357423305344
+      },
+      {
+        "offer_id": "FT03",
+        "retrieval_score": 0.03290340479244974
+      },
+      {
+        "offer_id": "FT02",
+        "retrieval_score": 0.032359193970907
+      },
+      {
+        "offer_id": "DR02",
+        "retrieval_score": 0.031109454317104032
+      },
+      {
+        "offer_id": "DR03",
+        "retrieval_score": 0.03058295449271718
+      },
+      {
+        "offer_id": "DR05",
+        "retrieval_score": 0.029314630807374925
+      },
+      {
+        "offer_id": "PH03",
+        "retrieval_score": 0.02792585401883805
+      },
+      {
+        "offer_id": "FT01",
+        "retrieval_score": 0.027153295917150724
+      },
+      {
+        "offer_id": "FT06",
+        "retrieval_score": 0.02600321535650761
+      },
+      {
+        "offer_id": "PH06",
+        "retrieval_score": 0.023880173014377958
+      },
+      {
+        "offer_id": "R201",
+        "retrieval_score": 0.02380738757182353
+      },
+      {
+        "offer_id": "PH07",
+        "retrieval_score": 0.02341739273487786
+      },
+      {
+        "offer_id": "FT05",
+        "retrieval_score": 0.02328295682195665
+      },
+      {
+        "offer_id": "PH02",
+        "retrieval_score": 0.023041617713468784
+      },
+      {
+        "offer_id": "FT04",
+        "retrieval_score": 0.022543809379099493
+      }
+    ]
+  },
+  "ranking": {
+    "method": "renorm",
+    "top_k": 5,
+    "score_type": "algorithmic similarity, not calibrated match probability",
+    "results": [
+      {
+        "offer": {
+          "offer_id": "DR01",
+          "title": "Безколекторний Двигун RCinpower Wasp Major V2 Champion Edition 22.6-6.6 2160kv",
+          "description": "",
+          "brand": "RCINPOWER",
+          "source": "Drono Store",
+          "url": "https://drono.store/941-bezkolektornij-dvigun-rcinpower-wasp-major-v2-champion-edition-226-66-2160kv.html",
+          "attributes": {
+            "price_uah": "",
+            "collected_on": "2026-11-03",
+            "record_status": "single_variant",
+            "review_notes": ""
+          },
+          "technical_attributes": {
+            "family_model": "Wasp Major V2 Champion Edition",
+            "stator_code": "22.6-6.6",
+            "kv_rpm_per_volt": "2160",
+            "voltage_s": "",
+            "units_in_listing": "1",
+            "seller_sku": ""
+          }
+        },
+        "retrieval_score": 0.9117674384160843,
+        "similarity_score": 0.9273378904603058,
+        "feature_similarities": {
+          "title": 0.9117674384160855,
+          "description": null,
+          "brand": 1.0,
+          "identifier": null
+        }
+      },
+      {
+        "offer": {
+          "offer_id": "DR04",
+          "title": "Безколекторний Двигун RCinpower EX2809 Plus - 1280kV",
+          "description": "",
+          "brand": "RCINPOWER",
+          "source": "Drono Store",
+          "url": "https://drono.store/994-bezkolektornij-dvigun-rcinpower-ex2809-plus-1280kv.html",
+          "attributes": {
+            "price_uah": "",
+            "collected_on": "2026-11-03",
+            "record_status": "single_variant",
+            "review_notes": ""
+          },
+          "technical_attributes": {
+            "family_model": "EX2809 Plus",
+            "stator_code": "2809",
+            "kv_rpm_per_volt": "1280",
+            "voltage_s": "",
+            "units_in_listing": "1",
+            "seller_sku": ""
+          }
+        },
+        "retrieval_score": 0.15022415194173103,
+        "similarity_score": 0.3001845957167196,
+        "feature_similarities": {
+          "title": 0.150224151941731,
+          "description": null,
+          "brand": 1.0,
+          "identifier": null
+        }
+      },
+      {
+        "offer": {
+          "offer_id": "PR01",
+          "title": "Ukrainian Motor PRODRONE FPV 2810 kv1350 6S High performance motor",
+          "description": "",
+          "brand": "PRODRONE",
+          "source": "PRODRONE",
+          "url": "https://prodrone.com.ua/5300004655/",
+          "attributes": {
+            "price_uah": "",
+            "collected_on": "2026-11-03",
+            "record_status": "single_variant",
+            "review_notes": ""
+          },
+          "technical_attributes": {
+            "family_model": "EM2810",
+            "stator_code": "2810",
+            "kv_rpm_per_volt": "1350",
+            "voltage_s": "5–6S",
+            "units_in_listing": "1",
+            "seller_sku": "5300004655"
+          }
+        },
+        "retrieval_score": 0.049137588484330086,
+        "similarity_score": 0.04046624934003654,
+        "feature_similarities": {
+          "title": 0.04913758848433009,
+          "description": null,
+          "brand": 0.0,
+          "identifier": null
+        }
+      },
+      {
+        "offer": {
+          "offer_id": "DR06",
+          "title": "Безколекторний Двигун Foxeer Black Hornet 2806.5 FPV Motor 1350Kv",
+          "description": "",
+          "brand": "Foxeer",
+          "source": "Drono Store",
+          "url": "https://drono.store/805-bezkolektornij-dvigun-foxeer-black-hornet-28065-fpv-motor-1350-1750kv.html",
+          "attributes": {
+            "price_uah": "",
+            "collected_on": "2026-11-03",
+            "record_status": "needs_variant_check",
+            "review_notes": "URL згадує 1350/1750KV; перевірити, чи це окремий обраний варіант."
+          },
+          "technical_attributes": {
+            "family_model": "Black Hornet 2806.5",
+            "stator_code": "2806.5",
+            "kv_rpm_per_volt": "1350",
+            "voltage_s": "",
+            "units_in_listing": "1",
+            "seller_sku": ""
+          }
+        },
+        "retrieval_score": 0.042901783208385495,
+        "similarity_score": 0.03533088028925864,
+        "feature_similarities": {
+          "title": 0.042901783208385495,
+          "description": null,
+          "brand": 0.0,
+          "identifier": null
+        }
+      },
+      {
+        "offer": {
+          "offer_id": "PH08",
+          "title": "Мотор SpeedyBee 2006-1950KV Bee35",
+          "description": "",
+          "brand": "SpeedyBee",
+          "source": "Phoenix Drones",
+          "url": "https://fx-drones.com/motor-speedybee-2006-1950kv-kompaktnist-ta-syla-dlia-droniv-cinewhoop/",
+          "attributes": {
+            "price_uah": "",
+            "collected_on": "2026-11-03",
+            "record_status": "single_variant",
+            "review_notes": ""
+          },
+          "technical_attributes": {
+            "family_model": "Bee35 2006",
+            "stator_code": "2006",
+            "kv_rpm_per_volt": "1950",
+            "voltage_s": "",
+            "units_in_listing": "1",
+            "seller_sku": ""
+          }
+        },
+        "retrieval_score": 0.03913725914240941,
+        "similarity_score": 0.03223068399963128,
+        "feature_similarities": {
+          "title": 0.03913725914240941,
+          "description": null,
+          "brand": 0.0,
+          "identifier": null
+        }
+      }
+    ]
+  },
+  "verification": {
+    "matches_confirmed": false,
+    "search_metrics_computed": false,
+    "gold_labels_used": false
+  },
+  "catalog_format": "fpv"
+}

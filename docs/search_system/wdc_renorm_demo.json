@@ -1,0 +1,234 @@
+{
+  "catalog_size": 1000,
+  "known_sources": [],
+  "unknown_source_offers": 1000,
+  "query": {
+    "offer_id": "1017836",
+    "title": "APC Smart-UPS SRT 6000VA RM 230V",
+    "description": "Interface Port Contact Closure, RJ-45 10/100 Base-T, RJ-45 Serial, Smart-Slot",
+    "brand": "",
+    "source": "",
+    "url": "",
+    "attributes": {
+      "price": "59990.00",
+      "priceCurrency": "SEK"
+    },
+    "technical_attributes": {}
+  },
+  "retrieval": {
+    "method": "title_tfidf_cosine",
+    "candidate_k": 20,
+    "candidate_count": 20,
+    "other_stores_only": false,
+    "candidates": [
+      {
+        "offer_id": "61195551",
+        "retrieval_score": 0.7217823976426607
+      },
+      {
+        "offer_id": "87076936",
+        "retrieval_score": 0.6063189505709298
+      },
+      {
+        "offer_id": "70159856",
+        "retrieval_score": 0.5045216402873177
+      },
+      {
+        "offer_id": "84668470",
+        "retrieval_score": 0.5038805780193328
+      },
+      {
+        "offer_id": "18693009",
+        "retrieval_score": 0.48403477663256445
+      },
+      {
+        "offer_id": "77969198",
+        "retrieval_score": 0.4659488834743957
+      },
+      {
+        "offer_id": "10937592",
+        "retrieval_score": 0.39834591921902507
+      },
+      {
+        "offer_id": "2965203",
+        "retrieval_score": 0.3937258529510588
+      },
+      {
+        "offer_id": "14418390",
+        "retrieval_score": 0.3812197995140976
+      },
+      {
+        "offer_id": "19248199",
+        "retrieval_score": 0.3788977368459744
+      },
+      {
+        "offer_id": "629096",
+        "retrieval_score": 0.36543672830187307
+      },
+      {
+        "offer_id": "15267149",
+        "retrieval_score": 0.28393319591355626
+      },
+      {
+        "offer_id": "89102922",
+        "retrieval_score": 0.1926411200282451
+      },
+      {
+        "offer_id": "18346724",
+        "retrieval_score": 0.10702341041416039
+      },
+      {
+        "offer_id": "61296263",
+        "retrieval_score": 0.09635353038303333
+      },
+      {
+        "offer_id": "29825517",
+        "retrieval_score": 0.09556733265155211
+      },
+      {
+        "offer_id": "71290070",
+        "retrieval_score": 0.09061826607022333
+      },
+      {
+        "offer_id": "6795966",
+        "retrieval_score": 0.0863142207547193
+      },
+      {
+        "offer_id": "9561888",
+        "retrieval_score": 0.08128188792542555
+      },
+      {
+        "offer_id": "53464814",
+        "retrieval_score": 0.0806732542761498
+      }
+    ]
+  },
+  "ranking": {
+    "method": "renorm",
+    "top_k": 5,
+    "score_type": "algorithmic similarity, not calibrated match probability",
+    "results": [
+      {
+        "offer": {
+          "offer_id": "84668470",
+          "title": "APC Smart UPS SRT 6000VA / 230V On Line / Web Card - SRT6KRMXLI",
+          "description": "APC Smart-UPS SRT 6000VA 230VHigh density, double-conversion on-line power protection with scalable runtimeIncludes: Documentation CD, Installation guide, Rack Mounting brackets, Rack mounting hardware, Rack Mounting support rails, Temperature Probe, Warranty card, Web/SNMP Management Card ",
+          "brand": "",
+          "source": "",
+          "url": "",
+          "attributes": {
+            "price": "4695.00",
+            "priceCurrency": "EUR"
+          },
+          "technical_attributes": {}
+        },
+        "retrieval_score": 0.5038805780193328,
+        "similarity_score": 0.43055941301758865,
+        "feature_similarities": {
+          "title": 0.5038805780193328,
+          "description": 0.09615513238144867,
+          "brand": null,
+          "identifier": 0.5
+        }
+      },
+      {
+        "offer": {
+          "offer_id": "61195551",
+          "title": "APC Smart-UPS SRT 3000VA RM 230V SRT3000RMXLI",
+          "description": "APC Smart-UPS SRT 3000VA RM 230VHigh density, double-conversion on-line power protection with scalable runtimeIncludes: CD with software, Documentation CD, Installation guide, Rack Mounting brackets, Rack Mounting support rails, USB cable, Warranty card Battery failure notification Provides early-warning fault analysis on batteries enabling timely preventive maintenance ECO Mode Operating mode that by-passes unused electrical components in good power conditions to achieve high operating efficiency without sacrificing protection Green mode Patent-pending operating mode that bypasses unused electrical components in good power conditions to achieve very high operating efficiency without sacrificing any protection. LCD graphics display Text and mimic diagrams that display modes of operation, system parameters and alarms. Rack/Tower convertible Protects the initial investment in the UPS when migrating from tower to rack-mount environment. Automatic internal bypassSupplies utility power to the connected loads in the event of a UPS power overload or fault.Scalable runtimeAllows additional run time to be quickly added as needed.Intelligent battery managementMaximizes battery performance, life, and reliability through intelligent, precision charging.Hot-swappable batteriesEnsures clean, uninterrupted power to protected equipment while batteries are being replacedAutomatic restart of loads after UPS shutdownAutomatically starts up the connected equipment upon the return of utility power.Temperature-compensated battery chargingProlongs battery life by regulating the charge voltage according to battery temperature.ManageabilitySerial connectivityProvides management of the UPS via a serial port.SmartSlotCustomize UPS capabilities with management cards.LED status indicatorsQuickly understand unit and power status with visual indicators.InfraStruXure Manager CompatibleEnables centralized management via the APC InfraStruXure Manager.Network manageableProvides remote power management of the UPS over the network.AdaptabilityRack/Tower convertibleProtects the initial investment in the UPS when migrating from tower to rack-mount environment.Flash upgradeable firmwareInstall maintenance releases of firmware remotely using FTP.Plug-and-Play external batteriesEnsures clean, uninterrupted power to the loads when adding extra runtime to the UPS.ServiceabilityAudible alarmsProvides notification of changing utility power and UPS power conditionsPredicitive failure notificationProvides early-warning fault analysis ensuring proactive component replacement.User-replaceable batteriesIncreases availability by allowing a trained user to perform upgrades and replacements of the batteries reducing Mean Time to Repair (MTTR)Automatic self-testPeriodic battery self-test ensures early detection of a battery that needs to be replaced. Datasheet",
+          "brand": "",
+          "source": "",
+          "url": "",
+          "attributes": {
+            "price": "2524.55",
+            "priceCurrency": "GBP"
+          },
+          "technical_attributes": {}
+        },
+        "retrieval_score": 0.7217823976426607,
+        "similarity_score": 0.3535544096034271,
+        "feature_similarities": {
+          "title": 0.7217823976426605,
+          "description": 0.07872192737232553,
+          "brand": null,
+          "identifier": 0.0
+        }
+      },
+      {
+        "offer": {
+          "offer_id": "2965203",
+          "title": "APC Smart-UPS RT 192V RM Battery Pack",
+          "description": "RT192V RM Battery Pack 2 Rows",
+          "brand": "",
+          "source": "",
+          "url": "",
+          "attributes": {
+            "price": "23449.00",
+            "priceCurrency": "DKK"
+          },
+          "technical_attributes": {}
+        },
+        "retrieval_score": 0.3937258529510588,
+        "similarity_score": 0.32807514564193413,
+        "feature_similarities": {
+          "title": 0.3937258529510587,
+          "description": 0.021705178199352516,
+          "brand": null,
+          "identifier": null
+        }
+      },
+      {
+        "offer": {
+          "offer_id": "70159856",
+          "title": "APC Smart-UPS RT 20kVA RM 230V - SURT20KRMXLI",
+          "description": "APC Smart-UPS RT 20kVA RM 230V - SURT20KRMXLIModel: SURT20KRMXLIAPC Smart-UPS RT, 16 kW / 20 kVA,Input 230V / Output 230V, Interface Port DB-9 RS-232, RJ-45 10/100 Base-T, Smart-Slot, Extended runtime model, Rack Height 12 UIncludes: CD with software, Rack Mounting support rails, Smart UPS signalling RS-232 cable, User Manual, Web/SNMP Management Card",
+          "brand": "",
+          "source": "",
+          "url": "",
+          "attributes": {
+            "price": "16299",
+            "priceCurrency": "SGD"
+          },
+          "technical_attributes": {}
+        },
+        "retrieval_score": 0.5045216402873177,
+        "similarity_score": 0.30147440027623285,
+        "feature_similarities": {
+          "title": 0.5045216402873179,
+          "description": 0.3629638941324717,
+          "brand": null,
+          "identifier": 0.0
+        }
+      },
+      {
+        "offer": {
+          "offer_id": "87076936",
+          "title": "APC Smart-UPS SRT 10000VA SRT10KXLI",
+          "description": "Model : SRT10KXLILoad Capacity : 10.0 KWatts / 10.0 KVAStandard warranty : 3 years",
+          "brand": "",
+          "source": "",
+          "url": "",
+          "attributes": {
+            "price": "19500.00",
+            "priceCurrency": "AED"
+          },
+          "technical_attributes": {}
+        },
+        "retrieval_score": 0.6063189505709298,
+        "similarity_score": 0.2890370774479487,
+        "feature_similarities": {
+          "title": 0.6063189505709295,
+          "description": 0.021026237349230818,
+          "brand": null,
+          "identifier": 0.0
+        }
+      }
+    ]
+  },
+  "verification": {
+    "matches_confirmed": false,
+    "search_metrics_computed": false,
+    "gold_labels_used": false
+  },
+  "catalog_format": "wdc"
+}
