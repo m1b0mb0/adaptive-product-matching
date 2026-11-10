@@ -148,18 +148,18 @@ class SearchEngine:
     ``renorm`` is a temporary existing baseline default, not a new method.
     Catalog-fit title/description IDF is an unsupervised demo representation;
     these scores are not directly comparable with historical fold-fit scores.
-    The optional logistic scorer always uses its own frozen training extractor.
+    Optional logistic/corrected scorers use their own frozen training extractor.
     No thresholds, identity decisions, or accuracy metrics are computed.
     """
 
     def __init__(self, catalog: Mapping[str, ProductOffer], method: str = "renorm", *,
                  pair_scorer: PairScorer | None = None) -> None:
-        if method not in {"fixed", "renorm", "logistic"}:
-            raise ValueError("Search method must be fixed, renorm, or logistic")
-        if method == "logistic" and pair_scorer is None:
-            raise ValueError("Logistic search requires an already-fitted pair_scorer")
-        if method != "logistic" and pair_scorer is not None:
-            raise ValueError("pair_scorer is only supported with method='logistic'")
+        if method not in {"fixed", "renorm", "logistic", "adaptive-corrected"}:
+            raise ValueError("Search method must be fixed, renorm, logistic, or adaptive-corrected")
+        if method in {"logistic", "adaptive-corrected"} and pair_scorer is None:
+            raise ValueError(f"{method} search requires an already-fitted pair_scorer")
+        if method not in {"logistic", "adaptive-corrected"} and pair_scorer is not None:
+            raise ValueError("pair_scorer is only supported with logistic or adaptive-corrected")
         if pair_scorer is not None and not callable(getattr(pair_scorer, "score_pairs", None)):
             raise ValueError("pair_scorer must implement score_pairs")
         self.catalog = _catalog_snapshot(catalog)

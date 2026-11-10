@@ -13,7 +13,7 @@ from pathlib import Path
 
 from matching import norm
 from product_catalog import ProductOffer, load_fpv_catalog, load_wdc_catalog
-from search_system import SearchEngine
+from search_system import PairScorer, SearchEngine
 
 WDC_TRAIN_NAME = "wdcproducts80cc20rnd000un_train_small.json.gz"
 PROJECT_DIRECTORY = Path(__file__).resolve().parent
@@ -81,9 +81,10 @@ def verify_wdc_train(path: str | Path) -> None:
 
 def search_payload(catalog: dict[str, ProductOffer], query_id: str, *,
                    method: str = "renorm", candidate_k: int = 20, top_k: int = 5,
-                   other_stores_only: bool = False) -> dict:
+                   other_stores_only: bool = False,
+                   pair_scorer: PairScorer | None = None) -> dict:
     """Perform two explicit search stages with no match labels or thresholds."""
-    engine = SearchEngine(catalog, method=method)
+    engine = SearchEngine(catalog, method=method, pair_scorer=pair_scorer)
     candidates = engine.retrieve(query_id, candidate_k=candidate_k,
                                  other_sources_only=other_stores_only)
     results = engine.search(query_id, candidate_k=candidate_k, top_k=top_k,
@@ -148,12 +149,15 @@ def main(argv=None) -> None:
     parser.add_argument("--query-id", required=True, help="offer_id пропозиції з каталогу")
     parser.add_argument("--candidate-k", type=int, default=20)
     parser.add_argument("--top", "--top-k", type=int, default=5)
-    parser.add_argument("--method", choices=("fixed", "renorm"), default="renorm")
+    parser.add_argument("--method", choices=("fixed", "renorm", "adaptive-corrected"), default="renorm")
+    parser.add_argument("--method-config", type=Path, help="Frozen configuration for adaptive-corrected")
     parser.add_argument("--other-stores-only", "--other-sources-only", action="store_true")
     parser.add_argument("--json", action="store_true", dest="json_output")
     args = parser.parse_args(argv)
     if args.pairs is not None and args.catalog_format != "wdc":
         parser.error("--pairs is supported only for WDC TRAIN; use --catalog for FPV")
+    if args.method_config is not None and args.method != "adaptive-corrected":
+        parser.error("--method-config is only supported with --method adaptive-corrected")
     path = args.catalog if args.catalog is not None else args.pairs
     try:
         if args.catalog_format == "wdc":
@@ -161,9 +165,16 @@ def main(argv=None) -> None:
             catalog = load_wdc_catalog(path)
         else:
             catalog = load_fpv_catalog(path)
+        pair_scorer = None
+        if args.method == "adaptive-corrected":
+            from frozen_method_artifact import load_corrected_scorer
+            configuration = (args.method_config if args.method_config is not None else
+                             PROJECT_DIRECTORY / "docs/final_method/frozen_configuration.json")
+            pair_scorer = load_corrected_scorer(configuration, project_root=PROJECT_DIRECTORY)
         payload = search_payload(catalog, args.query_id, method=args.method,
                                  candidate_k=args.candidate_k, top_k=args.top,
-                                 other_stores_only=args.other_stores_only)
+                                 other_stores_only=args.other_stores_only,
+                                 pair_scorer=pair_scorer)
     except (ValueError, OSError) as error:
         parser.exit(2, f"Помилка пошуку: {error}\n")
     payload["catalog_format"] = args.catalog_format
