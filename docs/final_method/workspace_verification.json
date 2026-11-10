@@ -1,0 +1,154 @@
+{
+  "verified_workspace": "D:\\Development\\masters\\adaptive-product-matching",
+  "python": "3.12.10",
+  "venv_prefix": "D:\\Development\\masters\\adaptive-product-matching\\.venv",
+  "initial_dependencies": "scientific packages absent; installing exact requirements-lock.txt",
+  "non_test_data_sha256": {
+    "data/external/wdcproducts80cc20rnd000un_train_small.json.gz": "1915a92de76ddbf63a6c4d7ff3162df98f505033a8ad12ee7072b78b083d77c6",
+    "data/external/wdcproducts80cc20rnd000un_valid_small.json.gz": "892e8d39cc8230dce5039a4bded16be1237d5c5c37b94a37404226d349ef3df8",
+    "data/external/fpv_motors/fpv_motors_offers_pilot.csv": "9a96914af39ed19514b1f547501a37866cf4352dc2f5425517acead0a290b85f",
+    "data/external/fpv_motors/fpv_motors_pair_candidates.csv": "361299546b911b99a8ca39ad639fb37ffdf7473d9e7263acef85fbce247b4e8a",
+    "data/external/fpv_motors/review_queue.csv": "867fcf9962c0a7c639a674bbf178aa987ead5b84f0899b124c99657b504bf0b8"
+  },
+  "historical_code_compatibility": [
+    {
+      "path": "run_known_methods.py",
+      "historical_sha256": "bf3e469bbfba9438994c712b5abcaa0c9c0eaaee35c5c42410323a2782cccae9",
+      "current_sha256": "0d592d21423a06c85d075014caef8e97ddd45490520ea301de57940041f66d32",
+      "current_lf_sha256": "bf3e469bbfba9438994c712b5abcaa0c9c0eaaee35c5c42410323a2782cccae9",
+      "compatible_after_crlf_to_lf": true
+    },
+    {
+      "path": "logistic_baseline.py",
+      "historical_sha256": "0a6485677e184cf85c75551effd404dcece31ee296baf506544dc4176bcf57ec",
+      "current_sha256": "84fc974b07ccee6f88628286d1e4098326fc5479bc7b434f646ce236c8556dd6",
+      "current_lf_sha256": "0a6485677e184cf85c75551effd404dcece31ee296baf506544dc4176bcf57ec",
+      "compatible_after_crlf_to_lf": true
+    },
+    {
+      "path": "matching.py",
+      "historical_sha256": "038f58693212c6eb04ed8a55e050ba43ea34270c0277f849fac953b92d6e72ab",
+      "current_sha256": "5c734003cb8b4a0bbb81a2990f50239d9f91f2efaf330e706a65d880ecf657a1",
+      "current_lf_sha256": "038f58693212c6eb04ed8a55e050ba43ea34270c0277f849fac953b92d6e72ab",
+      "compatible_after_crlf_to_lf": true
+    },
+    {
+      "path": "audit_wdc.py",
+      "historical_sha256": "1b9d63dbfa125816a5175632d840bb56fb91f261bacca60f85fa1a5639adfba8",
+      "current_sha256": "786c12842e50ead73f0824a0f69b0324b8900d1ae0b1390c2fdf7fc6989da64a",
+      "current_lf_sha256": "1b9d63dbfa125816a5175632d840bb56fb91f261bacca60f85fa1a5639adfba8",
+      "compatible_after_crlf_to_lf": true
+    },
+    {
+      "path": "run_experiment.py",
+      "historical_sha256": "18829167c5a0864c821aac655a0160e21fa060a592d7a266574692e1f18e5982",
+      "current_sha256": "f21c93cb6de702570b9ef233fd55fed8ff1a9006512d8c50316fc40e310b4a6a",
+      "current_lf_sha256": "18829167c5a0864c821aac655a0160e21fa060a592d7a266574692e1f18e5982",
+      "compatible_after_crlf_to_lf": true
+    }
+  ],
+  "preservation_baseline_files": 113,
+  "test_access": "Reserved TEST listed by filename only; not opened, hashed or parsed",
+  "old_experiments_rerun": false,
+  "snapshot_line_ending_restoration": [
+    {
+      "path": "snapshots/adaptive_v1/matching.py",
+      "before_sha256": "5c734003cb8b4a0bbb81a2990f50239d9f91f2efaf330e706a65d880ecf657a1",
+      "restored_sha256": "038f58693212c6eb04ed8a55e050ba43ea34270c0277f849fac953b92d6e72ab",
+      "change": "CRLF to original LF only; exact historical manifest hash verified"
+    },
+    {
+      "path": "snapshots/adaptive_v1/run_experiment.py",
+      "before_sha256": "f21c93cb6de702570b9ef233fd55fed8ff1a9006512d8c50316fc40e310b4a6a",
+      "restored_sha256": "18829167c5a0864c821aac655a0160e21fa060a592d7a266574692e1f18e5982",
+      "change": "CRLF to original LF only; exact historical manifest hash verified"
+    },
+    {
+      "path": "snapshots/adaptive_v1/run_validation.py",
+      "before_sha256": "4358c7f4c9c02f9f599121cfb86f2bff3436621370ceeaed8a54db84571d86e5",
+      "restored_sha256": "0f3edebc545c91dd964ebbbed8ba186b743fbb3349f6d1637d12ed8156e3d13a",
+      "change": "CRLF to original LF only; exact historical manifest hash verified"
+    },
+    {
+      "path": "snapshots/adaptive_v1/audit_wdc.py",
+      "before_sha256": "786c12842e50ead73f0824a0f69b0324b8900d1ae0b1390c2fdf7fc6989da64a",
+      "restored_sha256": "1b9d63dbfa125816a5175632d840bb56fb91f261bacca60f85fa1a5639adfba8",
+      "change": "CRLF to original LF only; exact historical manifest hash verified"
+    },
+    {
+      "path": "snapshots/adaptive_v1/requirements.txt",
+      "before_sha256": "af3e9da7139aa7da1daec1efa606fc1d4e6777175770551a76490cb69270b170",
+      "restored_sha256": "70417f33b12aa69833b100a89d37087aca1bcb1d0c66179b6dee7e9d225c3a8d",
+      "change": "CRLF to original LF only; exact historical manifest hash verified"
+    }
+  ],
+  "dependencies_after_restore": {
+    "numpy": "2.5.4",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "pytest": "9.2.0"
+  },
+  "dependency_install": "requirements-lock.txt installed successfully in current .venv",
+  "pip_check": "No broken requirements found.",
+  "historical_cache_compatibility": {
+    "code_checks": [
+      {
+        "path": "run_known_methods.py",
+        "historical_sha256": "bf3e469bbfba9438994c712b5abcaa0c9c0eaaee35c5c42410323a2782cccae9",
+        "current_sha256": "0d592d21423a06c85d075014caef8e97ddd45490520ea301de57940041f66d32",
+        "current_lf_sha256": "bf3e469bbfba9438994c712b5abcaa0c9c0eaaee35c5c42410323a2782cccae9"
+      },
+      {
+        "path": "logistic_baseline.py",
+        "historical_sha256": "0a6485677e184cf85c75551effd404dcece31ee296baf506544dc4176bcf57ec",
+        "current_sha256": "84fc974b07ccee6f88628286d1e4098326fc5479bc7b434f646ce236c8556dd6",
+        "current_lf_sha256": "0a6485677e184cf85c75551effd404dcece31ee296baf506544dc4176bcf57ec"
+      },
+      {
+        "path": "matching.py",
+        "historical_sha256": "038f58693212c6eb04ed8a55e050ba43ea34270c0277f849fac953b92d6e72ab",
+        "current_sha256": "5c734003cb8b4a0bbb81a2990f50239d9f91f2efaf330e706a65d880ecf657a1",
+        "current_lf_sha256": "038f58693212c6eb04ed8a55e050ba43ea34270c0277f849fac953b92d6e72ab"
+      },
+      {
+        "path": "audit_wdc.py",
+        "historical_sha256": "1b9d63dbfa125816a5175632d840bb56fb91f261bacca60f85fa1a5639adfba8",
+        "current_sha256": "786c12842e50ead73f0824a0f69b0324b8900d1ae0b1390c2fdf7fc6989da64a",
+        "current_lf_sha256": "1b9d63dbfa125816a5175632d840bb56fb91f261bacca60f85fa1a5639adfba8"
+      },
+      {
+        "path": "run_experiment.py",
+        "historical_sha256": "18829167c5a0864c821aac655a0160e21fa060a592d7a266574692e1f18e5982",
+        "current_sha256": "f21c93cb6de702570b9ef233fd55fed8ff1a9006512d8c50316fc40e310b4a6a",
+        "current_lf_sha256": "18829167c5a0864c821aac655a0160e21fa060a592d7a266574692e1f18e5982"
+      }
+    ],
+    "artifact_checks": [
+      {
+        "path": "docs/known_methods/development_results.json",
+        "historical_sha256": "335cee5ef4d37ec7e9256d4f3a1e60a4232837d24e3872a44fb3fa0a805b25e7",
+        "current_sha256": "335cee5ef4d37ec7e9256d4f3a1e60a4232837d24e3872a44fb3fa0a805b25e7",
+        "current_lf_sha256": "01524fe8f752ff25c649ec3cb89958a1bc7f4d209cbb05b911b5f84aaa739b5a"
+      },
+      {
+        "path": "docs/known_methods/protocol.json",
+        "historical_sha256": "b3589266264c70eb3916d029de45a3eb6cace5f7745c298ffffab93b96808d2e",
+        "current_sha256": "b3589266264c70eb3916d029de45a3eb6cace5f7745c298ffffab93b96808d2e",
+        "current_lf_sha256": "1105b739548bdf48b86ec4fc43f435e324cc26a3b586eecd1ea11796d0e638d5"
+      },
+      {
+        "path": "docs/known_methods/clean_predictions.csv",
+        "historical_sha256": "606c36e6a6da41ecb41e4b02baf03e6db61546712d737db5b8d57f1f8dde9bc7",
+        "current_sha256": "606c36e6a6da41ecb41e4b02baf03e6db61546712d737db5b8d57f1f8dde9bc7",
+        "current_lf_sha256": "1e9b66f0ebe50c10f33e990a11240e7d3c0147c244116d5ff35b5eaec7853ffb"
+      }
+    ],
+    "data_sha256_matches": true,
+    "package_versions_match": true,
+    "split_manifest_matches": true,
+    "baseline_metrics_recomputed_from_csv": true,
+    "baseline_experiments_rerun": false
+  }
+}

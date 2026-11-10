@@ -133,3 +133,33 @@ Default — **Renormalization**, відомий baseline. Для Fixed Weighted 
 Поточна перевірка: **432 тести пройшли**; 103 нові перевіряють пошуковий шар. `pip check` успішний. [Машинний звіт](docs/search_system/pipeline_validation.json) фіксує тести, реальні демозапуски та незмінність 96 попередніх файлів.
 
 Демонстрації не підтверджують тотожність пропозицій; similarity не є каліброваною ймовірністю. Recall@K та інші метрики пошуку не обчислювалися. Історичні WDC/FPV-експерименти не переписувалися, фінальний TEST не використовувався. Нових залежностей немає; перевірка: `.\.venv\Scripts\python.exe -m pytest -q`.
+
+
+## Зафіксований Adaptive v1 corrected
+
+Окремий фінальний кандидат використовує **S = coverage × зважена подібність**, gamma=1, prior=0, identifier penalty=0. Історичний `matching.py` і v1 збережено. Групи title/identifier, description, brand та TRAIN-інформативність не змінено; успадковані ручні множники надійності залишаються гіпотезою. Формулу зафіксовано до нового development-запуску й після результатів не змінювали.
+
+Матеріали — [специфікація](docs/final_method/method_specification.md), [development-порівняння](docs/final_method/development_comparison.md), [frozen-конфігурація](docs/final_method/frozen_configuration.json), [протокол майбутнього одноразового оцінювання](docs/final_method/final_evaluation_protocol.md), [стан реалізації](docs/final_method/implementation_status.md).
+
+На тих самих 1135 TRAIN outer-парах corrected має F1=0.7897, v1=0.7922, Renormalization=0.7910, Fixed=0.7935. Переваги corrected не встановлено. Корекція усуває додатний prior і забезпечує 0 ≤ score ≤ coverage, але не гарантує глобального зниження score при кожному приховуванні. Статистики й пороги навчаються тільки на дозволених fit/inner-heldout частинах; п'ять попередніх baseline-оцінок повторно використано після перевірки даних, коду й пакетів. Для однієї фінальної конфігурації додатково виконано INNER-only калібровку та full-TRAIN fit без TEST.
+
+Поточний CLI default залишається Renormalization. Для corrected потрібно завантажити вже frozen bundle, без fit на запиті:
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 search_cli.py --catalog-format wdc --catalog data/external/wdcproducts80cc20rnd000un_train_small.json.gz --query-id 1017836 --candidate-k 20 --top 5 --method adaptive-corrected --method-config docs/final_method/frozen_configuration.json
+.\.venv\Scripts\python.exe -m pytest -q
+```
+
+Локальний артефакт — `data/processed/final_method/frozen_models.joblib`; він містить full-TRAIN TF-IDF, інформативність, LR і зафіксовані параметри шести методів. SHA-256 вказано в конфігурації. `data/processed/` виключено з Git: для іншого пристрою потрібно окремо зберегти/відновити цей артефакт із перевіркою хешу. Відсутній артефакт не запускає автоматичного навчання на запиті.
+
+Pipeline підготовки реалізовано окремо:
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 prepare_final_method.py
+```
+
+Цей етап уже виконано. Повторний запуск у той самий каталог відхиляється, щоб зберегти зафіксовані результати. Лише за обґрунтованої потреби відтворення можна використати новий каталог `--out-dir docs/final_method/reproduction`; він створить окремий bundle. Потрібно порівняти хеші параметрів із первинною конфігурацією й зупинитися за розбіжності, а не обирати вигідніший запуск. Формулу, сітки та правила не розширювати.
+
+Перевірка поточного етапу: **483 тести пройшли**, залежності відновлено точно за `requirements-lock.txt`, `pip check` успішний. [Звіт перевірки](docs/final_method/pipeline_validation.json) фіксує походження даних, SHA-256, inner-only калібровку та frozen-пошук. Після перенесення п'ять snapshot-файлів відновлено з CRLF до оригінальних LF-байтів строго за історичним маніфестом; числових результатів і маніфестів не змінено.
+
+Фінальний WDC TEST **не відкривався й не оцінювався**. Конфігурація підготовлена до окремо дозволеного одноразового pairwise-оцінювання. Підтверджені Recall@K/Precision@K та якість наскрізного пошуку не заявляються; FPV-мітки не використовувалися. Adaptive v2/v3 не реалізовано.

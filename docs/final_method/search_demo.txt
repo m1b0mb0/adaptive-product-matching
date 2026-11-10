@@ -1,0 +1,39 @@
+Каталог: 1000 пропозицій.
+Запит: 1017836 | APC Smart-UPS SRT 6000VA RM 230V
+Джерело запиту: невідоме
+Відібрано TF-IDF кандидатів: 20 (ліміт 20).
+Ранжування: adaptive-corrected; показано 5 результатів.
+Магазин невідомий для 1000 пропозицій каталогу.
+
+1. APC Smart UPS SRT 6000VA / 230V On Line / Web Card - SRT6KRMXLI [84668470]
+   Джерело: невідоме
+   URL: відсутній
+   Подібність: 0.376958; TF-IDF retrieval: 0.503881
+   Атрибути: price=4695.00; priceCurrency=EUR
+
+2. APC Smart-UPS SRT 3000VA RM 230V SRT3000RMXLI [61195551]
+   Джерело: невідоме
+   URL: відсутній
+   Подібність: 0.318384; TF-IDF retrieval: 0.721782
+   Атрибути: price=2524.55; priceCurrency=GBP
+
+3. APC Smart-UPS RT 192V RM Battery Pack [2965203]
+   Джерело: невідоме
+   URL: відсутній
+   Подібність: 0.290013; TF-IDF retrieval: 0.393726
+   Атрибути: price=23449.00; priceCurrency=DKK
+
+4. APC Smart-UPS SRT 10000VA SRT10KXLI [87076936]
+   Джерело: невідоме
+   URL: відсутній
+   Подібність: 0.261901; TF-IDF retrieval: 0.606319
+   Атрибути: price=19500.00; priceCurrency=AED
+
+5. APC Smart-UPS RT 20kVA RM 230V - SURT20KRMXLI [70159856]
+   Джерело: невідоме
+   URL: відсутній
+   Подібність: 0.260446; TF-IDF retrieval: 0.504522
+   Атрибути: price=16299; priceCurrency=SGD
+
+Оцінки алгоритму не є каліброваними ймовірностями тотожності.
+Тотожність результатів не підтверджено; метрики якості пошуку не обчислювалися.

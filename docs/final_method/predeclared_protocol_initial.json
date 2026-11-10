@@ -1,0 +1,236 @@
+{
+  "protocol": {
+    "version": "adaptive-v1-corrected-finalization-1",
+    "method_specification": {
+      "method_id": "adaptive_corrected",
+      "name": "Adaptive v1 corrected",
+      "version": "adaptive-v1-corrected-1",
+      "formula": "S_corr = C * M_q; no available group -> 0",
+      "gamma": 1.0,
+      "prior": 0.0,
+      "identifier_penalty": 0.0,
+      "field_order": [
+        "title",
+        "description",
+        "brand",
+        "identifier"
+      ],
+      "groups": [
+        [
+          "title",
+          "identifier"
+        ],
+        [
+          "description"
+        ],
+        [
+          "brand"
+        ]
+      ],
+      "group_weights": [
+        0.7,
+        0.15,
+        0.15
+      ],
+      "group_channel_weights": [
+        [
+          0.5714285714285714,
+          0.42857142857142855
+        ],
+        [
+          1.0
+        ],
+        [
+          1.0
+        ]
+      ],
+      "manual_reliability": [
+        1.0,
+        1.0,
+        1.0,
+        0.7
+      ],
+      "quality": "q_i = I_i * r_i; r is inherited manual reliability, not empirically established accuracy",
+      "coverage": "Sum of available raw-group budgets; title OR derived identifier uses one title-group budget",
+      "informativeness": {
+        "source": "matching.train_informativeness",
+        "formula": "clip(0.5 + 2 * (positive_mean - negative_mean), 0.25, 1.5)",
+        "minimum_observed_per_class": 3,
+        "insufficient_observations_fallback": 1.0,
+        "fit_policy": "TRAIN fit portion only; refit inside every development training fold"
+      },
+      "threshold_policy": "Threshold is external; select only on permitted inner development predictions",
+      "no_evidence_score": 0.0,
+      "bound": "0 <= score <= coverage <= 1",
+      "global_masking_monotonicity_claimed": false,
+      "calibration_established": false
+    },
+    "formula_fixed_before_results": true,
+    "development": "Only corrected nested 3x3 on identical historical TRAIN entity folds; baseline scores reused after verification",
+    "seed": 20261101,
+    "corrected_parameter_grid": [
+      {
+        "gamma": 1.0,
+        "prior": 0.0,
+        "penalty": 0.0
+      }
+    ],
+    "threshold_grid": [
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05,
+      0.060000000000000005,
+      0.06999999999999999,
+      0.08,
+      0.09,
+      0.09999999999999999,
+      0.11,
+      0.12,
+      0.13,
+      0.14,
+      0.15000000000000002,
+      0.16,
+      0.17,
+      0.18000000000000002,
+      0.19,
+      0.2,
+      0.21000000000000002,
+      0.22,
+      0.23,
+      0.24000000000000002,
+      0.25,
+      0.26,
+      0.27,
+      0.28,
+      0.29000000000000004,
+      0.3,
+      0.31,
+      0.32,
+      0.33,
+      0.34,
+      0.35000000000000003,
+      0.36000000000000004,
+      0.37,
+      0.38,
+      0.39,
+      0.4,
+      0.41000000000000003,
+      0.42000000000000004,
+      0.43,
+      0.44,
+      0.45,
+      0.46,
+      0.47000000000000003,
+      0.48000000000000004,
+      0.49,
+      0.5,
+      0.51,
+      0.52,
+      0.53,
+      0.54,
+      0.55,
+      0.56,
+      0.5700000000000001,
+      0.5800000000000001,
+      0.59,
+      0.6,
+      0.61,
+      0.62,
+      0.63,
+      0.64,
+      0.65,
+      0.66,
+      0.67,
+      0.68,
+      0.6900000000000001,
+      0.7000000000000001,
+      0.7100000000000001,
+      0.72,
+      0.73,
+      0.74,
+      0.75,
+      0.76,
+      0.77,
+      0.78,
+      0.79,
+      0.8,
+      0.81,
+      0.8200000000000001,
+      0.8300000000000001,
+      0.8400000000000001,
+      0.85,
+      0.86,
+      0.87,
+      0.88,
+      0.89,
+      0.9,
+      0.91,
+      0.92,
+      0.93,
+      0.9400000000000001,
+      0.9500000000000001,
+      0.9600000000000001,
+      0.97,
+      0.98,
+      0.99
+    ],
+    "selection": "max F1, then precision, higher threshold, grid order",
+    "final_calibration": {
+      "source": "Nine INNER held-out prediction sets only, never outer predictions",
+      "duplicates": "Mean raw inner held-out score per original pair_id; one equally weighted row per pair",
+      "fold_thresholds": "Never average selected fold thresholds",
+      "gamma_grid_v1": [
+        0.5,
+        1.0,
+        1.5
+      ],
+      "C_grid_logistic": [
+        0.1,
+        1.0,
+        10.0
+      ],
+      "corrected": "Fixed formula; select threshold only",
+      "role": "Final calibration, not independent performance estimation"
+    },
+    "full_fit": "One full-TRAIN extractor/informativeness fit and one selected LR fit after final calibration",
+    "missingness": {
+      "scenarios": [
+        "auxiliary",
+        "all_groups"
+      ],
+      "rates": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.5
+      ],
+      "seeds": [
+        11,
+        22,
+        33
+      ],
+      "thresholds": "Clean inner-selected outer thresholds frozen"
+    },
+    "historical_results_overwritten": false,
+    "test_opened": false,
+    "fpv_labels_used": false
+  },
+  "split_manifest_sha256": "0b22970d987af903dd5e97af25be7a45c8d57a081e2246ecbbb12ac0a18ba2b0",
+  "train_sha256": "1915a92de76ddbf63a6c4d7ff3162df98f505033a8ad12ee7072b78b083d77c6",
+  "code_sha256_lf": {
+    "matching.py": "038f58693212c6eb04ed8a55e050ba43ea34270c0277f849fac953b92d6e72ab",
+    "adaptive_corrected.py": "cc61175eb51acba5e91992e8544de5d432d62c5419aa5907159bf38ba82dc3cb",
+    "logistic_baseline.py": "0a6485677e184cf85c75551effd404dcece31ee296baf506544dc4176bcf57ec",
+    "run_known_methods.py": "bf3e469bbfba9438994c712b5abcaa0c9c0eaaee35c5c42410323a2782cccae9",
+    "run_experiment.py": "18829167c5a0864c821aac655a0160e21fa060a592d7a266574692e1f18e5982",
+    "audit_wdc.py": "1b9d63dbfa125816a5175632d840bb56fb91f261bacca60f85fa1a5639adfba8",
+    "prepare_final_method.py": "2f5dc84790a001c03d2a7b278334e2ce9d7f47171565424599651139718b4753",
+    "frozen_method_artifact.py": "0e01ae5ec303dbf5d9f3499363247b37aa319219106f71cc6452de70bbc7138a",
+    "search_system.py": "ad22a51def6a4f0eac771bb99a0eb208150120339e0a42a913f5c52c905fb31e",
+    "search_cli.py": "835df2ffa9a63ace558bd2af9b4262ac4289177857b297660751cd1b71a977ec",
+    "product_catalog.py": "e36f7a4288a97b149a19f1703207009970a5bd89a8243b90ac138970bfe7036a"
+  }
+}
