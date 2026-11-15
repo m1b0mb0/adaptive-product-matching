@@ -1,0 +1,67 @@
+{
+  "scope": "Cached TRAIN development diagnostics only; no rule fitted or evaluated",
+  "checks": {
+    "pairs": 1135,
+    "mask_metric_replays": 60,
+    "maximum_identity_absolute_error": 5.551115123125783e-17,
+    "model_fits": 0,
+    "threshold_selections": 0,
+    "test_reads": 0
+  },
+  "thresholds": {
+    "0": {
+      "fixed": 0.14,
+      "renorm": 0.13
+    },
+    "1": {
+      "fixed": 0.09,
+      "renorm": 0.11
+    },
+    "2": {
+      "fixed": 0.11,
+      "renorm": 0.19
+    }
+  },
+  "provenance": {
+    "docs/known_methods/clean_predictions.csv": "606c36e6a6da41ecb41e4b02baf03e6db61546712d737db5b8d57f1f8dde9bc7",
+    "docs/known_methods/development_results.json": "335cee5ef4d37ec7e9256d4f3a1e60a4232837d24e3872a44fb3fa0a805b25e7",
+    "docs/known_methods/protocol.json": "b3589266264c70eb3916d029de45a3eb6cace5f7745c298ffffab93b96808d2e"
+  },
+  "code_sha256_lf": "b557c87c3ca17112f3286b9a2e4cb57f6a9314ee36aedde689ded96884798f94",
+  "original_training_provenance": {
+    "train_path": "data/external/wdcproducts80cc20rnd000un_train_small.json.gz",
+    "train_sha256": "1915a92de76ddbf63a6c4d7ff3162df98f505033a8ad12ee7072b78b083d77c6",
+    "code_sha256": {
+      "run_known_methods.py": "bf3e469bbfba9438994c712b5abcaa0c9c0eaaee35c5c42410323a2782cccae9",
+      "logistic_baseline.py": "0a6485677e184cf85c75551effd404dcece31ee296baf506544dc4176bcf57ec",
+      "matching.py": "038f58693212c6eb04ed8a55e050ba43ea34270c0277f849fac953b92d6e72ab",
+      "audit_wdc.py": "1b9d63dbfa125816a5175632d840bb56fb91f261bacca60f85fa1a5639adfba8",
+      "run_experiment.py": "18829167c5a0864c821aac655a0160e21fa060a592d7a266574692e1f18e5982"
+    },
+    "python": "3.12.10",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "matplotlib": "3.11.2",
+      "pytest": "9.2.0"
+    },
+    "input_roles": [
+      "official TRAIN only"
+    ],
+    "test_opened": false,
+    "report_opened": false,
+    "fpv_inputs_opened": false
+  },
+  "test_status": {
+    "status": "no_local_evaluation_evidence_last_readiness_not_opened",
+    "possible_artifact_names_only": [],
+    "last_readiness": "READY_FOR_SEPARATELY_AUTHORIZED_TEST_PREFLIGHT",
+    "last_test_opened_or_hashed": false,
+    "limitation": "Cannot rule out evaluation outside this workspace; if TEST was evaluated/viewed it is not independent for new decisions.",
+    "test_results_read": false
+  },
+  "decision": "B: do not implement switching; investigate hard-negative contradictions",
+  "support_note": "Disagreement count below 20 is a descriptive flag only, not a significance or power threshold."
+}
