@@ -1,0 +1,17 @@
+{
+  "scope": "One descriptive audit; no penalty evaluated",
+  "signals": [
+    "unchanged identifier sets",
+    "single explicit scalar length with same lexical unit",
+    "explicit model:/mpn: marker"
+  ],
+  "ambiguity": [
+    "multiple values",
+    "ranges",
+    "different units",
+    "unknown attribute role",
+    "unverified manufacturer authority"
+  ],
+  "selection": "All 1135 cached outer pairs, both labels; no parameter search",
+  "decision_gate": "Review positive counterexamples and negative examples before deciding whether a penalty is warranted"
+}

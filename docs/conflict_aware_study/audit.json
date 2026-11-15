@@ -1,0 +1,18 @@
+{
+  "scope": "cached TRAIN development titles only",
+  "pairs": 1135,
+  "positives": 500,
+  "common_fp": 243,
+  "model_fits": 0,
+  "penalties_applied": 0,
+  "thresholds_selected": 0,
+  "test_opened": false,
+  "fpv_labels_used": false,
+  "source_sha256": {
+    "docs/known_methods/clean_predictions.csv": "606c36e6a6da41ecb41e4b02baf03e6db61546712d737db5b8d57f1f8dde9bc7",
+    "docs/known_methods/development_results.json": "335cee5ef4d37ec7e9256d4f3a1e60a4232837d24e3872a44fb3fa0a805b25e7",
+    "docs/known_methods/protocol.json": "b3589266264c70eb3916d029de45a3eb6cace5f7745c298ffffab93b96808d2e"
+  },
+  "diagnostic_script_sha256": "43714867dd516c65beaabedc2b5a4fdeafcd6f08dac9d6cdd456b0b1f8bb0144",
+  "verified_conflicts": "not established: no manufacturer provenance or attribute-role gold"
+}
