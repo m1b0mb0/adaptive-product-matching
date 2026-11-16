@@ -1,0 +1,193 @@
+{
+  "status": "STARTED",
+  "preflight": {
+    "status": "PASSED",
+    "test_opened": false,
+    "python": "3.12.10",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "matplotlib": "3.11.2",
+      "pytest": "9.2.0"
+    },
+    "train_sha256": "1915a92de76ddbf63a6c4d7ff3162df98f505033a8ad12ee7072b78b083d77c6",
+    "bundle_sha256": "329fa0919f570172956b3fe60aa97dce68357f8189370ea317f3221487ff5caa",
+    "config_sha256": "2976e18752a2463a7ef784714d5468a150db0a9e0142812d471e3fc13b0c655a",
+    "train_integrity": {
+      "pairs": 2500,
+      "unique_offers": 1000,
+      "labels": {
+        "0": 2000,
+        "1": 500
+      },
+      "schema_keys": [
+        "brand_left",
+        "brand_right",
+        "cluster_id_left",
+        "cluster_id_right",
+        "description_left",
+        "description_right",
+        "id_left",
+        "id_right",
+        "is_hard_negative",
+        "label",
+        "pair_id",
+        "priceCurrency_left",
+        "priceCurrency_right",
+        "price_left",
+        "price_right",
+        "title_left",
+        "title_right"
+      ],
+      "schema_keysets": 1,
+      "observed_negative_hard_rate": 0.5,
+      "negative_hard_flag_present": 2000,
+      "hard_negative_counts": {
+        "false": 1000,
+        "true": 1000
+      },
+      "positive_hard_flag_true": 0,
+      "missing_rates_by_pair_side": {
+        "title": {
+          "left": 0.0,
+          "right": 0.0
+        },
+        "description": {
+          "left": 0.2388,
+          "right": 0.2544
+        },
+        "brand": {
+          "left": 0.6428,
+          "right": 0.6292
+        },
+        "price": {
+          "left": 0.07,
+          "right": 0.0744
+        },
+        "priceCurrency": {
+          "left": 0.0924,
+          "right": 0.0952
+        }
+      },
+      "missing_counts_by_pair_side": {
+        "title": {
+          "left": {
+            "absent_key": 0,
+            "null": 0,
+            "blank": 0,
+            "missing": 0
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 0,
+            "blank": 0,
+            "missing": 0
+          }
+        },
+        "description": {
+          "left": {
+            "absent_key": 0,
+            "null": 597,
+            "blank": 0,
+            "missing": 597
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 636,
+            "blank": 0,
+            "missing": 636
+          }
+        },
+        "brand": {
+          "left": {
+            "absent_key": 0,
+            "null": 1607,
+            "blank": 0,
+            "missing": 1607
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 1573,
+            "blank": 0,
+            "missing": 1573
+          }
+        },
+        "price": {
+          "left": {
+            "absent_key": 0,
+            "null": 175,
+            "blank": 0,
+            "missing": 175
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 186,
+            "blank": 0,
+            "missing": 186
+          }
+        },
+        "priceCurrency": {
+          "left": {
+            "absent_key": 0,
+            "null": 231,
+            "blank": 0,
+            "missing": 231
+          },
+          "right": {
+            "absent_key": 0,
+            "null": 238,
+            "blank": 0,
+            "missing": 238
+          }
+        }
+      },
+      "missing_rates_by_unique_offer": {
+        "title": 0.0,
+        "description": 0.249,
+        "brand": 0.638,
+        "price": 0.07,
+        "priceCurrency": 0.094
+      },
+      "both_present_pairs_by_field": {
+        "title": 2500,
+        "description": 1442,
+        "brand": 349,
+        "price": 2160,
+        "priceCurrency": 2061
+      },
+      "duplicate_rows": 0,
+      "duplicate_pair_ids": 0,
+      "explicit_pair_ids": 2500,
+      "pair_id_mismatches": 0,
+      "duplicate_direct_pairs": 0,
+      "duplicate_canonical_pairs": 0,
+      "reversed_pair_groups": 0,
+      "conflicting_label_pairs": 0,
+      "self_pairs": 0,
+      "cluster_labeled_pairs": 2500,
+      "unique_clusters": 500,
+      "label_cluster_mismatches": 0,
+      "inconsistent_offer_payloads": 0
+    },
+    "code_sha256": {
+      "final_evaluation.py": "f35f6001f49b5ffa7f2858718686128a02e2fee36fefe98c2c9b9cfb28ae56fe",
+      "tests/test_final_evaluation.py": "3a98cc47935929226e9701abc40f6833a774352ebcaef418f5c761e434ffbc1f",
+      "study_method_selection.py": "b557c87c3ca17112f3286b9a2e4cb57f6a9314ee36aedde689ded96884798f94"
+    },
+    "frozen_code_sha256_lf": {
+      "matching.py": "038f58693212c6eb04ed8a55e050ba43ea34270c0277f849fac953b92d6e72ab",
+      "adaptive_corrected.py": "cc61175eb51acba5e91992e8544de5d432d62c5419aa5907159bf38ba82dc3cb",
+      "logistic_baseline.py": "0a6485677e184cf85c75551effd404dcece31ee296baf506544dc4176bcf57ec",
+      "run_known_methods.py": "bf3e469bbfba9438994c712b5abcaa0c9c0eaaee35c5c42410323a2782cccae9",
+      "run_experiment.py": "18829167c5a0864c821aac655a0160e21fa060a592d7a266574692e1f18e5982",
+      "audit_wdc.py": "1b9d63dbfa125816a5175632d840bb56fb91f261bacca60f85fa1a5639adfba8",
+      "prepare_final_method.py": "06ac32b14cb6356e0e042c9659bb79a9ebaafe9521a117a392c5864350aacf79",
+      "frozen_method_artifact.py": "0e01ae5ec303dbf5d9f3499363247b37aa319219106f71cc6452de70bbc7138a",
+      "search_system.py": "ad22a51def6a4f0eac771bb99a0eb208150120339e0a42a913f5c52c905fb31e",
+      "search_cli.py": "835df2ffa9a63ace558bd2af9b4262ac4289177857b297660751cd1b71a977ec",
+      "product_catalog.py": "e36f7a4288a97b149a19f1703207009970a5bd89a8243b90ac138970bfe7036a"
+    }
+  }
+}

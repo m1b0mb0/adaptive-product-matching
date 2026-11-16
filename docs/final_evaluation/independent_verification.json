@@ -1,0 +1,13 @@
+{
+  "status": "PASSED",
+  "source": "Saved CSV only; no TEST file reread or model execution",
+  "six_confusion_matrices_and_prf_verified": true,
+  "paired_transitions_verified": true,
+  "missingness_rows": 180,
+  "zero_mask_matches_clean": true,
+  "shared_mask_counts": true,
+  "sample_sd_verified": true,
+  "pretest_code_hashes_unchanged": true,
+  "historical_files_checked": 149,
+  "historical_files_changed": []
+}

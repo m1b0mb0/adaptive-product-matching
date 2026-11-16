@@ -1,0 +1,163 @@
+{
+  "pairs": 4500,
+  "unique_offers": 1000,
+  "labels": {
+    "0": 4000,
+    "1": 500
+  },
+  "schema_keys": [
+    "brand_left",
+    "brand_right",
+    "cluster_id_left",
+    "cluster_id_right",
+    "description_left",
+    "description_right",
+    "id_left",
+    "id_right",
+    "is_hard_negative",
+    "label",
+    "pair_id",
+    "priceCurrency_left",
+    "priceCurrency_right",
+    "price_left",
+    "price_right",
+    "title_left",
+    "title_right"
+  ],
+  "schema_keysets": 1,
+  "observed_negative_hard_rate": 0.75,
+  "negative_hard_flag_present": 4000,
+  "hard_negative_counts": {
+    "true": 3000,
+    "false": 1000
+  },
+  "positive_hard_flag_true": 0,
+  "missing_rates_by_pair_side": {
+    "title": {
+      "left": 0.0,
+      "right": 0.0
+    },
+    "description": {
+      "left": 0.237556,
+      "right": 0.242889
+    },
+    "brand": {
+      "left": 0.678,
+      "right": 0.677556
+    },
+    "price": {
+      "left": 0.056667,
+      "right": 0.061556
+    },
+    "priceCurrency": {
+      "left": 0.075111,
+      "right": 0.080444
+    }
+  },
+  "missing_counts_by_pair_side": {
+    "title": {
+      "left": {
+        "absent_key": 0,
+        "null": 0,
+        "blank": 0,
+        "missing": 0
+      },
+      "right": {
+        "absent_key": 0,
+        "null": 0,
+        "blank": 0,
+        "missing": 0
+      }
+    },
+    "description": {
+      "left": {
+        "absent_key": 0,
+        "null": 1069,
+        "blank": 0,
+        "missing": 1069
+      },
+      "right": {
+        "absent_key": 0,
+        "null": 1093,
+        "blank": 0,
+        "missing": 1093
+      }
+    },
+    "brand": {
+      "left": {
+        "absent_key": 0,
+        "null": 3051,
+        "blank": 0,
+        "missing": 3051
+      },
+      "right": {
+        "absent_key": 0,
+        "null": 3049,
+        "blank": 0,
+        "missing": 3049
+      }
+    },
+    "price": {
+      "left": {
+        "absent_key": 0,
+        "null": 255,
+        "blank": 0,
+        "missing": 255
+      },
+      "right": {
+        "absent_key": 0,
+        "null": 277,
+        "blank": 0,
+        "missing": 277
+      }
+    },
+    "priceCurrency": {
+      "left": {
+        "absent_key": 0,
+        "null": 338,
+        "blank": 0,
+        "missing": 338
+      },
+      "right": {
+        "absent_key": 0,
+        "null": 362,
+        "blank": 0,
+        "missing": 362
+      }
+    }
+  },
+  "missing_rates_by_unique_offer": {
+    "title": 0.0,
+    "description": 0.239,
+    "brand": 0.673,
+    "price": 0.059,
+    "priceCurrency": 0.078
+  },
+  "both_present_pairs_by_field": {
+    "title": 4500,
+    "description": 2641,
+    "brand": 551,
+    "price": 4010,
+    "priceCurrency": 3854
+  },
+  "duplicate_rows": 0,
+  "duplicate_pair_ids": 0,
+  "explicit_pair_ids": 4500,
+  "pair_id_mismatches": 0,
+  "duplicate_direct_pairs": 0,
+  "duplicate_canonical_pairs": 0,
+  "reversed_pair_groups": 0,
+  "conflicting_label_pairs": 0,
+  "self_pairs": 0,
+  "cluster_labeled_pairs": 4500,
+  "unique_clusters": 500,
+  "label_cluster_mismatches": 0,
+  "inconsistent_offer_payloads": 0,
+  "train_test_overlaps": {
+    "offers": 0,
+    "entities": 0,
+    "pairs": 0,
+    "text_signatures": 0,
+    "title_signatures": 0
+  }
+}
