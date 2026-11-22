@@ -120,7 +120,9 @@ def test_search_projects_only_pair_fields_and_keeps_frozen_scores(frozen_scorer,
     engine = SearchEngine(catalog, method="adaptive-corrected", pair_scorer=frozen_scorer)
     guard_text_fit(monkeypatch)
     assert engine.extractor is None
+    candidates = engine.retrieve("query", candidate_k=2)
     results = engine.search("query", candidate_k=2, top_k=2)
+    assert engine.rank_candidates(query, candidates, top_k=2) == results
     assert [result.offer.offer_id for result in results] == ["match", "other"]
     np.testing.assert_allclose(
         [result.similarity_score for result in results],

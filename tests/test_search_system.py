@@ -8,7 +8,7 @@ from logistic_baseline import SimilarityLogisticRegression
 from matching import FeatureExtractor, evidence_scores
 from product_catalog import ProductOffer, offer_to_pair
 from search_system import (
-    FrozenLogisticPairScorer, SearchEngine, TfidfCandidateRetriever,
+    Candidate, FrozenLogisticPairScorer, SearchEngine, TfidfCandidateRetriever,
 )
 
 
@@ -100,8 +100,9 @@ def test_reranking_is_distinct_from_title_candidate_retrieval():
 
 
 @pytest.mark.parametrize("method", ["fixed", "renorm"])
-def test_builtin_scores_use_existing_grouped_formula_and_keep_missing_distinct(method):
+def test_builtin_scores_use_existing_grouped_formula_and_keep_missing_distinct(method, monkeypatch):
     engine = SearchEngine(catalog(offer("a"), offer("b", brand="Known")), method=method)
+    candidates = engine.retrieve("a")
     results = engine.search("a")
     assert len(results) == 1
     result = results[0]
@@ -112,6 +113,74 @@ def test_builtin_scores_use_existing_grouped_formula_and_keep_missing_distinct(m
     assert result.similarity_score == pytest.approx(evidence_scores(features, method)[0])
     assert result.offer.brand == "Known"
     assert result.offer.title == engine.catalog["b"].title
+
+    def forbidden(*args, **kwargs):
+        pytest.fail("Ranking a prepared pool tried to retrieve candidates or fit")
+
+    monkeypatch.setattr(engine.retriever, "retrieve", forbidden)
+    monkeypatch.setattr(FeatureExtractor, "fit", forbidden)
+    monkeypatch.setattr(type(engine.retriever.vectorizer), "fit", forbidden)
+    monkeypatch.setattr(type(engine.retriever.vectorizer), "fit_transform", forbidden)
+    assert engine.rank_candidates(engine.catalog["a"], candidates) == results
+
+
+def test_rank_candidates_breaks_score_ties_by_retrieval_score_then_id():
+    query, a, b, c, outside_pool = (offer(name) for name in ("query", "a", "b", "c", "outside_pool"))
+    engine = SearchEngine(catalog(query, a, b, c, outside_pool), method="fixed")
+    candidates = [Candidate(a, 0.3), Candidate(c, 0.8), Candidate(b, 0.8)]
+
+    for pool in (candidates, tuple(reversed(candidates))):
+        results = engine.rank_candidates(query, pool, top_k=2)
+        assert [(row.offer.offer_id, row.retrieval_score) for row in results] == [("b", 0.8), ("c", 0.8)]
+        assert results[0].similarity_score == results[1].similarity_score
+
+
+def test_empty_candidate_pool_returns_without_calling_scorer():
+    class UnusedScorer:
+        def score_pairs(self, pairs):
+            pytest.fail("Empty pool reached scorer")
+
+    query = offer("query")
+    engine = SearchEngine(catalog(query), method="logistic", pair_scorer=UnusedScorer())
+    assert engine.rank_candidates(query, []) == []
+    with pytest.raises(ValueError, match="top_k"):
+        engine.rank_candidates(query, [], top_k=0)
+
+
+@pytest.mark.parametrize(("pool", "message"), [
+    (None, "sequence of Candidate"),
+    ("", "sequence of Candidate"),
+    ([offer("known")], "Candidate with a ProductOffer"),
+    ([Candidate("known", 0.5)], "Candidate with a ProductOffer"),
+    ([Candidate(offer("missing"), 0.5)], "Unknown or inconsistent candidate"),
+    ([Candidate(offer("known", brand="other"), 0.5)], "Unknown or inconsistent candidate"),
+    ([Candidate(offer("query"), 0.5)], "Duplicate or self candidate"),
+    ([Candidate(offer("known"), 0.5), Candidate(offer("known"), 0.4)], "Duplicate or self candidate"),
+])
+def test_rank_candidates_rejects_invalid_pools(pool, message):
+    query = offer("query")
+    engine = SearchEngine(catalog(query, offer("known")))
+    with pytest.raises(ValueError, match=message):
+        engine.rank_candidates(query, pool)
+
+
+@pytest.mark.parametrize("score", [0, -0.1, 1.1, np.nan, np.inf, True, "0.5"])
+def test_rank_candidates_requires_positive_finite_retrieval_scores(score):
+    query, known = offer("query"), offer("known")
+    engine = SearchEngine(catalog(query, known))
+    with pytest.raises(ValueError, match="retrieval_score"):
+        engine.rank_candidates(query, [Candidate(known, score)])
+
+
+@pytest.mark.parametrize(("query", "message"), [
+    ("query", "Query must be a ProductOffer"),
+    (offer("missing"), "Unknown or inconsistent query"),
+    (offer("query", brand="other"), "Unknown or inconsistent query"),
+])
+def test_rank_candidates_rejects_invalid_queries(query, message):
+    engine = SearchEngine(catalog(offer("query")))
+    with pytest.raises(ValueError, match=message):
+        engine.rank_candidates(query, [])
 
 
 def test_observed_brand_conflict_is_zero_not_missing():
@@ -166,6 +235,9 @@ def test_external_scorer_cannot_return_malformed_or_nonfinite_values(invalid_sco
                           pair_scorer=InvalidScorer())
     with pytest.raises(ValueError, match="one finite score"):
         engine.search("a")
+    pool = engine.retrieve("a")
+    with pytest.raises(ValueError, match="one finite score"):
+        engine.rank_candidates(engine.catalog["a"], pool)
 
 
 def test_frozen_logistic_extension_never_refits_or_uses_catalog_fit_features(monkeypatch):
@@ -188,6 +260,7 @@ def test_frozen_logistic_extension_never_refits_or_uses_catalog_fit_features(mon
     monkeypatch.setattr(SimilarityLogisticRegression, "fit", forbidden)
     engine = SearchEngine(data, method="logistic", pair_scorer=scorer)
     result = engine.search("query")[0]
+    assert engine.rank_candidates(data["query"], engine.retrieve("query")) == [result]
     expected = scorer.score_pairs([offer_to_pair(data["query"], data["other"])])[0]
     assert result.similarity_score == pytest.approx(expected)
     assert result.feature_similarities is None

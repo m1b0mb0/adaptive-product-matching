@@ -8,8 +8,9 @@ All scores are algorithm outputs, not calibrated identity probabilities.
 """
 from __future__ import annotations
 
+from collections.abc import Sequence
 from dataclasses import dataclass
-from numbers import Integral
+from numbers import Integral, Real
 from typing import Mapping, Protocol
 
 import numpy as np
@@ -182,10 +183,41 @@ class SearchEngine:
         top_k = _positive_integer(top_k, "top_k")
         candidates = self.retrieve(query_id, candidate_k,
                                    other_sources_only=other_sources_only)
+        return self.rank_candidates(self.catalog[query_id], candidates, top_k=top_k)
+
+    def rank_candidates(self, query: ProductOffer, candidates: Sequence[Candidate],
+                        top_k: int = 5) -> list[SearchResult]:
+        """Rank a prepared pool of distinct, non-self offers from this catalog.
+
+        Use the engine's existing extractor or PairScorer and retain the
+        supplied title retrieval scores. Retrieval and fit happen elsewhere.
+        """
+        top_k = _positive_integer(top_k, "top_k")
+        if not isinstance(query, ProductOffer):
+            raise ValueError("Query must be a ProductOffer")
+        if self.catalog.get(query.offer_id) != query:
+            raise ValueError(f"Unknown or inconsistent query offer_id: {query.offer_id!r}")
+        if not isinstance(candidates, Sequence) or isinstance(candidates, (str, bytes, bytearray)):
+            raise ValueError("Candidate pool must be a sequence of Candidate objects")
         if not candidates:
             return []
-        pairs = [offer_to_pair(self.catalog[query_id], candidate.offer)
-                 for candidate in candidates]
+
+        seen = {query.offer_id}
+        pairs = []
+        for candidate in candidates:
+            if not isinstance(candidate, Candidate) or not isinstance(candidate.offer, ProductOffer):
+                raise ValueError("Each candidate must be a Candidate with a ProductOffer")
+            offer = candidate.offer
+            if self.catalog.get(offer.offer_id) != offer:
+                raise ValueError(f"Unknown or inconsistent candidate offer_id: {offer.offer_id!r}")
+            if offer.offer_id in seen:
+                raise ValueError(f"Duplicate or self candidate offer_id: {offer.offer_id!r}")
+            score = candidate.retrieval_score
+            if isinstance(score, (bool, np.bool_)) or not isinstance(score, Real) or not 0 < score <= 1:
+                raise ValueError("Candidate retrieval_score must be a number in (0, 1]")
+            seen.add(offer.offer_id)
+            pairs.append(offer_to_pair(query, offer))
+
         features = None
         if self.pair_scorer is None:
             assert self.extractor is not None
