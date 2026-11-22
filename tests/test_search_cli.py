@@ -3,13 +3,15 @@ import csv
 import gzip
 import hashlib
 import json
+from dataclasses import asdict
 from pathlib import Path
 
 import pytest
 
 import search_cli
 from fpv_dataset import OFFER_COLUMNS
-from product_catalog import ProductOffer
+from product_catalog import ProductOffer, load_fpv_catalog
+from search_system import SearchEngine
 
 
 def fpv_file(tmp_path, *, empty=False, unknown_store=False):
@@ -148,3 +150,85 @@ def test_json_and_console_empty_catalog_guard_and_missing_feature_output():
     console = search_cli.render_console(response)
     assert "назва відсутня" in console
     assert "Немає кандидатів" in console
+
+
+@pytest.mark.parametrize("method", ["fixed", "renorm"])
+def test_cli_json_matches_engine_with_ties_and_reordered_input(tmp_path, capsys, method):
+    path = tmp_path / "offers.csv"
+    offer_ids = ("Q", "2", "10", "1")
+    args = ["--format", "fpv", "--catalog", str(path), "--query-id", "Q",
+            "--method", method, "--candidate-k", "2", "--top", "2", "--json"]
+    responses = []
+    for order in (offer_ids, tuple(reversed(offer_ids))):
+        with path.open("w", encoding="utf-8", newline="") as stream:
+            writer = csv.DictWriter(stream, fieldnames=OFFER_COLUMNS)
+            writer.writeheader()
+            for offer_id in order:
+                writer.writerow(dict.fromkeys(OFFER_COLUMNS, "") | {
+                    "offer_id": offer_id,
+                    "raw_title": "Cedar motor",
+                    "brand": "Query brand" if offer_id == "Q" else "Other brand",
+                })
+
+        catalog = load_fpv_catalog(path)
+        engine = SearchEngine(catalog, method=method)
+        candidates = engine.retrieve("Q", candidate_k=2)
+        results = engine.search("Q", candidate_k=2, top_k=2)
+        assert [row.offer.offer_id for row in candidates] == ["1", "10"]
+        assert [row.offer.offer_id for row in results] == ["1", "10"]
+        assert candidates[0].retrieval_score == candidates[1].retrieval_score
+        assert results[0].similarity_score == results[1].similarity_score
+        for row in results:
+            assert row.feature_similarities == {
+                "title": pytest.approx(1.0), "description": None,
+                "brand": 0.0, "identifier": None,
+            }
+
+        search_cli.main(args)
+        response = json.loads(capsys.readouterr().out)
+        responses.append(response)
+        assert response == {
+            "catalog_format": "fpv",
+            "catalog_size": 4,
+            "known_sources": [],
+            "unknown_source_offers": 4,
+            "query": {
+                "offer_id": "Q", "title": "Cedar motor", "description": "",
+                "brand": "Query brand", "source": "", "url": "",
+                "attributes": {"price_uah": "", "collected_on": "",
+                               "record_status": "", "review_notes": ""},
+                "technical_attributes": {
+                    "family_model": "", "stator_code": "", "kv_rpm_per_volt": "",
+                    "voltage_s": "", "units_in_listing": "", "seller_sku": "",
+                },
+            },
+            "retrieval": {
+                "method": "title_tfidf_cosine", "candidate_k": 2,
+                "candidate_count": 2, "other_stores_only": False,
+                "candidates": [{"offer_id": row.offer.offer_id,
+                                "retrieval_score": row.retrieval_score} for row in candidates],
+            },
+            "ranking": {
+                "method": method, "top_k": 2,
+                "score_type": "algorithmic similarity, not calibrated match probability",
+                "results": [asdict(row) for row in results],
+            },
+            "verification": {"matches_confirmed": False, "search_metrics_computed": False,
+                             "gold_labels_used": False},
+        }
+    assert responses[0] == responses[1]
+
+
+def test_cli_and_engine_validation_order_for_multiple_invalid_arguments(tmp_path, capsys):
+    path = fpv_file(tmp_path)
+    engine = SearchEngine(load_fpv_catalog(path))
+    with pytest.raises(ValueError, match="top_k must be a positive integer"):
+        engine.search("unknown", candidate_k=0, top_k=0)
+
+    with pytest.raises(SystemExit) as error:
+        search_cli.main(["--format", "fpv", "--catalog", str(path), "--query-id", "unknown",
+                         "--candidate-k", "0", "--top", "0", "--json"])
+    assert error.value.code == 2
+    streams = capsys.readouterr()
+    assert streams.out == ""
+    assert streams.err == "Помилка пошуку: candidate_k must be a positive integer\n"
