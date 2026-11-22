@@ -1,5 +1,12 @@
 # Відтворюваність frozen bundle v1
 
+## Прикладне завантаження
+
+CLI `adaptive-corrected` використовує `frozen_v1_runtime.load_corrected_scorer()`. Для офіційної конфігурації loader перевіряє точний SHA-256 її байтів, Python 3.12.10, NumPy, pandas, SciPy, scikit-learn і joblib за зафіксованими версіями. LF-нормалізовані хеші перевіряються для джерел імпортованих `matching.py`, `adaptive_corrected.py` та `logistic_baseline.py`. SHA bundle звіряється до десеріалізації, і joblib отримує ті самі байти через потік у пам’яті. Після завантаження звіряються схема, параметри, інформативність, fitted-метадані LR, словники та IDF. Для завантаження й скорингу достатньо локальних конфігурації та bundle. Індекс назв пошуку будується окремо з каталогу.
+
+- Типовий шлях — `docs/final_method/frozen_configuration.json`. `--method-config` також приймає побайтову копію офіційної конфігурації в межах проєкту. Помилка SHA на типовому шляху або посилання зміненої конфігурації на офіційний bundle завершує завантаження з помилкою.
+- Явно передана довірена локальна конфігурація за іншим шляхом може використовувати власний bundle. Строгий режим звіряє всі хеші коду, записані в такій конфігурації, і десеріалізує перевірені байти її bundle. Якщо вона посилається на стару версію прикладного коду, використовуйте відповідний checkout. Цей режим призначений для довірених локальних joblib-файлів із відомим походженням.
+
 ## Історичне середовище
 
 Історичний preflight і тести виконано в окремому worktree на `8dcf5dbe717a9e69f422a8ebfd1b8f25dbb557f3`. Ця ревізія містить адресні правила LF/CRLF. Для Python 3.12.10 використано середовище основного checkout із пакетами з `requirements-lock.txt`. Worktree містить дві локальні копії з основного checkout, TRAIN і frozen bundle. Шлях, записаний у frozen-конфігурації для WDC TEST, у worktree відсутній.
@@ -111,40 +118,18 @@ print(f"{len(cases)} historical numerical references match")
 }
 ```
 
+У поточному checkout повний `pytest` запускає `tests/test_historical_evaluation.py`. Він матеріалізує ревізію `8dcf5db` у тимчасовому каталозі через окремий Git-індекс і копіює тільки TRAIN і bundle. Дочірній pytest виконує оригінальні історичні тести. Зовнішній тест вимагає успішний код виходу, рівно 22 результати в JUnit XML і відсутність пропусків, помилок або провалів. Помилки checkout чи відсутні локальні артефакти також провалюють тест. Поточні прикладні перевірки виконуються в основному checkout.
+
 Команди перевірки поточного checkout.
 
 ```powershell
-.\.venv\Scripts\python.exe -B -m pytest -q --tb=short tests/test_frozen_v1_contract.py tests/test_corrected_search.py tests/test_search_cli.py
+.\.venv\Scripts\python.exe -B -m pytest -q --tb=short tests/test_frozen_v1_runtime.py tests/test_frozen_v1_contract.py tests/test_corrected_search.py tests/test_search_cli.py
 .\.venv\Scripts\python.exe -B -m pytest -q --tb=short
 .\.venv\Scripts\python.exe -m pip check
 ```
 
-У поточному checkout пройшли **45 цільових тестів** і **557 тестів повного набору**. Додано дев’ять випадків, зокрема сім перевірок числових еталонів. Повний набір також містить наявні історичні тести. `pip check` підтвердив узгодженість залежностей.
-
-Для демонстрацій використано локальні WDC TRAIN і FPV offers. Збіглися всі п’ять розібраних JSON-об’єктів, включно з порядком результатів та оцінками. Перші чотири команди наведено в маніфесті, а команду corrected — у README. [Маніфест](demo_manifest.json) · [README](../../README.md)
+Перевірка демонстрацій додатково потребує локального FPV offers CSV, тому її запускають окремо. Вона звіряє повні JSON-об’єкти для п’яти збережених демонстрацій. Демонстрація corrected перевіряється двічі, з типовим і явним шляхом конфігурації. [Маніфест демонстрацій](demo_manifest.json)
 
 ```powershell
-@'
-from pathlib import Path
-import json
-import subprocess
-import sys
-
-docs = Path("docs/search_system")
-runs = json.loads((docs / "demo_manifest.json").read_text(encoding="utf-8"))["runs"]
-for run in runs:
-    args = run["command"].split()[1:]
-    actual = json.loads(subprocess.check_output([sys.executable, *args]))
-    assert actual == json.loads((docs / run["json"]).read_text(encoding="utf-8")), run["name"]
-    print(run["name"], "matches")
-
-readme = Path("README.md").read_text(encoding="utf-8-sig")
-corrected = next(line for line in readme.splitlines()
-                 if line.startswith(".") and "--method adaptive-corrected" in line)
-actual = json.loads(subprocess.check_output([sys.executable, *corrected.split()[1:], "--json"]))
-expected = Path("docs/final_method/search_demo.json")
-assert actual == json.loads(expected.read_text(encoding="utf-8"))
-print("wdc corrected matches")
-'@ | .\.venv\Scripts\python.exe -B -X utf8 -
-if ($LASTEXITCODE -ne 0) { throw 'Search demonstrations differ' }
+.\.venv\Scripts\python.exe -B -m pytest -q tests/check_search_demos.py
 ```

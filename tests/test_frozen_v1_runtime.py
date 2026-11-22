@@ -7,6 +7,8 @@ import joblib
 import pytest
 
 import frozen_v1_runtime as runtime
+import search_cli
+from product_catalog import ProductOffer
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -62,6 +64,19 @@ def test_corrupt_bundle_rejected_before_deserialization(deployment, no_deseriali
     (deployment / BUNDLE).write_bytes(b"damaged bundle")
     with pytest.raises(ValueError, match="bundle checksum mismatch"):
         runtime.load_corrected_scorer(project_root=deployment)
+
+
+def test_cli_reports_official_configuration_failure(deployment, no_deserialization, monkeypatch, capsys):
+    (deployment / CONFIG).write_bytes(b"invalid")
+    monkeypatch.setattr(search_cli, "PROJECT_DIRECTORY", deployment)
+    monkeypatch.setattr(search_cli, "load_fpv_catalog", lambda _: {"query": ProductOffer("query")})
+    with pytest.raises(SystemExit) as error:
+        search_cli.main(["--catalog-format", "fpv", "--catalog", "offers.csv", "--query-id", "query",
+                         "--method", "adaptive-corrected", "--json"])
+    assert error.value.code == 2
+    output = capsys.readouterr()
+    assert output.out == ""
+    assert output.err == "Помилка пошуку: Official frozen configuration checksum mismatch\n"
 
 
 def test_loader_deserializes_snapshot_after_on_disk_bundle_replaced(deployment, monkeypatch):

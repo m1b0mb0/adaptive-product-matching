@@ -167,10 +167,8 @@ def main(argv=None) -> None:
             catalog = load_fpv_catalog(path)
         pair_scorer = None
         if args.method == "adaptive-corrected":
-            from frozen_method_artifact import load_corrected_scorer
-            configuration = (args.method_config if args.method_config is not None else
-                             PROJECT_DIRECTORY / "docs/final_method/frozen_configuration.json")
-            pair_scorer = load_corrected_scorer(configuration, project_root=PROJECT_DIRECTORY)
+            from frozen_v1_runtime import load_corrected_scorer
+            pair_scorer = load_corrected_scorer(args.method_config, project_root=PROJECT_DIRECTORY)
         payload = search_payload(catalog, args.query_id, method=args.method,
                                  candidate_k=args.candidate_k, top_k=args.top,
                                  other_stores_only=args.other_stores_only,

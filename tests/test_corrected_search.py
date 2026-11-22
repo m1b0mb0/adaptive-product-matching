@@ -43,7 +43,7 @@ def frozen_fixture(tmp_path):
     bundle = {"schema_version": 1, "extractor": extractor, "informativeness": info,
               "train_sha256": "a" * 64, "method_specification": copy.deepcopy(METHOD_SPECIFICATION),
               "selected": selected}
-    bundle_path = tmp_path / "data/processed/final_method/frozen_models.joblib"
+    bundle_path = tmp_path / "data/processed/final_method/local_models.joblib"
     bundle_path.parent.mkdir(parents=True)
     joblib.dump(bundle, bundle_path)
     code_hashes = {}
@@ -56,7 +56,7 @@ def frozen_fixture(tmp_path):
               "artifacts": {"model_bundle": {"path": bundle_path.relative_to(tmp_path).as_posix(),
                                                 "sha256": sha(bundle_path)}},
               "provenance": {"train_sha256": "a" * 64, "code_sha256_lf": code_hashes}}
-    config_path = tmp_path / "docs/final_method/frozen_configuration.json"
+    config_path = tmp_path / "docs/final_method/local_configuration.json"
     config_path.parent.mkdir(parents=True)
     config_path.write_text(json.dumps(config), encoding="utf-8")
     return tmp_path, config_path, bundle_path, config, bundle, catalog, pairs
@@ -178,8 +178,7 @@ def fpv_path(root, catalog):
     return path
 
 
-@pytest.mark.parametrize("explicit", [False, True])
-def test_cli_corrected_loads_frozen_configuration_but_never_fits_pair_features(frozen_fixture, monkeypatch, capsys, explicit):
+def test_cli_corrected_loads_trusted_local_configuration_without_fit(frozen_fixture, monkeypatch, capsys):
     root, path, _, _, _, catalog, _ = frozen_fixture
     offers_path = fpv_path(root, catalog)
     monkeypatch.setattr(search_cli, "PROJECT_DIRECTORY", root)
@@ -189,15 +188,33 @@ def test_cli_corrected_loads_frozen_configuration_but_never_fits_pair_features(f
 
     monkeypatch.setattr(FeatureExtractor, "fit", forbidden)
     args = ["--format", "fpv", "--catalog", str(offers_path), "--query-id", "query",
-            "--method", "adaptive-corrected", "--json"]
-    if explicit:
-        args += ["--method-config", str(path)]
+            "--method", "adaptive-corrected", "--json", "--method-config", str(path)]
     search_cli.main(args)
     payload = json.loads(capsys.readouterr().out)
     assert payload["ranking"]["method"] == "adaptive-corrected"
     assert payload["verification"]["gold_labels_used"] is False
     assert payload["verification"]["search_metrics_computed"] is False
     assert all(row["offer"]["offer_id"] != "query" for row in payload["ranking"]["results"])
+
+
+def test_cli_local_configuration_still_checks_declared_application_hashes(frozen_fixture, monkeypatch, capsys):
+    root, path, _, config, _, catalog, _ = frozen_fixture
+    offers_path = fpv_path(root, catalog)
+    source = root / "search_cli.py"
+    source.write_bytes(b"# initial CLI\n")
+    config["provenance"]["code_sha256_lf"]["search_cli.py"] = sha(source)
+    save_config(path, config)
+    source.write_bytes(b"# updated CLI\n")
+    monkeypatch.setattr(search_cli, "PROJECT_DIRECTORY", root)
+
+    with pytest.raises(SystemExit) as error:
+        search_cli.main(["--format", "fpv", "--catalog", str(offers_path), "--query-id", "query",
+                         "--method", "adaptive-corrected", "--method-config", str(path), "--json"])
+    assert error.value.code == 2
+    output = capsys.readouterr()
+    assert output.out == ""
+    assert output.err.startswith("Помилка пошуку:")
+    assert "Frozen scoring code checksum mismatch: search_cli.py" in output.err
 
 
 def test_cli_rejects_method_config_for_unrelated_mode(frozen_fixture, capsys):

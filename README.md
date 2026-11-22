@@ -33,7 +33,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-Окремі тести каталогу та пошуку використовують тимчасові фікстури. Повний набір перевіряє preflight на TRAIN без відкриття фінального TEST. Правила `.gitattributes` фіксують потрібні LF/CRLF для файлів, прив'язаних до перевірених побайтових хешів. [Звіт аудиту](docs/refactoring_audit.md)
+Повний набір потребує Git і доступної ревізії `8dcf5db`. Він запускає оригінальні історичні тести в тимчасовому checkout, де preflight читає TRAIN і frozen bundle. Прикладні тести перевіряють поточний loader і числові еталони. [Команди відтворення](docs/search_system/frozen_v1_reproducibility.md)
 
 ## Дані й аудит
 
@@ -155,7 +155,7 @@ Default — **Renormalization**, відомий baseline. Для Fixed Weighted 
 
 На тих самих 1135 TRAIN outer-парах corrected має F1=0.7897, v1=0.7922, Renormalization=0.7910, Fixed=0.7935. Переваги corrected не встановлено. Корекція усуває додатний prior і забезпечує 0 ≤ score ≤ coverage, але не гарантує глобального зниження score при кожному приховуванні. Статистики й пороги навчаються тільки на дозволених fit/inner-heldout частинах; п'ять попередніх baseline-оцінок повторно використано після перевірки даних, коду й пакетів. Для однієї фінальної конфігурації додатково виконано INNER-only калібровку та full-TRAIN fit без TEST.
 
-Поточний CLI default залишається Renormalization. Для corrected потрібно завантажити вже frozen bundle, без fit на запиті:
+Поточний CLI default залишається Renormalization. Для corrected CLI використовує прикладний loader з перевіркою оригінальної конфігурації та bundle v1. Шлях до офіційної конфігурації можна вказати явно або використати типовий. [Правила завантаження](docs/search_system/frozen_v1_reproducibility.md#прикладне-завантаження)
 
 ```powershell
 .\.venv\Scripts\python.exe -X utf8 search_cli.py --catalog-format wdc --catalog data/external/wdcproducts80cc20rnd000un_train_small.json.gz --query-id 1017836 --candidate-k 20 --top 5 --method adaptive-corrected --method-config docs/final_method/frozen_configuration.json
