@@ -4,10 +4,10 @@
 
 Історичний preflight і тести виконано в окремому worktree на `8dcf5dbe717a9e69f422a8ebfd1b8f25dbb557f3`. Ця ревізія містить адресні правила LF/CRLF. Для Python 3.12.10 використано середовище основного checkout із пакетами з `requirements-lock.txt`. Worktree містить дві локальні копії з основного checkout, TRAIN і frozen bundle. Шлях, записаний у frozen-конфігурації для WDC TEST, у worktree відсутній.
 
-Створіть worktree з кореня проєкту, якщо цей шлях ще не існує.
+Створіть worktree з кореня проєкту, якщо цей шлях ще не існує. Крапка на початку імені каталогу запобігає повторному збору історичних тестів під час звичайного запуску `pytest` з кореня основного checkout.
 
 ```powershell
-git worktree add --detach tmp/historical-8dcf5db 8dcf5db
+git worktree add --detach tmp/.historical-8dcf5db 8dcf5db
 if ($LASTEXITCODE -ne 0) { throw 'Historical checkout failed' }
 
 $historicalPaths = @(
@@ -15,7 +15,7 @@ $historicalPaths = @(
     'data/processed/final_method/frozen_models.joblib'
 )
 foreach ($path in $historicalPaths) {
-    $destination = Join-Path 'tmp/historical-8dcf5db' $path
+    $destination = Join-Path 'tmp/.historical-8dcf5db' $path
     New-Item -ItemType Directory -Force -Path (Split-Path $destination) -ErrorAction Stop | Out-Null
     Copy-Item -LiteralPath $path -Destination $destination -ErrorAction Stop
 }
@@ -25,7 +25,7 @@ foreach ($path in $historicalPaths) {
 
 ```powershell
 $historicalPython = (Resolve-Path '.venv/Scripts/python.exe').Path
-Push-Location 'tmp/historical-8dcf5db'
+Push-Location 'tmp/.historical-8dcf5db'
 try {
     @'
 import json
@@ -71,3 +71,80 @@ print(actual["status"], actual["test_opened"], len(train))
 | Frozen-конфігурація | `2976e18752a2463a7ef784714d5468a150db0a9e0142812d471e3fc13b0c655a` |
 | WDC TRAIN | `1915a92de76ddbf63a6c4d7ff3162df98f505033a8ad12ee7072b78b083d77c6` |
 | Frozen bundle | `329fa0919f570172956b3fe60aa97dce68357f8189370ea317f3221487ff5caa` |
+
+## Числовий контракт застосунку
+
+Сім синтетичних пар перевіряють відсутні поля, порожній текст і пробіли, текст поза словником (OOV), нульову подібність брендів, відсутній бренд і повні записи зі збігом та конфліктом. Еталони отримано історичним `FrozenCorrectedScorer` на оригінальному bundle з увімкненою забороною fit. Тести звіряють порядок `title, description, brand, identifier`, точну маску доступності й значення з абсолютним допуском `1e-14`. Окремі перевірки звіряють хеші TRAIN-словників та IDF і результати `SearchEngine` на мінікаталозі з метаданими. Побудова окремого індексу назв каталогу дозволена під час створення рушія. [Еталони й тести](../../tests/test_frozen_v1_contract.py)
+
+Звірка чисел безпосередньо в історичному worktree, запуск з кореня основного checkout.
+
+```powershell
+$historicalPython = (Resolve-Path '.venv/Scripts/python.exe').Path
+$frozenContract = (Resolve-Path 'tests/test_frozen_v1_contract.py').Path
+Push-Location 'tmp/.historical-8dcf5db'
+try {
+    @'
+import runpy
+import sys
+from pathlib import Path
+
+import numpy as np
+import final_evaluation as evaluation
+from frozen_method_artifact import load_corrected_scorer
+
+assert Path(evaluation.__file__).resolve().parent == Path.cwd()
+contract = runpy.run_path(sys.argv[1])
+cases = contract["CASES"]
+with evaluation.no_fit():
+    scorer = load_corrected_scorer(evaluation.CONFIG)
+    matrix = scorer.extractor.transform(list(cases.values())).matrix
+    scores = scorer.score_pairs(list(cases.values()))
+for case, features, score in zip(cases, matrix, scores, strict=True):
+    expected_features, expected_score = contract["REFERENCE"][case]
+    np.testing.assert_allclose(features, np.array(expected_features, dtype=float), rtol=0, atol=1e-14)
+    np.testing.assert_allclose(score, expected_score, rtol=0, atol=1e-14)
+print(f"{len(cases)} historical numerical references match")
+'@ | & $historicalPython -B -X utf8 - $frozenContract
+    if ($LASTEXITCODE -ne 0) { throw 'Historical scoring comparison failed' }
+} finally {
+    Pop-Location
+}
+```
+
+Команди перевірки поточного checkout.
+
+```powershell
+.\.venv\Scripts\python.exe -B -m pytest -q --tb=short tests/test_frozen_v1_contract.py tests/test_corrected_search.py tests/test_search_cli.py
+.\.venv\Scripts\python.exe -B -m pytest -q --tb=short
+.\.venv\Scripts\python.exe -m pip check
+```
+
+У поточному checkout пройшли **45 цільових тестів** і **557 тестів повного набору**. Додано дев’ять випадків, зокрема сім перевірок числових еталонів. Повний набір також містить наявні історичні тести. `pip check` підтвердив узгодженість залежностей.
+
+Для демонстрацій використано локальні WDC TRAIN і FPV offers. Збіглися всі п’ять розібраних JSON-об’єктів, включно з порядком результатів та оцінками. Перші чотири команди наведено в маніфесті, а команду corrected — у README. [Маніфест](demo_manifest.json) · [README](../../README.md)
+
+```powershell
+@'
+from pathlib import Path
+import json
+import subprocess
+import sys
+
+docs = Path("docs/search_system")
+runs = json.loads((docs / "demo_manifest.json").read_text(encoding="utf-8"))["runs"]
+for run in runs:
+    args = run["command"].split()[1:]
+    actual = json.loads(subprocess.check_output([sys.executable, *args]))
+    assert actual == json.loads((docs / run["json"]).read_text(encoding="utf-8")), run["name"]
+    print(run["name"], "matches")
+
+readme = Path("README.md").read_text(encoding="utf-8-sig")
+corrected = next(line for line in readme.splitlines()
+                 if line.startswith(".") and "--method adaptive-corrected" in line)
+actual = json.loads(subprocess.check_output([sys.executable, *corrected.split()[1:], "--json"]))
+expected = Path("docs/final_method/search_demo.json")
+assert actual == json.loads(expected.read_text(encoding="utf-8"))
+print("wdc corrected matches")
+'@ | .\.venv\Scripts\python.exe -B -X utf8 -
+if ($LASTEXITCODE -ne 0) { throw 'Search demonstrations differ' }
+```
