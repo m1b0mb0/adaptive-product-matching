@@ -7,7 +7,6 @@ import numpy as np
 import pytest
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-from frozen_method_artifact import load_corrected_scorer
 from matching import FIELDS, FeatureExtractor
 from product_catalog import ProductOffer, offer_to_pair
 from search_system import SearchEngine
@@ -67,6 +66,8 @@ def guard_text_fit(monkeypatch):
 
 @pytest.fixture
 def frozen_scorer(monkeypatch):
+    from frozen_v1_runtime import load_corrected_scorer
+
     raw_config = CONFIG.read_bytes()
     assert hashlib.sha256(raw_config).hexdigest() == CONFIG_SHA256
     with monkeypatch.context() as guard:
