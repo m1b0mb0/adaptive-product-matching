@@ -20,7 +20,7 @@ Python-прототип пошуку за прикладом у локальни
 ```powershell
 python --version
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements-lock.txt
+.\.venv\Scripts\python.exe -m pip install -r requirements-lock.txt -r requirements-web.txt
 .\.venv\Scripts\python.exe -m pip check
 ```
 
@@ -36,6 +36,25 @@ python -m venv .venv
 ```
 
 Повний набір потребує Git і доступної ревізії `8dcf5db`. Він запускає оригінальні історичні тести в тимчасовому checkout, де preflight читає TRAIN і frozen bundle. Прикладні тести перевіряють поточний loader і числові еталони. [Команди відтворення](docs/search_system/frozen_v1_reproducibility.md)
+
+## Локальний вебінтерфейс
+
+Після встановлення залежностей запустіть сервер із кореня репозиторію.
+
+```powershell
+.\.venv\Scripts\python.exe -m uvicorn web_app:app --host 127.0.0.1 --port 8000
+```
+
+Відкрийте [127.0.0.1:8000](http://127.0.0.1:8000/). Знайдіть пропозицію за частиною назви або точним ID, виберіть її й натисніть «Знайти відповідності». За замовчуванням використовується Renormalization, до 20 кандидатів і до 5 результатів. Вебзастосунок використовує той самий `SearchEngine`, що й CLI.
+
+| Каталог | Типовий локальний файл | Змінна середовища для іншого розташування |
+|---|---|---|
+| FPV-двигуни | `data/external/fpv_motors/fpv_motors_offers_pilot.csv` | `FPV_CATALOG_PATH` |
+| WDC validation small | `data/external/wdcproducts80cc20rnd000un_valid_small.json.gz` | `WDC_CATALOG_PATH` |
+
+FPV відкривається першим за наявності файлу. Для відсутнього або некоректного каталогу сторінка показує його стан. Після зміни файлів перезапустіть сервер. Fixed Weighted доступний разом із Renormalization. Adaptive corrected v1 з’являється після перевірки локального frozen bundle та середовища.
+
+Пошук працює в межах локального каталогу. Ціни й характеристики FPV відображають збережені значення на момент збору. У WDC validation немає даних про продавців та URL. Оцінка подібності допомагає впорядкувати потенційні збіги, тотожність пропозицій потребує перевірки. У FPV-пілоту недостатньо підтверджених міток для оцінки точності. [Архітектура](docs/search_system/architecture.md#вебінтерфейс)
 
 ## Дані й аудит
 
