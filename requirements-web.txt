@@ -1,0 +1,6 @@
+fastapi==0.165.0
+Jinja2==3.1.6
+uvicorn==0.54.0
+# Pin the Starlette TestClient transport used by the integration suite.
+starlette==1.10.0
+httpx2==2.16.2

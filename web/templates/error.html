@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Помилка пошуку · Адаптивний пошук{% endblock %}
+{% block content %}
+<div class="intro">
+  <h1>Не вдалося виконати запит</h1>
+  <p role="alert">{{ message }}</p>
+  <a class="back" href="{{ url_for('index') }}">← До каталогів</a>
+</div>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="intro">
+  <h1>Знайдіть відповідні<br class="wide-only"> товарні пропозиції</h1>
+  <p>Оберіть товар із локального каталогу й знайдіть схожі пропозиції за його назвою та доступними атрибутами.</p>
+</div>
+<div class="workspace">
+  <aside class="panel catalog-panel" aria-labelledby="catalog-title">
+    <h2 id="catalog-title">Каталоги</h2>
+    <nav class="catalog-list" aria-label="Вибір каталогу">
+      {% for key, (name, _, _, _) in catalogs.items() %}
+      {% if key in unavailable %}
+        <div class="catalog-option unavailable">
+          <span>{{ name }}</span><small>{{ unavailable[key] }}</small>
+        </div>
+      {% else %}
+        <a class="catalog-option" href="{{ url_for('index').include_query_params(catalog=key) }}"
+           {% if selected == key %}aria-current="page"{% endif %}>
+          <span>{{ name }}</span>
+          {% if selected == key %}<small>Пропозицій у каталозі: {{ count }}</small>{% endif %}
+        </a>
+      {% endif %}
+      {% endfor %}
+    </nav>
+  </aside>
+  <section class="panel work-panel" aria-labelledby="lookup-title">
+    <h2 id="lookup-title">Вибір початкового товару</h2>
+    {% if count %}
+      <form action="{{ url_for('index') }}" method="get">
+        <input type="hidden" name="catalog" value="{{ selected }}">
+        <label for="lookup">Назва або ID пропозиції</label>
+        <div class="lookup-form">
+          <input type="search" id="lookup" name="q" value="{{ q }}" maxlength="256"
+                 placeholder="Введіть частину назви або точний ID">
+          <button type="submit">Знайти в каталозі</button>
+        </div>
+      </form>
+      {% if offers %}
+        <div class="list-heading">
+          <h3>{{ 'Знайдені пропозиції' if q else 'Пропозиції каталогу' }}</h3>
+          <span class="muted">Показано {{ offers|length }} із {{ match_count }}</span>
+        </div>
+        <ul class="offer-list">
+          {% for offer in offers %}
+          <li>
+            <a class="offer-link" href="{{ url_for('search').include_query_params(catalog=selected, offer_id=offer.offer_id, q=q) }}">
+              <span>
+                <strong>{{ offer.title or 'Назва відсутня' }}</strong>
+                <small>{{ offer.offer_id }}{% if offer.source %} · {{ offer.source }}{% endif %}</small>
+              </span>
+              <span class="arrow" aria-hidden="true">›</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% if match_count > offers|length %}
+        <p class="hint">Щоб знайти іншу пропозицію, уточніть назву або введіть її ID.</p>
+        {% endif %}
+      {% else %}
+        <p class="empty">За цим запитом пропозицій немає. Спробуйте коротший фрагмент назви або точний ID.</p>
+      {% endif %}
+    {% elif not selected %}
+      <p class="empty">Каталоги недоступні. Додайте локальний файл каталогу й перезапустіть застосунок.</p>
+    {% else %}
+      <p class="empty">Цей каталог недоступний. Виберіть інший каталог або перевірте локальний файл.</p>
+    {% endif %}
+  </section>
+</div>
+{% endblock %}

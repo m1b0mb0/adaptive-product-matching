@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% from "offer.html" import fields %}
+{% block title %}Пошук відповідностей · Адаптивний пошук{% endblock %}
+{% block content %}
+<div class="intro search-intro">
+  <a class="back" href="{{ url_for('index').include_query_params(catalog=catalog, q=q) }}">← До вибору товару</a>
+  <h1>Пошук відповідностей</h1>
+  <p>{{ catalog_name }}</p>
+</div>
+<div class="workspace search-layout">
+  <aside class="search-controls" aria-label="Початкова пропозиція та параметри">
+    <section class="panel selected">
+      <h2>Початкова пропозиція</h2>
+      <h3>{{ offer.title or 'Назва відсутня' }}</h3>
+      {{ fields(offer) }}
+    </section>
+    <section class="panel settings">
+      <h2>Параметри пошуку</h2>
+      <form action="{{ url_for('search') }}" method="get">
+        <input type="hidden" name="catalog" value="{{ catalog }}">
+        <input type="hidden" name="offer_id" value="{{ offer.offer_id }}">
+        <input type="hidden" name="q" value="{{ q }}">
+        <input type="hidden" name="run" value="true">
+        <label for="method">Метод ранжування</label>
+        <select name="method" id="method">
+          {% for key in methods %}
+          <option value="{{ key }}" {% if key == method %}selected{% endif %}>{{ method_names[key] }}</option>
+          {% endfor %}
+        </select>
+        <div class="limits">
+          <div><label for="candidate-k">Кандидатів</label>
+          <input id="candidate-k" name="candidate_k" type="number" min="1" max="100" value="{{ candidate_k }}" required></div>
+          <div><label for="top-k">Результатів</label>
+          <input id="top-k" name="top_k" type="number" min="1" max="20" value="{{ top_k }}" required></div>
+        </div>
+        {% if source_filter %}
+        <label class="check">
+          <input type="checkbox" name="other_sources_only" value="true" {% if other_sources_only %}checked{% endif %}>
+          Лише з інших джерел
+        </label>
+        {% endif %}
+        <button type="submit">Знайти відповідності</button>
+      </form>
+    </section>
+  </aside>
+  <section class="results" aria-labelledby="results-title">
+    <div class="results-heading">
+      <h2 id="results-title">Потенційні відповідності</h2>
+      {% if results is not none %}<span class="count">Знайдено: {{ results|length }}</span>{% endif %}
+    </div>
+    {% if message %}
+      <p class="error" role="alert">{{ message }}</p>
+    {% elif results is none %}
+      <p class="empty">Натисніть «Знайти відповідності», щоб побачити схожі пропозиції з цього каталогу.</p>
+    {% elif not results %}
+      <p class="empty">Схожих пропозицій за цими параметрами немає.</p>
+    {% else %}
+      <p class="score-note">Подібність від 0 до 1 — оцінка алгоритму. Відповідності потребують перевірки характеристик.</p>
+      <ol class="ranked-list">
+        {% for result in results %}
+        <li class="panel result-card">
+          <div class="rank" aria-label="Позиція {{ loop.index }}">{{ loop.index }}</div>
+          <div class="result-content">
+            <div class="result-title">
+              <h3>{{ result.offer.title or 'Назва відсутня' }}</h3>
+              <div class="score"><small>Подібність</small><strong>{{ "%.6f"|format(result.similarity_score) }}</strong></div>
+            </div>
+            {{ fields(result.offer) }}
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+    {% endif %}
+  </section>
+</div>
+{% endblock %}
