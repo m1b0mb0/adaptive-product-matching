@@ -1,27 +1,32 @@
+{% macro external_link(offer, label='Відкрити пропозицію') %}
+{% set link = offer.url|safe_url %}
+{% if link %}
+  <a class="external" href="{{ link }}" target="_blank" rel="noopener noreferrer">{{ label }} <span aria-hidden="true">↗</span></a>
+{% endif %}
+{% endmacro %}
+
 {% macro fields(offer) %}
 <dl class="offer-fields">
   <div><dt>Бренд</dt><dd>{{ offer.brand|trim or 'Немає даних' }}</dd></div>
   <div><dt>Джерело</dt><dd>{{ offer.source|trim or 'Немає даних' }}</dd></div>
   <div><dt>ID пропозиції</dt><dd>{{ offer.offer_id }}</dd></div>
-  {% if offer.attributes.get('price_uah') %}
-  <div><dt>Ціна в каталозі</dt><dd>{{ offer.attributes.price_uah }} грн</dd></div>
+  {% set price = offer|catalog_price %}
+  {% if price %}
+  <div><dt>Ціна в каталозі</dt><dd>{{ price }}</dd></div>
   {% endif %}
 </dl>
-{% if offer.description or offer.technical_attributes.values()|select|list %}
+{% if offer.description|trim or offer.technical_attributes.values()|map('trim')|select|list %}
 <details class="offer-details">
   <summary>Характеристики та опис</summary>
   <dl class="offer-fields">
     {% for key, label in technical_labels.items() %}
-      {% if offer.technical_attributes.get(key) %}
+      {% if offer.technical_attributes.get(key, '')|trim %}
       <div><dt>{{ label }}</dt><dd>{{ offer.technical_attributes[key] }}</dd></div>
       {% endif %}
     {% endfor %}
-    {% if offer.description %}<div class="full-width"><dt>Опис</dt><dd>{{ offer.description }}</dd></div>{% endif %}
+    {% if offer.description|trim %}<div class="full-width"><dt>Опис</dt><dd>{{ offer.description }}</dd></div>{% endif %}
   </dl>
 </details>
 {% endif %}
-{% set link = offer.url|safe_url %}
-{% if link %}
-  <a class="external" href="{{ link }}" target="_blank" rel="noopener noreferrer">Відкрити пропозицію <span aria-hidden="true">↗</span></a>
-{% endif %}
+{{ external_link(offer) }}
 {% endmacro %}

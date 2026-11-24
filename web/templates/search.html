@@ -6,6 +6,7 @@
   <a class="back" href="{{ url_for('index').include_query_params(catalog=catalog, q=q) }}">← До вибору товару</a>
   <h1>Пошук відповідностей</h1>
   <p>{{ catalog_name }}</p>
+  {% if results %}<a class="mobile-jump" href="#search-results">До результатів ({{ results|length }}) ↓</a>{% endif %}
 </div>
 <div class="workspace search-layout">
   <aside class="search-controls" aria-label="Початкова пропозиція та параметри">
@@ -43,7 +44,7 @@
       </form>
     </section>
   </aside>
-  <section class="results" aria-labelledby="results-title">
+  <section class="results" id="search-results" aria-labelledby="results-title" tabindex="-1">
     <div class="results-heading">
       <h2 id="results-title">Потенційні відповідності</h2>
       {% if results is not none %}<span class="count">Знайдено: {{ results|length }}</span>{% endif %}
@@ -53,9 +54,9 @@
     {% elif results is none %}
       <p class="empty">Натисніть «Знайти відповідності», щоб побачити схожі пропозиції з цього каталогу.</p>
     {% elif not results %}
-      <p class="empty">Схожих пропозицій за цими параметрами немає.</p>
+      <p class="empty">Схожих пропозицій за цими параметрами немає. Спробуйте змінити параметри або вибрати інший товар.</p>
     {% else %}
-      <p class="score-note">Подібність від 0 до 1 — оцінка алгоритму. Відповідності потребують перевірки характеристик.</p>
+      <p class="score-note">{{ method_names[method] }} · Подібність від 0 до 1. Перевірте характеристики пропозицій у порівнянні.</p>
       <ol class="ranked-list">
         {% for result in results %}
         <li class="panel result-card">
@@ -66,6 +67,10 @@
               <div class="score"><small>Подібність</small><strong>{{ "%.6f"|format(result.similarity_score) }}</strong></div>
             </div>
             {{ fields(result.offer) }}
+            <div class="result-actions">
+              <a class="compare-action" href="{{ results_url.include_query_params(compare_to=result.offer.offer_id) }}"
+                 aria-label="Порівняти з пропозицією {{ result.offer.offer_id }}">Порівняти <span aria-hidden="true">→</span></a>
+            </div>
           </div>
         </li>
         {% endfor %}

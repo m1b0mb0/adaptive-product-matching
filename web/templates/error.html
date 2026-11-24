@@ -4,6 +4,6 @@
 <div class="intro">
   <h1>Не вдалося виконати запит</h1>
   <p role="alert">{{ message }}</p>
-  <a class="back" href="{{ url_for('index') }}">← До каталогів</a>
+  <a class="back" href="{{ back_url or url_for('index') }}">← {{ back_label or 'До каталогів' }}</a>
 </div>
 {% endblock %}

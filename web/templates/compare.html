@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% from "offer.html" import external_link %}
+{% block title %}Порівняння пропозицій · Адаптивний пошук{% endblock %}
+{% block content %}
+<div class="intro compare-intro">
+  <a class="back back-to-results" href="{{ results_url }}">← До результатів</a>
+  <h1>Порівняння пропозицій</h1>
+  <div class="compare-score"><span>{{ method_names[method] }}</span>
+    <strong>Подібність {{ "%.6f"|format(result.similarity_score) }}</strong>
+  </div>
+  <p>Оцінка подібності підказує, які пропозиції варто переглянути. Позначки в таблиці описують наявність і збіг записів.</p>
+</div>
+<div class="panel compare-panel">
+  <table class="compare-table">
+    <caption class="visually-hidden">Характеристики початкової пропозиції та результату пошуку</caption>
+    <thead>
+      <tr>
+        <th id="initial-column" scope="col">Початкова пропозиція</th>
+        <th id="result-column" scope="col">Результат пошуку</th>
+      </tr>
+    </thead>
+    {% set labels = {'same': 'Однаковий запис', 'different': 'Різні записи', 'missing': 'Бракує даних'} %}
+    {% for label, left, right, state in rows %}
+    {% set field_id = 'field-' ~ loop.index %}
+    <tbody>
+      <tr>
+        <th id="{{ field_id }}" scope="rowgroup" colspan="2">
+          {{ label }}
+          {% if state %}<span class="compare-status" data-status="{{ state }}">{{ labels[state] }}</span>{% endif %}
+        </th>
+      </tr>
+      <tr>
+        <td headers="{{ field_id }} initial-column">{% if left %}{{ left }}{% else %}<span class="not-specified">Не вказано</span>{% endif %}</td>
+        <td headers="{{ field_id }} result-column">{% if right %}{{ right }}{% else %}<span class="not-specified">Не вказано</span>{% endif %}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+  {% if offer.url|safe_url or result.offer.url|safe_url %}
+  <div class="compare-links">
+    {{ external_link(offer, 'Відкрити початкову пропозицію') }}
+    {{ external_link(result.offer, 'Відкрити пропозицію з результатів') }}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

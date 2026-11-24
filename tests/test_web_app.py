@@ -1,12 +1,16 @@
 import csv
 import json
+import re
 from concurrent.futures import ThreadPoolExecutor
+from html import unescape
+from urllib.parse import parse_qs, urlsplit
 
 import pytest
 from fastapi.testclient import TestClient
 
 import web_app
 from fpv_dataset import OFFER_COLUMNS
+from frozen_v1_runtime import load_corrected_scorer
 from matching import FeatureExtractor
 from product_catalog import load_fpv_catalog
 from search_system import SearchEngine
@@ -26,7 +30,11 @@ def paths(tmp_path, monkeypatch):
         ]:
             writer.writerow({
                 "offer_id": offer_id, "raw_title": title, "store": source,
-                "stator_code": "0802" if offer_id == "A" else "",
+                "stator_code": "0802" if offer_id in {"A", "B"} else "",
+                "kv_rpm_per_volt": {"A": "23000", "B": "19500"}.get(offer_id, ""),
+                "voltage_s": "2S" if offer_id == "A" else "",
+                "seller_sku": "0001" if offer_id in {"A", "B"} else "",
+                "raw_description": "<img src=x onerror=alert(1)>" if offer_id == "B" else "",
                 "source_url": "https://example.org/motor" if offer_id == "A" else "javascript:alert(1)",
                 "entity_id": "must-not-leak", "label": "must-not-leak", "qrels": "must-not-leak",
             })
@@ -161,3 +169,76 @@ def test_missing_catalog_falls_back_then_reports_no_catalogs(paths):
     with TestClient(web_app.app) as client:
         home = client.get("/")
         assert home.status_code == 200 and "Каталоги недоступні" in home.text
+
+
+def test_comparison_displays_only_catalog_values_and_escapes_content(client):
+    response = client.get("/search", params={
+        "catalog": "fpv", "offer_id": "A", "run": "true", "compare_to": "B",
+    })
+    assert response.status_code == 200
+    assert response.template.name == "compare.html"
+    assert response.context["offer"].offer_id == "A"
+    assert response.context["result"].offer.offer_id == "B"
+    rows = dict((label, (left, right, state)) for label, left, right, state in response.context["rows"])
+    assert rows["Код статора"] == ("0802", "0802", "same")
+    assert rows["KV (об/хв/В)"] == ("23000", "19500", "different")
+    assert rows["Живлення (S)"] == ("2S", "", "missing")
+    assert rows["Артикул"] == ("0001", "0001", None)
+    assert "Серія / модель" not in rows
+    assert "Не вказано" in response.text
+    assert "&lt;script&gt;motor&lt;/script&gt;" in response.text
+    assert "&lt;img src=x onerror=alert(1)&gt;" in response.text
+    assert "<img src=x" not in response.text
+    assert "javascript:" not in response.text
+    assert 'href="https://example.org/motor"' in response.text
+    assert 'rel="noopener noreferrer"' in response.text
+    assert "must-not-leak" not in response.text
+
+
+@pytest.mark.parametrize(("overrides", "status"), [
+    ({"compare_to": "unknown"}, 404),
+    ({"compare_to": "W1"}, 404),
+    ({"compare_to": "C", "other_sources_only": "true"}, 404),
+    ({"compare_to": "A"}, 404),
+    ({"offer_id": "W1"}, 404),
+    ({"catalog": "other"}, 422),
+    ({"compare_to": ""}, 422),
+    ({"run": "false"}, 400),
+])
+def test_rejects_comparison_outside_current_results(client, overrides, status):
+    params = {"catalog": "fpv", "offer_id": "A", "run": "true", "compare_to": "B"}
+    response = client.get("/search", params=params | overrides)
+    assert response.status_code == status
+    assert "compare-table" not in response.text
+
+
+@pytest.mark.parametrize("method", ["renorm", "fixed", "adaptive-corrected"])
+def test_comparison_navigation_preserves_search_scores(paths, monkeypatch, method):
+    if method == "adaptive-corrected":
+        monkeypatch.setattr(web_app, "load_corrected_scorer", load_corrected_scorer)
+    params = {
+        "catalog": "fpv", "offer_id": "A", "q": "ROBO & 0802", "run": "true",
+        "method": method, "candidate_k": "3", "top_k": "2", "other_sources_only": "true",
+    }
+    with TestClient(web_app.app) as client:
+        engine = web_app.app.state.engines["fpv"][method]
+        expected = engine.search("A", candidate_k=3, top_k=2, other_sources_only=True)
+        assert [result.offer.offer_id for result in expected] == ["B"]
+
+        def forbidden_fit(*args, **kwargs):
+            pytest.fail("Comparison attempted to fit a feature extractor")
+
+        monkeypatch.setattr(FeatureExtractor, "fit", forbidden_fit)
+        results = client.get("/search", params=params)
+        compare_href = unescape(re.search(r'class="compare-action"\s+href="([^"]+)"', results.text)[1])
+        compare = client.get(compare_href)
+        assert compare.status_code == 200
+        assert compare.context["result"] == expected[0]
+        assert f"{expected[0].similarity_score:.6f}" in compare.text
+        back_href = unescape(re.search(r'class="back back-to-results"\s+href="([^"]+)"', compare.text)[1])
+        assert parse_qs(urlsplit(back_href).query) == {key: [value] for key, value in params.items()}
+        after = client.get(back_href)
+        assert after.context["results"] == results.context["results"] == expected
+        unfiltered = client.get("/search", params=params | {"other_sources_only": "false"})
+        expected_order = engine.search("A", candidate_k=3, top_k=2)
+        assert len(expected_order) == 2 and unfiltered.context["results"] == expected_order

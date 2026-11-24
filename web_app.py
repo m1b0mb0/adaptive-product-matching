@@ -15,7 +15,7 @@ from fastapi.templating import Jinja2Templates
 
 from frozen_v1_runtime import load_corrected_scorer
 from matching import norm
-from product_catalog import load_fpv_catalog, load_wdc_catalog
+from product_catalog import ProductOffer, load_fpv_catalog, load_wdc_catalog
 from search_system import SearchEngine
 
 
@@ -88,10 +88,50 @@ def safe_url(value: str) -> str | None:
     return None
 
 
+def catalog_price(offer: ProductOffer) -> str:
+    price_uah = offer.attributes.get("price_uah", "").strip()
+    if price_uah:
+        return f"{price_uah} грн"
+    price = offer.attributes.get("price", "").strip()
+    currency = offer.attributes.get("priceCurrency", "").strip()
+    return " ".join(value for value in (price, currency) if value) if price else ""
+
+
+def comparison_rows(left: ProductOffer, right: ProductOffer) -> list[tuple[str, str, str, str | None]]:
+    same_source = bool(norm(left.source)) and norm(left.source) == norm(right.source)
+    fields = [
+        ("Назва", left.title, right.title, False),
+        ("ID пропозиції", left.offer_id, right.offer_id, False),
+        ("Бренд", left.brand, right.brand, True),
+        ("Джерело", left.source, right.source, True),
+    ]
+    for key, label in TECHNICAL_LABELS.items():
+        left_value = left.technical_attributes.get(key, "")
+        right_value = right.technical_attributes.get(key, "")
+        if left_value.strip() or right_value.strip():
+            fields.append((label, left_value, right_value, key != "seller_sku" or same_source))
+    left_price, right_price = catalog_price(left), catalog_price(right)
+    if left_price or right_price:
+        fields.append(("Ціна в каталозі", left_price, right_price, False))
+    fields.append(("Опис", left.description, right.description, False))
+
+    rows = []
+    for label, left_value, right_value, comparable in fields:
+        left_value, right_value = left_value.strip(), right_value.strip()
+        state = None
+        if not left_value or not right_value:
+            state = "missing"
+        elif comparable:
+            state = "same" if left_value.casefold() == right_value.casefold() else "different"
+        rows.append((label, left_value, right_value, state))
+    return rows
+
+
 app = FastAPI(lifespan=lifespan, docs_url=None, redoc_url=None, openapi_url=None)
 app.mount("/static", StaticFiles(directory=WEB / "static"), name="static")
 templates = Jinja2Templates(directory=WEB / "templates")
 templates.env.filters["safe_url"] = safe_url
+templates.env.filters["catalog_price"] = catalog_price
 templates.env.globals["technical_labels"] = TECHNICAL_LABELS
 templates.env.globals["method_names"] = METHODS
 
@@ -142,6 +182,7 @@ def search(
     candidate_k: Annotated[int, Query(ge=1, le=100)] = 20,
     top_k: Annotated[int, Query(ge=1, le=20)] = 5,
     other_sources_only: bool = False,
+    compare_to: Annotated[str | None, Query(min_length=1, max_length=256)] = None,
 ):
     methods = request.app.state.engines.get(catalog)
     if methods is None:
@@ -150,6 +191,15 @@ def search(
     offer = offers.get(offer_id)
     if offer is None:
         return render(request, "error.html", 404, message="Пропозицію з таким ID не знайдено.")
+
+    results_url = request.url.remove_query_params("compare_to")
+    if compare_to is not None:
+        if not run:
+            return render(request, "error.html", 400, message="Спочатку виконайте пошук відповідностей.",
+                          back_url=results_url, back_label="До початкової пропозиції")
+        if compare_to == offer_id or compare_to not in offers:
+            return render(request, "error.html", 404, message="Цю пропозицію неможливо порівняти в обраному каталозі.",
+                          back_url=results_url, back_label="До результатів")
 
     source = norm(offer.source)
     source_filter = bool(source) and any(norm(other.source) not in {"", source}
@@ -166,9 +216,18 @@ def search(
         results = methods[method].search(
             offer_id, candidate_k=candidate_k, top_k=top_k, other_sources_only=other_sources_only,
         )
+        if compare_to is not None:
+            result = next((row for row in results if row.offer.offer_id == compare_to), None)
+            if result is None:
+                return render(request, "error.html", 404, message="Пропозиції немає в поточній видачі.",
+                              back_url=results_url, back_label="До результатів")
+            return render(
+                request, "compare.html", offer=offer, result=result,
+                rows=comparison_rows(offer, result.offer), results_url=results_url, method=method,
+            )
     return render(
         request, "search.html", status, catalog=catalog, catalog_name=CATALOGS[catalog][0],
         offer=offer, q=q, methods=methods, method=method, results=results, message=message,
         candidate_k=candidate_k, top_k=top_k, source_filter=source_filter,
-        other_sources_only=other_sources_only,
+        other_sources_only=other_sources_only, results_url=results_url,
     )
