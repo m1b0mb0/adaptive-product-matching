@@ -83,12 +83,11 @@ def search_payload(catalog: dict[str, ProductOffer], query_id: str, *,
                    method: str = "renorm", candidate_k: int = 20, top_k: int = 5,
                    other_stores_only: bool = False,
                    pair_scorer: PairScorer | None = None) -> dict:
-    """Perform two explicit search stages with no match labels or thresholds."""
+    """Use one candidate pool for ranking and for the retrieval payload."""
     engine = SearchEngine(catalog, method=method, pair_scorer=pair_scorer)
     candidates = engine.retrieve(query_id, candidate_k=candidate_k,
                                  other_sources_only=other_stores_only)
-    results = engine.search(query_id, candidate_k=candidate_k, top_k=top_k,
-                            other_sources_only=other_stores_only)
+    results = engine.rank_candidates(engine.catalog[query_id], candidates, top_k=top_k)
     return {
         "catalog_size": len(catalog),
         "known_sources": sorted({offer.source for offer in catalog.values() if norm(offer.source)}),

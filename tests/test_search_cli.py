@@ -58,6 +58,31 @@ def test_cli_fpv_json_runs_without_candidates_and_separates_search_stages(tmp_pa
                                        "search_metrics_computed": False, "gold_labels_used": False}
 
 
+@pytest.mark.parametrize(("query_id", "candidate_count"), [("A", 1), ("D", 0)])
+def test_search_payload_retrieves_once_and_ranks_the_same_pool(tmp_path, monkeypatch, query_id, candidate_count):
+    catalog = load_fpv_catalog(fpv_file(tmp_path))
+    calls = []
+    retrieve = SearchEngine.retrieve
+    rank_candidates = SearchEngine.rank_candidates
+
+    def track_retrieve(engine, *args, **kwargs):
+        pool = retrieve(engine, *args, **kwargs)
+        calls.append(("retrieve", pool))
+        return pool
+
+    def track_ranking(engine, query, candidates, *args, **kwargs):
+        calls.append(("rank", candidates))
+        return rank_candidates(engine, query, candidates, *args, **kwargs)
+
+    monkeypatch.setattr(SearchEngine, "retrieve", track_retrieve)
+    monkeypatch.setattr(SearchEngine, "rank_candidates", track_ranking)
+    payload = search_cli.search_payload(catalog, query_id, candidate_k=2, other_stores_only=True)
+
+    assert [stage for stage, _ in calls] == ["retrieve", "rank"]
+    assert calls[0][1] is calls[1][1]
+    assert payload["retrieval"]["candidate_count"] == candidate_count
+
+
 def test_cli_fixed_console_displays_metadata_and_score_meaning(tmp_path, capsys):
     path = fpv_file(tmp_path)
     search_cli.main(["--format", "fpv", "--catalog", str(path), "--query-id", "A",
@@ -71,7 +96,7 @@ def test_cli_fixed_console_displays_metadata_and_score_meaning(tmp_path, capsys)
 
 @pytest.mark.parametrize("extra", [
     ["--query-id", "unknown"], ["--query-id", "A", "--top", "0"],
-    ["--query-id", "A", "--candidate-k", "-1"],
+    ["--query-id", "A", "--candidate-k", "-1"], ["--query-id", "D", "--top", "0"],
 ])
 def test_cli_bad_query_or_counts_give_clean_error(tmp_path, capsys, extra):
     path = fpv_file(tmp_path)
