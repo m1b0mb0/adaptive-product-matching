@@ -150,7 +150,7 @@ qrels = build_wdc_qrels(read_pairs(path), catalog)
 
 `search_evaluation.evaluate_search(catalog, query_ids, qrels, retriever, rankers)` працює з уже ініціалізованими рушіями одного каталогу. Виконує один retrieval для кожного запиту й передає один кортеж `Candidate` всім ranker-ам для допущених запитів. Початковий порядок пулу є TF-IDF baseline. Результат містить метрики retrieval, агрегати за методами та записи за query ID з позицією першої відомої відповідності в повному пулі, навіть якщо вона поза Top-K. `None` на місці позиції позначає відсутність відомого збігу.
 
-Для першого розвідувального validation-прогону зафіксовано `candidate_k=20`, `hit_ks=(1, 5)`, `mrr_k=5`, `other_sources_only=False` і методи TF-IDF baseline, Fixed, Renormalization та frozen corrected. Fixed і Renormalization використовують каталогове TF-IDF-представлення для парного скорингу, а corrected використовує frozen TRAIN-представлення. Цей етап перевірено лише на синтетичних контрольних прикладах.
+Для першого розвідувального validation-прогону зафіксовано `candidate_k=20`, `hit_ks=(1, 5)`, `mrr_k=5`, `other_sources_only=False` і методи TF-IDF baseline, Fixed, Renormalization та frozen corrected. Fixed і Renormalization використовують каталогове TF-IDF-представлення для парного скорингу, а corrected використовує frozen TRAIN-представлення. Протокол запускається через `run_search_validation.py`. [Результати та відтворення](wdc_validation_search.md)
 
 ```powershell
 .\.venv\Scripts\python.exe -B -m pytest -q tests/test_search_metrics.py tests/test_search_evaluation.py

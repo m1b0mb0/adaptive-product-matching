@@ -1,0 +1,89 @@
+{
+  "experiment": "exploratory WDC seen-validation small",
+  "git_sha": "a3aef200eb9a533ed1bb3a0ba7956cd1b603989d",
+  "validation_path": "data/external/wdcproducts80cc20rnd000un_valid_small.json.gz",
+  "validation_sha256": "892e8d39cc8230dce5039a4bded16be1237d5c5c37b94a37404226d349ef3df8",
+  "qrels_sha256": "c08a474be523938d2b7a4ac96ca2b6ea8e07a1edcbea66799cfa5043bb0abf16",
+  "catalog_size": 1000,
+  "pair_count": 2500,
+  "positive_pair_count": 500,
+  "directed_qrel_count": 1000,
+  "frozen_config_sha256": "2976e18752a2463a7ef784714d5468a150db0a9e0142812d471e3fc13b0c655a",
+  "verified_bundle_sha256": "329fa0919f570172956b3fe60aa97dce68357f8189370ea317f3221487ff5caa",
+  "python": "3.12.10",
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  },
+  "candidate_k": 20,
+  "top_k": 5,
+  "other_sources_only": false,
+  "qrels_policy": "Explicit, symmetric WDC positives after cluster and catalog consistency checks.",
+  "denominator": "Macro over all queries with known positives, including retrieval misses.",
+  "per_query_file": "per_query.jsonl",
+  "per_query_sha256": "24724f043a45da228d9361af82fb981fa1a58af370466f70d0698d5aac470106",
+  "eligible_queries": 1000,
+  "excluded_queries": 0,
+  "candidate_recall_at_k": 0.971,
+  "empty_pool_count": 0,
+  "retrieval_hit_at_20": 0.971,
+  "retrieved_matches": 971,
+  "missed_at_20": 29,
+  "methods": {
+    "tfidf": {
+      "hit_at_k": {
+        "1": 0.351,
+        "5": 0.758
+      },
+      "mrr_at_k": 0.4950833333333333,
+      "retrieved_outside_top5": 213,
+      "rank_changes_vs_tfidf": {
+        "improved": 0,
+        "unchanged": 971,
+        "worsened": 0
+      }
+    },
+    "fixed": {
+      "hit_at_k": {
+        "1": 0.379,
+        "5": 0.769
+      },
+      "mrr_at_k": 0.5177833333333334,
+      "retrieved_outside_top5": 202,
+      "rank_changes_vs_tfidf": {
+        "improved": 251,
+        "unchanged": 499,
+        "worsened": 221
+      }
+    },
+    "renorm": {
+      "hit_at_k": {
+        "1": 0.391,
+        "5": 0.782
+      },
+      "mrr_at_k": 0.5309,
+      "retrieved_outside_top5": 189,
+      "rank_changes_vs_tfidf": {
+        "improved": 259,
+        "unchanged": 521,
+        "worsened": 191
+      }
+    },
+    "adaptive-corrected": {
+      "hit_at_k": {
+        "1": 0.377,
+        "5": 0.758
+      },
+      "mrr_at_k": 0.5144666666666666,
+      "retrieved_outside_top5": 213,
+      "rank_changes_vs_tfidf": {
+        "improved": 273,
+        "unchanged": 460,
+        "worsened": 238
+      }
+    }
+  }
+}
