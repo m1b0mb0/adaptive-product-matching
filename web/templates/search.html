@@ -23,11 +23,14 @@
         <input type="hidden" name="q" value="{{ q }}">
         <input type="hidden" name="run" value="true">
         <label for="method">Метод ранжування</label>
-        <select name="method" id="method">
+        <select name="method" id="method"{% if 'adaptive-corrected' not in methods %} aria-describedby="method-availability"{% endif %}>
           {% for key in methods %}
           <option value="{{ key }}" {% if key == method %}selected{% endif %}>{{ method_names[key] }}</option>
           {% endfor %}
         </select>
+        {% if 'adaptive-corrected' not in methods %}
+        <p class="hint" id="method-availability">Перевірений локальний артефакт Adaptive corrected v1 недоступний. Можна продовжити з Renormalization або Fixed Weighted.</p>
+        {% endif %}
         <div class="limits">
           <div><label for="candidate-k">Кандидатів</label>
           <input id="candidate-k" name="candidate_k" type="number" min="1" max="100" value="{{ candidate_k }}" required></div>

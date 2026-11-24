@@ -94,6 +94,20 @@ def test_selected_offer_escapes_title_and_uses_only_safe_links(client):
     assert "javascript:" not in results.text
 
 
+@pytest.mark.parametrize("port", ["bad", "70000"])
+def test_url_filter_rejects_malformed_ports(port):
+    assert web_app.safe_url(f"https://example.org:{port}/offer") is None
+    assert web_app.safe_url("https://example.org:8443/offer") == "https://example.org:8443/offer"
+
+
+def test_method_availability_explains_missing_bundle_without_details(client):
+    response = client.get("/search", params={"catalog": "fpv", "offer_id": "A"})
+    assert 'aria-describedby="method-availability"' in response.text
+    assert "Перевірений локальний артефакт Adaptive corrected v1 недоступний" in response.text
+    assert "fixture without bundle" not in response.text
+    assert 'value="adaptive-corrected"' not in response.text
+
+
 @pytest.mark.parametrize("method", ["renorm", "fixed"])
 def test_ranked_cards_match_python_api(client, paths, method):
     params = {"catalog": "fpv", "offer_id": "A", "run": "true", "candidate_k": 3, "top_k": 2}

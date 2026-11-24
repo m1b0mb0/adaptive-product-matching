@@ -82,6 +82,7 @@ def safe_url(value: str) -> str | None:
     try:
         parts = urlsplit(value)
         if parts.scheme in {"http", "https"} and parts.hostname and parts.username is None:
+            _ = parts.port  # urlsplit validates an explicit port when it is read.
             return value
     except ValueError:
         pass

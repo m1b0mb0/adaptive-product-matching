@@ -54,7 +54,7 @@ a.catalog-option:hover, .offer-link:hover { border-color: var(--accent); backgro
 form { margin-top: 1.1rem; }
 label { display: block; margin-bottom: .35rem; font-size: .9rem; font-weight: 650; }
 input, select, button { font: inherit; }
-input:not([type=checkbox]), select { min-width: 0; width: 100%; padding: .62rem .7rem; border: 1px solid #adc0ca; border-radius: 8px; color: var(--ink); background: #fff; }
+input:not([type=checkbox]), select { min-width: 0; width: 100%; padding: .62rem .7rem; border: 1px solid #718693; border-radius: 8px; color: var(--ink); background: #fff; }
 button { border: 1px solid transparent; border-radius: 8px; padding: .62rem 1rem; background: var(--accent); color: white; font-weight: 650; cursor: pointer; }
 button:hover { background: #00564f; }
 .lookup-form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .6rem; }
