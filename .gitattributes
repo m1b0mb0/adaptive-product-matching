@@ -35,3 +35,6 @@
 /snapshots/adaptive_v1/validation_config.json text eol=crlf
 /study_method_selection.py text eol=lf
 /tests/test_final_evaluation.py text eol=lf
+
+# Published byte-for-byte copy of the Task 8.2 runner's JSON summary.
+/docs/search_system/wdc_missingness_summary.json text eol=lf
