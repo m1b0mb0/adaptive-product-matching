@@ -39,6 +39,7 @@ def evaluate_search(
     hit_ks: Sequence[int] = (1, 5),
     mrr_k: int = 5,
     other_sources_only: bool = False,
+    include_retrieval_scores: bool = False,
 ) -> dict:
     """Compare initialized rankers and the retrieval order on a common cohort.
 
@@ -85,6 +86,8 @@ def evaluate_search(
             "ranking": {},
         }
         per_query[query_id] = record
+        if include_retrieval_scores:
+            record["retrieval_scores"] = tuple(candidate.retrieval_score for candidate in pool)
         if not relevant_ids:
             continue
 

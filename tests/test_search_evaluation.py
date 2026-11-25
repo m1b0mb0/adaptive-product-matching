@@ -77,7 +77,7 @@ def test_shared_pool_and_hand_calculated_macro_metrics(monkeypatch):
         monkeypatch.setattr(engine, "retrieve", forbidden)
         monkeypatch.setattr(engine, "rank_candidates", track_ranker(method, engine.rank_candidates))
 
-    report = evaluate_search(catalog, tuple(orders), qrels, retriever, engines)
+    report = evaluate_search(catalog, tuple(orders), qrels, retriever, engines, include_retrieval_scores=True)
 
     assert calls == list(orders)
     assert shared.keys() == qrels.keys()
@@ -90,6 +90,7 @@ def test_shared_pool_and_hand_calculated_macro_metrics(monkeypatch):
     assert report["ranking"]["fixture"] == {"hit_at_k": {1: 0.6, 5: 0.6}, "mrr_at_k": 0.6}
     for query_id, record in report["per_query"].items():
         assert record["candidate_ids"] == orders[query_id]
+        assert record["retrieval_scores"] == tuple(c.retrieval_score for c in pools[query_id])
         assert set(record["ranking"]) == (set(report["ranking"]) if query_id in qrels else set())
     assert [report["per_query"][q]["ranking"]["tfidf"]["first_relevant_rank"] for q in qrels] == [
         1, 3, 6, None, None,
